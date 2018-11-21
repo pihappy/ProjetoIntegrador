@@ -71,7 +71,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         jLabel3.setText("Categoria:");
 
         jComboBox1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma categoria", "Artes", "Bonecas", "Bonecos", "Carros", "Colecionáveis", "Eletrônicos", "Esportes", "Pelúcias", "Tabuleiro", " ", " " }));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar(2).png"))); // NOI18N

@@ -40,7 +40,7 @@ public class TelaCadastroSenha extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Senha");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Senha", 0, 0, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         jLabel2.setText("Nova Senha:");
 
