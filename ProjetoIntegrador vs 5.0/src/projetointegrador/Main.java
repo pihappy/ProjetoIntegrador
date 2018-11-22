@@ -6,6 +6,7 @@
 package projetointegrador;
 
 import View.AtualizarExcluirCliente;
+import View.TelaLogin;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
@@ -28,7 +29,7 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        AtualizarExcluirCliente p = new AtualizarExcluirCliente();
+        TelaLogin p = new TelaLogin();
         p.setVisible(true);
     }
     
