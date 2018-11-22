@@ -6,6 +6,7 @@
 package DAO;
 
 import Model.Cliente;
+import Model.Produto;
 import Model.*;
 import java.util.ArrayList;
 
@@ -18,11 +19,13 @@ public class SimulaDB {
     private static SimulaDB mockdb;
     
     private final ArrayList<Cliente> listaClientes;
+    private final ArrayList<Produto> listaProdutos; // Simulação da tabela de Produtos
     
     
     private SimulaDB(){
     
         listaClientes = new ArrayList<Cliente>();
+        listaProdutos = new ArrayList<Produto>();
     }
     
     public static synchronized SimulaDB getInstance(){
@@ -65,6 +68,47 @@ public class SimulaDB {
         
         return true;
     }
+    
+    public boolean salvarProduto(Produto p){
+    
+     listaProdutos.add(p);
+     
+     return true;
+    }
+    
+    public boolean atualizarProduto(Produto p){
+    
+     for(Produto item: listaProdutos)
+        {
+            if(item.getCodigoProduto() == p.getCodigoProduto())
+            {
+                item.setDescricaoProduto(p.getDescricaoProduto());
+                item.setQuantidadeProduto(p.getQuantidadeProduto());
+                item.setValorUni(p.getValorUni());
+                item.setCategoriaProduto(p.getCategoriaProduto());
+            }
+        }
+            
+        return true;
+    
+    }
+    
+    public boolean excluirProduto(int codigoProduto){
+    
+     listaProdutos.remove(codigoProduto);
+     
+     return true;
+    }
+    
+    
+    public ArrayList<Produto> getProdutos()
+    {
+        return this.listaProdutos;
+    }
+    
+    
+    
+    
     
     
 }

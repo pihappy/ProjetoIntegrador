@@ -1,42 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
-import Model.CadastrarProduto;
-
-import java.sql.Statement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import Model.Produto;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author gabriela.vsmarques
  */
-public class CadastrarProdutoDAO {
+public class ProdutoDAO {
+    
+    public static boolean salvar (Produto p){
+     
+        return SimulaDB.getInstance().salvarProduto(p);
+    }
+    
+    public static boolean atualizar (Produto p){
+        
+        return SimulaDB.getInstance().atualizarProduto(p);
 
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
+    }
+    
+    public static boolean excluir(int codigoProduto){
+        
+       return SimulaDB.getInstance().excluirProduto(codigoProduto);
+    }
+    
+    public static ArrayList<Produto> getProdutos()
+    {
+        //Simulo uma consulta no banco de dados (SELECT ID,Nome,CPF FROM TabelaXYZ)
+        return SimulaDB.getInstance().getProdutos();
+    }
+    
+    
+	/*
+        DeverÃ¡ ser implementado no Marco 3
+    
+        private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String SERVIDOR = "localhost";
 	private static final String BASEDADOS = "pihappy";
 	private static final String LOGIN = "root";
 	private static final String SENHA = "";
 	private static String url = "";
 	private static Connection conexao;
-
-	/*essa tela de cadastro, apenas tem a função salvar por causa do desenho das view, as funções de excluir, alterar estarão em outro arquivo *\
-	 * 
-	 */
-	
-	
-	public static boolean salvar(CadastrarProduto produto) {
+    
+    	public static boolean salvar(CadastrarProduto produto) {
 
 		boolean retorno = false;
 
@@ -114,8 +122,7 @@ public class CadastrarProdutoDAO {
         return listaCadastrarProduto;
     }
 
-
-
-
-
+ */
+	
+	
 }
