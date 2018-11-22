@@ -1,18 +1,22 @@
 package Model;
 
-public class AtualizarExcluirProduto {
-	
-	private int codigoProduto;
+/**
+ *
+ * @author gabriela.vsmarques
+ */
+public class Produto {
+    
+    private int codigoProduto;
     private String descricaoProduto;
     private int quantidadeProduto;
     private double valorUni;
     private String categoriaProduto;
     
-    public AtualizarExcluirProduto(){
+    public Produto(){
 
     }
     
-    public AtualizarExcluirProduto(int codigoProduto, String descricaoProduto, int quantidadeProduto, 
+    public Produto(int codigoProduto, String descricaoProduto, int quantidadeProduto, 
             double valorUni, String categoriaProduto){
     
     }
@@ -56,7 +60,5 @@ public class AtualizarExcluirProduto {
     public void setCategoriaProduto(String categoriaProduto){
      this.categoriaProduto = categoriaProduto;
     }
-	
-	
-
+    
 }
