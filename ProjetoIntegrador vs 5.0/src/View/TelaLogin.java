@@ -36,8 +36,8 @@ public class TelaLogin extends javax.swing.JFrame {
         lblNomeLogin = new javax.swing.JLabel();
         lblSenhaLogin = new javax.swing.JLabel();
         txtNomeLogin = new javax.swing.JTextField();
-        txtSenhaLogin = new javax.swing.JTextField();
         btnEntrarLogin = new javax.swing.JButton();
+        txtSenhaLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PiHappy - Login");
@@ -55,8 +55,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
         txtNomeLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        txtSenhaLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
         btnEntrarLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnEntrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/login.png"))); // NOI18N
         btnEntrarLogin.setText("Entrar");
@@ -65,6 +63,8 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnEntrarLoginActionPerformed(evt);
             }
         });
+
+        txtSenhaLogin.setText("senha");
 
         javax.swing.GroupLayout pnlTelaLoginLayout = new javax.swing.GroupLayout(pnlTelaLogin);
         pnlTelaLogin.setLayout(pnlTelaLoginLayout);
@@ -76,18 +76,17 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTelaLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlTelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlTelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtSenhaLogin)
-                        .addComponent(lblNomeLogin)
-                        .addComponent(lblSenhaLogin)
-                        .addComponent(txtNomeLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlTelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNomeLogin)
+                    .addComponent(lblSenhaLogin)
+                    .addComponent(txtNomeLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                     .addGroup(pnlTelaLoginLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(btnEntrarLogin))
                     .addGroup(pnlTelaLoginLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(lblIntroducaoLogin)))
+                        .addComponent(lblIntroducaoLogin))
+                    .addComponent(txtSenhaLogin))
                 .addGap(27, 27, 27))
         );
 
@@ -108,7 +107,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(lblSenhaLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
                 .addComponent(btnEntrarLogin)
                 .addGap(25, 25, 25))
         );
@@ -195,6 +194,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel pnlTelaLogin;
     private javax.swing.JTextField txtNomeLogin;
-    private javax.swing.JTextField txtSenhaLogin;
+    private javax.swing.JPasswordField txtSenhaLogin;
     // End of variables declaration//GEN-END:variables
 }
