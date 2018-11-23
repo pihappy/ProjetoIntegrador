@@ -16,7 +16,6 @@ public class Colaborador {
     private int cpf;
     private String dtnasc;
     private int sexo;
-    
     private int cep;
     private String rua;
     private int numero;
@@ -24,13 +23,11 @@ public class Colaborador {
     private String complemento;
     private int estado;
     private String cidade;
-    
     private int celular1;
     private int celular2;
     private int telefone;
     private int recado;
     private String email;
-    
     private int cargo;
     private String departamento;
     private String admissao;
@@ -41,6 +38,31 @@ public class Colaborador {
     }
 
     public Colaborador(String nome, int cpf, String dtnasc, int sexo, int cep, String rua, int numero, String bairro, String complemento, int estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, int cargo, String departamento, String admissao, int salario) {
+        //Construtor sem Id
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dtnasc = dtnasc;
+        this.sexo = sexo;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.complemento = complemento;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.celular1 = celular1;
+        this.celular2 = celular2;
+        this.telefone = telefone;
+        this.recado = recado;
+        this.email = email;
+        this.cargo = cargo;
+        this.departamento = departamento;
+        this.admissao = admissao;
+        this.salario = salario;
+    }
+    public Colaborador(int id, String nome, int cpf, String dtnasc, int sexo, int cep, String rua, int numero, String bairro, String complemento, int estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, int cargo, String departamento, String admissao, int salario) {
+        //Construtor com Id
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.dtnasc = dtnasc;
