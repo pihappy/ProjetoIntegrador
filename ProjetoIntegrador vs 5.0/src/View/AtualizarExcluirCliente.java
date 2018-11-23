@@ -92,7 +92,6 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     public void DesabilitarFormulario()
     {
         txtIdCliente.setEditable(false);
-        txtNomeCliente.setEditable(false);
         txtCPFCliente.setEditable(false);
         
     }
@@ -165,6 +164,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         lblNomeCliente.setText("Nome:");
 
         txtIdCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtIdCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdClienteActionPerformed(evt);
+            }
+        });
 
         txtNomeCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -326,11 +330,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "CPF", "Nascimento", "Sexo", "CEP", "Rua", "Numero", "Bairro", "Complemento", "Estado", "Cidade", "Cel 1", "Cel 2", "Telefone", "Recado", "Título 17"
+                "Id", "Nome", "CPF"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -485,6 +489,10 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     private void txtCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCPFClienteActionPerformed
+
+    private void txtIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdClienteActionPerformed
 
     /**
      * @param args the command line arguments
