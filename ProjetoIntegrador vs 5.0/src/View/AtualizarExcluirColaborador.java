@@ -47,11 +47,11 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jmCadastrarCliente = new javax.swing.JMenuItem();
+        jmPesqCliente = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        jmCadastroProduto = new javax.swing.JMenuItem();
+        jmPesqProduto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pesquisar Colaborador");
@@ -246,29 +246,44 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         jMenu5.setText("Cliente");
         jMenu5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jMenuItem14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem14.setText("Pesquisar Cliente");
-        jMenu5.add(jMenuItem14);
-
-        jMenuItem2.setText("Cadastrar Cliente");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jmCadastrarCliente.setText("Cadastrar Cliente");
+        jmCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jmCadastrarClienteActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenu5.add(jmCadastrarCliente);
+
+        jmPesqCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jmPesqCliente.setText("Pesquisar Cliente");
+        jmPesqCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPesqClienteActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jmPesqCliente);
 
         jMenuBar1.add(jMenu5);
 
         jMenu4.setText("Produto");
         jMenu4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jMenuItem1.setText("Cadastrar Produto");
-        jMenu4.add(jMenuItem1);
+        jmCadastroProduto.setText("Cadastrar Produto");
+        jmCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCadastroProdutoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmCadastroProduto);
 
-        jMenuItem13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem13.setText("Pesquisar Produto");
-        jMenu4.add(jMenuItem13);
+        jmPesqProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jmPesqProduto.setText("Pesquisar Produto");
+        jmPesqProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPesqProdutoActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmPesqProduto);
 
         jMenuBar1.add(jMenu4);
 
@@ -292,15 +307,35 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jmCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarClienteActionPerformed
+        CadastrarCliente form2 = new CadastrarCliente();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmCadastrarClienteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         TelaPrincipal form2 = new TelaPrincipal();  
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void jmPesqClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPesqClienteActionPerformed
+        AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmPesqClienteActionPerformed
+
+    private void jmCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastroProdutoActionPerformed
+        CadastrarProduto form2 = new CadastrarProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmCadastroProdutoActionPerformed
+
+    private void jmPesqProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPesqProdutoActionPerformed
+        AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmPesqProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,10 +386,6 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -362,5 +393,9 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JMenuItem jmCadastrarCliente;
+    private javax.swing.JMenuItem jmCadastroProduto;
+    private javax.swing.JMenuItem jmPesqCliente;
+    private javax.swing.JMenuItem jmPesqProduto;
     // End of variables declaration//GEN-END:variables
 }

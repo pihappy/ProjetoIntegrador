@@ -146,11 +146,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         tblClientes = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        jmCadastroColab = new javax.swing.JMenuItem();
+        jmPesqColab = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        jmCadastroProduto = new javax.swing.JMenuItem();
+        jmPesqProduto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pesquisar Cliente");
@@ -367,24 +367,44 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         jMenu4.setText("Colaborador");
         jMenu4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jMenuItem1.setText("Cadastrar Colaborador");
-        jMenu4.add(jMenuItem1);
+        jmCadastroColab.setText("Cadastrar Colaborador");
+        jmCadastroColab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCadastroColabActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmCadastroColab);
 
-        jMenuItem13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem13.setText("Pesquisar Colaborador");
-        jMenu4.add(jMenuItem13);
+        jmPesqColab.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jmPesqColab.setText("Pesquisar Colaborador");
+        jmPesqColab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPesqColabActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmPesqColab);
 
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Produto");
         jMenu5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jMenuItem2.setText("Cadastrar Produto");
-        jMenu5.add(jMenuItem2);
+        jmCadastroProduto.setText("Cadastrar Produto");
+        jmCadastroProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCadastroProdutoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jmCadastroProduto);
 
-        jMenuItem14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jMenuItem14.setText("Pesquisar Produto");
-        jMenu5.add(jMenuItem14);
+        jmPesqProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jmPesqProduto.setText("Pesquisar Produto");
+        jmPesqProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPesqProdutoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jmPesqProduto);
 
         jMenuBar1.add(jMenu5);
 
@@ -494,6 +514,30 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdClienteActionPerformed
 
+    private void jmCadastroColabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastroColabActionPerformed
+        CadastrarColaborador form2 = new CadastrarColaborador();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmCadastroColabActionPerformed
+
+    private void jmPesqColabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPesqColabActionPerformed
+        AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmPesqColabActionPerformed
+
+    private void jmCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastroProdutoActionPerformed
+        CadastrarProduto form2 = new CadastrarProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmCadastroProdutoActionPerformed
+
+    private void jmPesqProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPesqProdutoActionPerformed
+        AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_jmPesqProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -546,11 +590,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem jmCadastroColab;
+    private javax.swing.JMenuItem jmCadastroProduto;
+    private javax.swing.JMenuItem jmPesqColab;
+    private javax.swing.JMenuItem jmPesqProduto;
     private javax.swing.JLabel lblCPFCliente;
     private javax.swing.JLabel lblIdCliente;
     private javax.swing.JLabel lblNomeCliente;
