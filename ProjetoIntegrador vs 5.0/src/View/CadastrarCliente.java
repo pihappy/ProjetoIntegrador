@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.AtualizarExcluirClienteController;
+import Controller.ClienteController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,11 +28,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }
     
     private String modoTela;
-    
+        
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasClientes = AtualizarExcluirClienteController.getClientes();
+        ArrayList<String[]> linhasClientes = ClienteController.getClientes();
         
         DefaultTableModel tmClientes = new DefaultTableModel();
         tmClientes.addColumn("ID");
@@ -209,6 +209,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         btnSalvarCliente = new javax.swing.JButton();
         btnLimparDados = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnSalvarCliente1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Cliente");
@@ -272,7 +273,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblSexo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcSexo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jcSexo1, 0, 123, Short.MAX_VALUE))
                     .addGroup(pnlDadosGeraisLayout.createSequentialGroup()
                         .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -512,7 +513,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
 
         btnSalvarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnSalvarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
-        btnSalvarCliente.setText("Salvar");
+        btnSalvarCliente.setText("Cadastrar");
         btnSalvarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,6 +540,16 @@ public class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
+        btnSalvarCliente1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnSalvarCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
+        btnSalvarCliente1.setText("Atualizar Cadastro");
+        btnSalvarCliente1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnSalvarCliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarCliente1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlGeralCadClienteLayout = new javax.swing.GroupLayout(pnlGeralCadCliente);
         pnlGeralCadCliente.setLayout(pnlGeralCadClienteLayout);
         pnlGeralCadClienteLayout.setHorizontalGroup(
@@ -546,13 +557,15 @@ public class CadastrarCliente extends javax.swing.JFrame {
             .addComponent(pnlDadosGerais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGeralCadClienteLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(btnSalvarCliente1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalvarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(btnLimparDados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelar)
                 .addContainerGap())
-            .addComponent(pnlEndereço, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlEndereço, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(Contato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -571,7 +584,9 @@ public class CadastrarCliente extends javax.swing.JFrame {
                     .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCancelar)
                         .addComponent(btnLimparDados))
-                    .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSalvarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12))
         );
 
@@ -600,20 +615,17 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
         if(ValidarFormulario())
         {
-                //Passo ao controller a entrada do usuário e peço para salvar no banco de dados
-                if(AtualizarExcluirClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
-                {
-                    //Recarrego a tabela com os dados resgatados do banco de dados
-                    this.LoadTable();
-                    
-                    JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
-                    LimparFormulario();
-                }else{
-                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
-                }
-
-            LimparFormulario();
-        
+            //Passar a Controller do método Salvar
+            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+            {
+                JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
+                AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
+                form2.setVisible(true);  
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                LimparFormulario();
+            }
         }
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
 
@@ -626,6 +638,20 @@ public class CadastrarCliente extends javax.swing.JFrame {
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCliente1ActionPerformed
+      
+        //Passar a Controller do método Atualizar
+        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+        {
+            JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
+            AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
+            form2.setVisible(true);  
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
+        }
+    }//GEN-LAST:event_btnSalvarCliente1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -668,6 +694,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimparDados;
     private javax.swing.JButton btnSalvarCliente;
+    private javax.swing.JButton btnSalvarCliente1;
     private javax.swing.JComboBox<String> jcEstado;
     private javax.swing.JComboBox<String> jcSexo1;
     private javax.swing.JLabel lblBairro;

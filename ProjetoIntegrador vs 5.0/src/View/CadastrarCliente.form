@@ -50,14 +50,16 @@
               <Component id="pnlDadosGerais" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnSalvarCliente1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnSalvarCliente" linkSize="1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="btnLimparDados" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCancelar" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="pnlEndereço" max="32767" attributes="0"/>
+              <Component id="pnlEndereço" pref="0" max="32767" attributes="0"/>
               <Component id="Contato" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -75,7 +77,10 @@
                           <Component id="btnCancelar" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLimparDados" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btnSalvarCliente" linkSize="2" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnSalvarCliente" linkSize="2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnSalvarCliente1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
@@ -115,7 +120,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jcSexo1" max="32767" attributes="0"/>
+                              <Component id="jcSexo1" pref="123" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="txtIdCliente" min="-2" pref="102" max="-2" attributes="0"/>
@@ -661,7 +666,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Image/save.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
           <Events>
@@ -695,6 +700,21 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSalvarCliente1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="12" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Image/save.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Atualizar Cadastro"/>
+            <Property name="horizontalTextPosition" type="int" value="4"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarCliente1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -5,7 +5,7 @@ import DAO.CadastrarClienteDAO;
 import Model.Cliente;
 import java.util.ArrayList;
 
-public class AtualizarExcluirClienteController {
+public class ClienteController {
     /**
      * Salvo os dados do cliente na memória ou no banco de dados
      * @param Id 
@@ -13,7 +13,7 @@ public class AtualizarExcluirClienteController {
      * @param pCPF
      * @return 
      */
-    public static boolean Salvar(int pId,String pNome, String pCPF)
+    public static boolean Salvar(int pId,String pNome, String pCPF, String pCEP, String pBairro, String pRua, String pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone)
     {
         //Salvo na memória
         Cliente p =  new Cliente(pId,pNome, pCPF);
@@ -59,6 +59,11 @@ public class AtualizarExcluirClienteController {
     public static boolean Salvar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, String pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
         Cliente p =  new Cliente(pNome, pCPF,pCEP,pBairro,pRua,pNumero,pComp,pCidade,pDataNasc,pSexo,pEstado,pCel1,pCel2,pEmail,pRecado,pTelefone);
         return CadastrarClienteDAO.Salvar(p);
+    }
+
+    public static boolean Atualizar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, String pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+        Cliente p =  new Cliente(pNome, pCPF, pCEP, pBairro, pRua, pNumero, pComp, pCidade, pDataNasc, pSexo, pEstado, pCel1, pCel2, pEmail, pRecado, pTelefone);
+        return CadastrarClienteDAO.Atualizar(p);
     }
 
 

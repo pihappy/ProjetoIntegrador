@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.AtualizarExcluirClienteController;
+import Controller.ClienteController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -34,12 +34,26 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasClientes = AtualizarExcluirClienteController.getClientes();
+        ArrayList<String[]> linhasClientes = ClienteController.getClientes();
         
         DefaultTableModel tmClientes = new DefaultTableModel();
         tmClientes.addColumn("ID");
         tmClientes.addColumn("Nome");
         tmClientes.addColumn("CPF");
+        /*tmClientes.addColumn("Nascimento");
+        tmClientes.addColumn("Sexo");
+        tmClientes.addColumn("CEP");
+        tmClientes.addColumn("Rua");
+        tmClientes.addColumn("Numero");
+        tmClientes.addColumn("Bairro");
+        tmClientes.addColumn("Complemento");
+        tmClientes.addColumn("Estado");
+        tmClientes.addColumn("Cidade");
+        tmClientes.addColumn("Cel 1");
+        tmClientes.addColumn("Cel 2");
+        tmClientes.addColumn("Telefone");
+        tmClientes.addColumn("Recado");
+        tmClientes.addColumn("E-mail");*/
         tblClientes.setModel(tmClientes);
         
         for(String[] c:linhasClientes)
@@ -48,8 +62,23 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         }
         
         tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(250);
-        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tblClientes.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
+        /*tblClientes.getColumnModel().getColumn(3).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(4).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(5).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(6).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(7).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(8).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(9).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(10).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(11).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(12).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(13).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(14).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(15).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(16).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(17).setPreferredWidth(50);*/
     }
     
     public void LimparFormulario()
@@ -292,11 +321,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "CPF"
+                "Id", "Nome", "CPF", "Nascimento", "Sexo", "CEP", "Rua", "Numero", "Bairro", "Complemento", "Estado", "Cidade", "Cel 1", "Cel 2", "Telefone", "Recado", "Título 17"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -311,7 +340,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
             pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlGeralLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlFunções, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -373,7 +402,6 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-        
             CadastrarCliente form2 = new CadastrarCliente();  
             form2.setVisible(true);  
             dispose();
@@ -381,18 +409,34 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
-
+        /*CadastrarCliente.txtIdCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 0).toString());
+        CadastrarCliente.txtNomeCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 1).toString());
+        CadastrarCliente.txtCPFCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 2).toString());
+        CadastrarCliente.txtDataNascCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 3).toString());
+        CadastrarCliente.jcSexo1.setSelectedItem(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 4).toString());
+        CadastrarCliente.txtCEP.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 5).toString());
+        CadastrarCliente.txtRua.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 6).toString());
+        CadastrarCliente.txtNumero.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 7).toString());
+        CadastrarCliente.txtBairro.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 8).toString());
+        CadastrarCliente.txtComplemento.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 9).toString());
+        CadastrarCliente.jcEstado.setSelectedItem(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 10).toString());
+        CadastrarCliente.txtCidade.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 11).toString());
+        CadastrarCliente.txtCelular1.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 12).toString());
+        CadastrarCliente.txtCelular2.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 13).toString());
+        CadastrarCliente.txtTelefone.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 14).toString());
+        CadastrarCliente.txtRecado.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 15).toString());
+        CadastrarCliente.txtEmail.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 16).toString());*/
+                
+        //Verifico se há linhas para poder editar
         if(tblClientes.getRowCount()>0)
         {
+            //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
             if(tblClientes.getSelectedRow()>=0)
             {
-                HabilitarFormulario();
-                
-                modoTela = "Editar";
-
-                txtIdCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 0).toString());
-                txtNomeCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 1).toString());
-                txtCPFCliente.setText(tblClientes.getModel().getValueAt(tblClientes.getSelectedRow(), 2).toString());
+                CadastrarCliente form2 = new CadastrarCliente();  
+                form2.setVisible(true);  
+                dispose();
+                                
             }
             else
             {
@@ -402,14 +446,14 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this,"Não há clientes para editar!");
-        }
+        }             
     }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
         if(tblClientes.getRowCount()>0)
         {
             int numeroLinha = tblClientes.getSelectedRow();
-            if(AtualizarExcluirClienteController.Excluir(Integer.parseInt(tblClientes.getValueAt(numeroLinha,0).toString()) ) )
+            if(ClienteController.Excluir(Integer.parseInt(tblClientes.getValueAt(numeroLinha,0).toString()) ) )
             {
                 this.LoadTable();
                 JOptionPane.showMessageDialog(this,"Cliente excluído da base de dados");
@@ -496,7 +540,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCliente;
     private javax.swing.JPanel pnlFunções;
     private javax.swing.JPanel pnlGeral;
-    private javax.swing.JTable tblClientes;
+    public static javax.swing.JTable tblClientes;
     private javax.swing.JTextField txtCPFCliente;
     private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNomeCliente;
