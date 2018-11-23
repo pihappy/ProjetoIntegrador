@@ -16,6 +16,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
      */
     public CadastrarColaborador() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

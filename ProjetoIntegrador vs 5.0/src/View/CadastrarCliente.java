@@ -23,11 +23,11 @@ public class CadastrarCliente extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        LoadTable();
         
     }
     
     private String modoTela;
+    //Inicializa uma tela 
     
     public void LoadTable(){
         

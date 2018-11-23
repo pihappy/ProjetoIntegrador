@@ -148,9 +148,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtSenhaLogin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="senha"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
