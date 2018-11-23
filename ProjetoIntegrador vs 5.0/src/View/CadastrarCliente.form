@@ -59,7 +59,7 @@
                   <Component id="btnCancelar" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="pnlEndereço" pref="0" max="32767" attributes="0"/>
+              <Component id="pnlEndereço" pref="611" max="32767" attributes="0"/>
               <Component id="Contato" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
