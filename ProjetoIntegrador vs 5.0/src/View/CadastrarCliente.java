@@ -23,12 +23,16 @@ public class CadastrarCliente extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        LoadTable();
         
     }
     
     private String modoTela;
+<<<<<<< HEAD
         
+=======
+    //Inicializa uma tela 
+    
+>>>>>>> d62e4282ea835ae79de5c4c358701ea8a56216e5
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados

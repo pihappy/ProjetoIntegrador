@@ -16,6 +16,7 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
      */
     public AtualizarExcluirColaborador() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

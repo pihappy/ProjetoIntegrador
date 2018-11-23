@@ -5,6 +5,7 @@
  */
 package View;
 
+import static java.lang.String.valueOf;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,8 +64,6 @@ public class TelaLogin extends javax.swing.JFrame {
                 btnEntrarLoginActionPerformed(evt);
             }
         });
-
-        txtSenhaLogin.setText("senha");
 
         javax.swing.GroupLayout pnlTelaLoginLayout = new javax.swing.GroupLayout(pnlTelaLogin);
         pnlTelaLogin.setLayout(pnlTelaLoginLayout);
@@ -133,10 +132,10 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
-        String usuario = "PiHappy";
+        String usuario = "Pihappy";
         String senha = "pihappy123";
-        if(usuario.equals(txtNomeLogin.getText())){
-            if(senha.equals(txtSenhaLogin.getText())){
+        if(usuario.equalsIgnoreCase(txtNomeLogin.getText())){
+            if(senha.equals(valueOf(txtSenhaLogin.getPassword()))){
                 TelaPrincipal form2 = new TelaPrincipal();  
                 form2.setVisible(true);  
                 dispose();
