@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mikael
@@ -58,6 +60,11 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrarLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnEntrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/login.png"))); // NOI18N
         btnEntrarLogin.setText("Entrar");
+        btnEntrarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTelaLoginLayout = new javax.swing.GroupLayout(pnlTelaLogin);
         pnlTelaLogin.setLayout(pnlTelaLoginLayout);
@@ -125,6 +132,22 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
+        String usuario = "PiHappy";
+        String senha = "pihappy123";
+        if(usuario.equals(txtNomeLogin.getText())){
+            if(senha.equals(txtSenhaLogin.getText())){
+                TelaPrincipal form2 = new TelaPrincipal();  
+                form2.setVisible(true);  
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Senha incorreta!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuário incorreto!");
+        }
+    }//GEN-LAST:event_btnEntrarLoginActionPerformed
 
     /**
      * @param args the command line arguments

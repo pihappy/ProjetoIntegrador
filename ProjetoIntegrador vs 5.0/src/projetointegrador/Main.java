@@ -6,7 +6,6 @@
 package projetointegrador;
 
 import View.TelaLogin;
-import View.TelaPrincipal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;

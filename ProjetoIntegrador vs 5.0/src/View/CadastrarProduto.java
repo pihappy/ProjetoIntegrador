@@ -50,6 +50,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
         btnSairProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/sair.png"))); // NOI18N
         btnSairProduto.setText("Cancelar");
         btnSairProduto.setHideActionText(true);
+        btnSairProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairProdutoActionPerformed(evt);
+            }
+        });
 
         btnSalvarProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnSalvarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
@@ -222,6 +227,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
+
+    private void btnSairProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairProdutoActionPerformed
+        AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_btnSairProdutoActionPerformed
 
     /**
      * @param args the command line arguments
