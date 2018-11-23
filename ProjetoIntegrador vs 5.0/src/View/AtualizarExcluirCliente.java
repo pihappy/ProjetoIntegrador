@@ -70,7 +70,6 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     
     public void HabilitarFormulario()
     {
-        txtIdCliente.setEditable(true);
         txtNomeCliente.setEditable(true);
         txtCPFCliente.setEditable(true);
         

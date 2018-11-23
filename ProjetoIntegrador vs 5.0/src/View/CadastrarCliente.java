@@ -50,7 +50,20 @@ public class CadastrarCliente extends javax.swing.JFrame {
         txtIdCliente.setText("");
         txtNomeCliente.setText("");
         txtCPFCliente.setText("");
-        
+        txtCEP.setText("");
+        txtBairro.setText("");
+        txtRua.setText("");
+        txtNumero.setText("");
+        txtComplemento.setText("");
+        txtCidade.setText("");
+        txtDataNascCliente.setText("");
+        jcSexo1.setSelectedIndex(0);
+        jcEstado.setSelectedIndex(0);
+        txtCelular1.setText("");
+        txtCelular2.setText("");
+        txtEmail.setText("");
+        txtRecado.setText("");
+        txtTelefone.setText("");
     }
     
     
@@ -72,7 +85,74 @@ public class CadastrarCliente extends javax.swing.JFrame {
         
         if(this.txtCPFCliente.getText().equalsIgnoreCase(""))
         {
-            JOptionPane.showMessageDialog(this,"Defina um CPF para cliente!");
+            JOptionPane.showMessageDialog(this,"Defina um CPF para o cliente!");
+            return false;
+        }
+        
+        if(this.txtDataNascCliente.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina uma data de nascimento para o cliente!");
+            return false;
+        }
+        
+        if(this.txtCEP.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um CEP para o endereço do cliente!");
+            return false;
+        }
+        
+        if(this.txtRua.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina uma rua para o endereço do cliente!");
+            return false;
+        }
+        
+        if(this.txtNumero.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um numero para o endereço do cliente!");
+            return false;
+        }
+        
+        if(this.txtBairro.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um Bairro para o endereço do cliente!");
+            return false;
+        }
+        
+        if(this.txtCidade.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina uma cidade para o endereço do cliente!");
+            return false;
+        }
+        
+        if(this.txtCelular1.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um Celular para o cliente!");
+            return false;
+        }
+        
+        if(this.txtTelefone.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um Telefone para o cliente!");
+            return false;
+        }
+        
+        if(this.txtEmail.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um E-mail para o cliente!");
+            return false;
+        }
+                
+        int sexo = 0;
+        int estado = 0;
+        if(this.jcSexo1.equals(sexo))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um sexo para o cliente!");
+            return false;
+        }
+        if(this.jcEstado.equals(estado))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um estado para o endereço do cliente!");
             return false;
         }
         
@@ -521,7 +601,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         if(ValidarFormulario())
         {
                 //Passo ao controller a entrada do usuário e peço para salvar no banco de dados
-                if(AtualizarExcluirClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText()))
+                if(AtualizarExcluirClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
                 {
                     //Recarrego a tabela com os dados resgatados do banco de dados
                     this.LoadTable();

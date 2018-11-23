@@ -56,5 +56,10 @@ public class AtualizarExcluirClienteController {
         return CadastrarClienteDAO.Salvar(p);
     }
 
+    public static boolean Salvar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, String pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+        Cliente p =  new Cliente(pNome, pCPF,pCEP,pBairro,pRua,pNumero,pComp,pCidade,pDataNasc,pSexo,pEstado,pCel1,pCel2,pEmail,pRecado,pTelefone);
+        return CadastrarClienteDAO.Salvar(p);
+    }
+
 
 }
