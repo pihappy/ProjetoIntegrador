@@ -7,6 +7,7 @@ package DAO;
 
 import Model.Cliente;
 import Model.Produto;
+import Model.Vendas;
 import Model.*;
 import java.util.ArrayList;
 
@@ -20,12 +21,14 @@ public class SimulaDB {
     
     private final ArrayList<Cliente> listaClientes;
     private final ArrayList<Produto> listaProdutos; // Simulação da tabela de Produtos
+    private final ArrayList<Vendas>  listaVendas;
     
     
     private SimulaDB(){
     
         listaClientes = new ArrayList<Cliente>();
         listaProdutos = new ArrayList<Produto>();
+        listaVendas = new ArrayList<Vendas>();
     }
     
     public static synchronized SimulaDB getInstance(){
@@ -107,8 +110,16 @@ public class SimulaDB {
     }
     
     
+    public boolean salvarVendas(Vendas v)
+    {
+        listaVendas.add(v);
+        
+        return true;
+    }
     
-    
-    
+    public ArrayList<Vendas> getVendas()
+    {
+        return this.listaVendas;
+    }
     
 }
