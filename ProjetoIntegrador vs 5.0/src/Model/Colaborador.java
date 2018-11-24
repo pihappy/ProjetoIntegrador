@@ -181,6 +181,13 @@ public class Colaborador {
     public void setCelular2(int celular) {
         this.celular2 = celular2;
     }
+    
+    public int getRecado(){
+        return recado;
+    }
+    public void setRecado(int recado){
+        this.recado = recado;
+    }
 
     public int getTelefone() {
         return telefone;
