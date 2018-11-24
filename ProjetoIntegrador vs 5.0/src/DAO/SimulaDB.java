@@ -8,6 +8,7 @@ package DAO;
 import Model.Cliente;
 import Model.Produto;
 import Model.Colaborador;
+import Model.Vendas;
 import Model.*;
 import java.util.ArrayList;
 
@@ -22,9 +23,9 @@ public class SimulaDB {
     private final ArrayList<Cliente> listaClientes;
     private final ArrayList<Produto> listaProdutos; // Simulação da tabela de Produtos
     private final ArrayList<Colaborador> listaColaborador; //Simulação da tabela de colaboradores
-
+    private final ArrayList<Vendas>  listaVendas;
     private SimulaDB() {
-
+        listaVendas = new ArrayList<Vendas>();
         listaClientes = new ArrayList<Cliente>();
         listaProdutos = new ArrayList<Produto>();
         listaColaborador = new ArrayList<Colaborador>();
@@ -121,4 +122,20 @@ public class SimulaDB {
         listaColaborador.remove(pID);
         return true;
     }
+    public boolean salvarVendas(Vendas v)
+    {
+        listaVendas.add(v);
+        
+        return true;
+    }
+    
+    public ArrayList<Vendas> getVendas()
+    {
+        return this.listaVendas;
+    }
+    
 }
+
+    
+    
+
