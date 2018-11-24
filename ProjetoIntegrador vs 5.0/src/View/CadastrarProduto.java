@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +13,43 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     public CadastrarProduto() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
     }
+    
+    public void LimparFormulario()
+    {
+        txtCodigoCadProduto.setText("");
+        txtDescricaoProduto.setText("");
+        txtQuantidade.setText("");
+        txtValorUnitario.setText("");
+    }
+    
+    public void HabilitarFormulario()
+    {
+        txtCodigoCadProduto.setEditable(true);
+        txtDescricaoProduto.setEditable(true);
+        txtQuantidade.setEditable(true);
+        txtValorUnitario.setEditable(true);
+        
+    }
+    
+    private boolean ValidarFormulario() {
+    
+    if(this.txtDescricaoProduto.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um descrição para o produto!");
+            return false;
+        }    
+        
+        
+    
+    
+    return true;
+    
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +103,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
         btnLimparProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/limpar(1).png"))); // NOI18N
         btnLimparProduto.setText("Limpar");
         btnLimparProduto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnLimparProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparProdutoActionPerformed(evt);
+            }
+        });
 
         pnlCadastrarPr.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastrar Produto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
@@ -91,6 +129,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblQuantidade.setText("Quantidade:");
 
         txtQuantidade.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtQuantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantidadeActionPerformed(evt);
+            }
+        });
 
         lblDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblDescricao.setText("Descrição:");
@@ -221,7 +264,24 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-
+     /*   if(ValidarFormulario())
+        {
+            //Passar a Controller do método Salvar
+            if(ProdutoController.salvar(txtCodigoCadProduto.getText(),txtDescricaoProduto.getText(), txtQuantidade.getText(), txtValorUnitario.getText()))
+            {
+                JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
+                AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+               form2.setVisible(true);  
+       dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto!");
+                LimparFormulario();
+            }
+        }
+        */
+        
+        
+        
     }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
@@ -233,6 +293,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnSairProdutoActionPerformed
+
+    private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantidadeActionPerformed
+
+    private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
+        LimparFormulario();
+    }//GEN-LAST:event_btnLimparProdutoActionPerformed
 
     /**
      * @param args the command line arguments
