@@ -57,7 +57,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnLimparProduto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnSairProduto" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelarProduto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -73,7 +73,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="btnSairProduto" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelarProduto" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLimparProduto" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btnSalvarProduto" linkSize="1" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnSairProduto">
+        <Component class="javax.swing.JButton" name="btnCancelarProduto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -96,7 +96,7 @@
             <Property name="hideActionText" type="boolean" value="true"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairProdutoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarProdutoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSalvarProduto">
