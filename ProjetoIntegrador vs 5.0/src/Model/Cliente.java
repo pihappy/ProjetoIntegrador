@@ -8,7 +8,7 @@ public class Cliente {
     private String datanasc;
     private String cep;
     private String rua;
-    private String numero;
+    private int numero;
     private String bairro;
     private String complemento;
     private String cidade;
@@ -20,7 +20,7 @@ public class Cliente {
     private int sexo;
     private int estado;
 
-    public Cliente(String pNome, String pCPF, String pCEP, String pBairro, String pRua, String pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+    public Cliente(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
         this.nome = pNome;
         this.cpf = pCPF;
         this.cep = pCEP;
@@ -116,11 +116,11 @@ public class Cliente {
         this.rua = pRua;
     }
    
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String pNumero) {
+    public void setNumero(int pNumero) {
         this.numero = pNumero;
     }
 

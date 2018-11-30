@@ -612,7 +612,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
             {
                 JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
                 AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
@@ -638,7 +638,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private void btnSalvarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCliente1ActionPerformed
       
         //Passar a Controller do método Atualizar
-        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),txtNumero.getText(),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
         {
             JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
             AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
