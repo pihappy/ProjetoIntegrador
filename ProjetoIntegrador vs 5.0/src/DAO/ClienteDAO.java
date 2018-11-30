@@ -250,9 +250,7 @@ public class ClienteDAO {
                 listaClientes.add(c);
             }
             
-        } catch (ClassNotFoundException ex) {
-            listaClientes = null;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             listaClientes = null;
         } finally{
             try {
