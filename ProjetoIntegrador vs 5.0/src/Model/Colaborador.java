@@ -15,29 +15,29 @@ public class Colaborador {
     private String nome;
     private int cpf;
     private String dtnasc;
-    private int sexo;
+    private String sexo;
     private int cep;
     private String rua;
     private int numero;
     private String bairro;
     private String complemento;
-    private int estado;
+    private String estado;
     private String cidade;
     private int celular1;
     private int celular2;
     private int telefone;
     private int recado;
     private String email;
-    private int cargo;
+    private String cargo;
     private String departamento;
     private String admissao;
-    private int salario;
+    private float salario;
 
     public Colaborador() {
         //Construtor Vazio
     }
 
-    public Colaborador(String nome, int cpf, String dtnasc, int sexo, int cep, String rua, int numero, String bairro, String complemento, int estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, int cargo, String departamento, String admissao, int salario) {
+    public Colaborador(String nome, int cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
         //Construtor sem Id
         this.nome = nome;
         this.cpf = cpf;
@@ -60,7 +60,7 @@ public class Colaborador {
         this.admissao = admissao;
         this.salario = salario;
     }
-    public Colaborador(int id, String nome, int cpf, String dtnasc, int sexo, int cep, String rua, int numero, String bairro, String complemento, int estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, int cargo, String departamento, String admissao, int salario) {
+    public Colaborador(int id, String nome, int cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
         //Construtor com Id
         this.id = id;
         this.nome = nome;
@@ -113,10 +113,10 @@ public class Colaborador {
         this.dtnasc = dtnasc;
     }
     
-    public int getSexo(){
+    public String getSexo(){
         return sexo;
     }
-    public void setSexo(int sexo){
+    public void setSexo(String sexo){
         this.sexo = sexo;
     }
 
@@ -154,10 +154,10 @@ public class Colaborador {
         this.complemento = complemento;
     }
 
-    public int getEstado() {
+    public String getEstado() {
         return estado;
     }
-    public void setEstado(int estado){
+    public void setEstado(String estado){
         this.estado = estado;
     }
     
@@ -171,14 +171,14 @@ public class Colaborador {
     public int getCelular1() {
         return celular1;
     }
-    public void setCelular1(int celular) {
-        this.celular1 = celular;
+    public void setCelular1(int celular1) {
+        this.celular1 = celular1;
     }
     
     public int getCelular2() {
         return celular2;
     }
-    public void setCelular2(int celular) {
+    public void setCelular2(int celular2) {
         this.celular2 = celular2;
     }
     
@@ -203,10 +203,10 @@ public class Colaborador {
         this.email = email;
     }
     
-    public int getCargo(){
+    public String getCargo(){
         return cargo;
     }
-    public void setCargo(int cargo){
+    public void setCargo(String cargo){
         this.cargo = cargo;
     }
     
@@ -224,10 +224,10 @@ public class Colaborador {
         this.admissao = admissao;
     }
     
-    public int getSalario(){
+    public float getSalario(){
      return salario;   
     }
-    public void setSalario(int salario){
+    public void setSalario(float salario){
         this.salario = salario;
     }
 
