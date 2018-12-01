@@ -1,6 +1,9 @@
 package View;
 
+import Controller.ProdutoController;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,32 +20,60 @@ public class CadastrarProduto extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    public void LoadTable(){
+        
+        //Peço ao controller resgatar os clientes do banco de dados
+        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+        
+        DefaultTableModel tmProdutos = new DefaultTableModel();
+        tmProdutos.addColumn("codigoProduto");
+        tmProdutos.addColumn("descricaoProduto");
+        tmProdutos.addColumn("quantidadeProduto");
+        tmProdutos.addColumn("valorUni");
+        tmProdutos.addColumn("categoriaProduto");
+        
+        for(String[] c:linhasProdutos)
+        {
+            tmProdutos.addRow(c);
+        }
+    }
+    
     public void LimparFormulario()
     {
         txtCodigoCadProduto.setText("");
         txtDescricaoProduto.setText("");
         txtQuantidade.setText("");
         txtValorUnitario.setText("");
-    }
-    
-    public void HabilitarFormulario()
-    {
-        txtCodigoCadProduto.setEditable(true);
-        txtDescricaoProduto.setEditable(true);
-        txtQuantidade.setEditable(true);
-        txtValorUnitario.setEditable(true);
-        
+        cboCategoriaProduto.setSelectedIndex(0);
     }
     
     private boolean ValidarFormulario() {
     
+    if(this.txtCodigoCadProduto.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um codigo para o produto!");
+            return false;
+        }     
+
     if(this.txtDescricaoProduto.getText().equalsIgnoreCase(""))
         {
             JOptionPane.showMessageDialog(this,"Defina um descrição para o produto!");
             return false;
         }    
         
+    
+    if(this.txtQuantidade.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina uma quantidade para o produto!");
+            return false;
+        }   
         
+    
+     if(this.txtValorUnitario.getText().equalsIgnoreCase(""))
+        {
+            JOptionPane.showMessageDialog(this,"Defina um Valor para o produto!");
+            return false;
+        } 
     
     
     return true;
@@ -61,7 +92,6 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlCadastrarProduto = new javax.swing.JPanel();
-        btnSairProduto = new javax.swing.JButton();
         btnSalvarProduto = new javax.swing.JButton();
         btnLimparProduto = new javax.swing.JButton();
         pnlCadastrarPr = new javax.swing.JPanel();
@@ -75,19 +105,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
         lblDescricao = new javax.swing.JLabel();
         txtDescricaoProduto = new javax.swing.JTextField();
         txtValorUnitario = new javax.swing.JFormattedTextField();
+        btnCancelarProduto1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Produto");
-
-        btnSairProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnSairProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/sair.png"))); // NOI18N
-        btnSairProduto.setText("Cancelar");
-        btnSairProduto.setHideActionText(true);
-        btnSairProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairProdutoActionPerformed(evt);
-            }
-        });
 
         btnSalvarProduto.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         btnSalvarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
@@ -145,7 +166,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         });
 
-        txtValorUnitario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#R$ #,##0.00"))));
+        txtValorUnitario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtValorUnitario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtValorUnitario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,6 +226,16 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnCancelarProduto1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnCancelarProduto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/sair.png"))); // NOI18N
+        btnCancelarProduto1.setText("Cancelar");
+        btnCancelarProduto1.setHideActionText(true);
+        btnCancelarProduto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProduto1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCadastrarProdutoLayout = new javax.swing.GroupLayout(pnlCadastrarProduto);
         pnlCadastrarProduto.setLayout(pnlCadastrarProdutoLayout);
         pnlCadastrarProdutoLayout.setHorizontalGroup(
@@ -219,7 +250,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLimparProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSairProduto)
+                        .addComponent(btnCancelarProduto1)
                         .addGap(14, 14, 14)))
                 .addContainerGap())
         );
@@ -230,14 +261,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addComponent(pnlCadastrarPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCadastrarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCadastrarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSairProduto)
-                        .addComponent(btnLimparProduto))
-                    .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimparProduto)
+                    .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarProduto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        pnlCadastrarProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLimparProduto, btnSairProduto, btnSalvarProduto});
+        pnlCadastrarProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLimparProduto, btnSalvarProduto});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,35 +294,29 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-     /*   if(ValidarFormulario())
+    if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ProdutoController.salvar(txtCodigoCadProduto.getText(),txtDescricaoProduto.getText(), txtQuantidade.getText(), txtValorUnitario.getText()))
+            if(ProdutoController.salvar(Integer.parseInt(txtCodigoCadProduto.getText())
+                    ,txtDescricaoProduto.getText()
+                    , Integer.parseInt(txtQuantidade.getText())
+                    , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
+                    ,cboCategoriaProduto.getSelectedItem().toString()))
             {
                 JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
                 AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
-               form2.setVisible(true);  
+                form2.setVisible(true);  
        dispose();
             }else{
                 JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto!");
                 LimparFormulario();
             }
         }
-        */
-        
-        
-        
     }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
-
-    private void btnSairProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairProdutoActionPerformed
-        AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
-        form2.setVisible(true);  
-        dispose();
-    }//GEN-LAST:event_btnSairProdutoActionPerformed
 
     private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed
         // TODO add your handling code here:
@@ -301,6 +325,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
         LimparFormulario();
     }//GEN-LAST:event_btnLimparProdutoActionPerformed
+
+    private void btnCancelarProduto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProduto1ActionPerformed
+        // TODO add your handling code here:
+         AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+        form2.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_btnCancelarProduto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -339,8 +370,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelarProduto1;
     private javax.swing.JButton btnLimparProduto;
-    private javax.swing.JButton btnSairProduto;
     private javax.swing.JButton btnSalvarProduto;
     private javax.swing.JComboBox<String> cboCategoriaProduto;
     private javax.swing.JLabel lblCategoria;
