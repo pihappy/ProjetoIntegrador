@@ -141,15 +141,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="dateChooserCombo1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dateChooserCombo2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="txtCliente" min="-2" pref="321" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="90" max="32767" attributes="0"/>
+                      <EmptySpace pref="101" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnGerarRelatorio" max="32767" attributes="0"/>
                           <Component id="btnLimpar" max="32767" attributes="0"/>
@@ -177,13 +174,11 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dateChooserCombo1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateChooserCombo2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="13" max="32767" attributes="0"/>
                   </Group>
@@ -244,10 +239,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="datechooser.beans.DateChooserCombo" name="dateChooserCombo1">
-            </Component>
-            <Component class="datechooser.beans.DateChooserCombo" name="dateChooserCombo2">
             </Component>
           </SubComponents>
         </Container>
