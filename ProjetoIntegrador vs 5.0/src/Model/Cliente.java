@@ -17,10 +17,10 @@ public class Cliente {
     private String tel;
     private String recado;
     private String email;
-    private int sexo;
-    private int estado;
+    private String sexo;
+    private String estado;
 
-    public Cliente(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+    public Cliente(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, String pSexo, String pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
         this.nome = pNome;
         this.cpf = pCPF;
         this.cep = pCEP;
@@ -46,19 +46,19 @@ public class Cliente {
         this.cpf = pCPF;
     }
     
-    public int getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(int pSexo) {
+    public void setSexo(String pSexo) {
         this.sexo = pSexo;
     }
     
-    public int getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(int pEstado) {
+    public void setEstado(String pEstado) {
         this.estado = pEstado;
     }
     

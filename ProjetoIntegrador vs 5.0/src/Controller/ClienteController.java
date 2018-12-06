@@ -22,12 +22,12 @@ public class ClienteController {
         return ClienteDAO.Excluir(indice);
     }
     
-    public static boolean Salvar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+    public static boolean Salvar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, String pSexo, String pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
         Cliente p =  new Cliente(pNome, pCPF,pCEP,pBairro,pRua,pNumero,pComp,pCidade,pDataNasc,pSexo,pEstado,pCel1,pCel2,pEmail,pRecado,pTelefone);
         return ClienteDAO.Salvar(p);
     }
 
-    public static boolean Atualizar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, int pSexo, int pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+    public static boolean Atualizar(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, String pSexo, String pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
         Cliente p =  new Cliente(pNome, pCPF, pCEP, pBairro, pRua, pNumero, pComp, pCidade, pDataNasc, pSexo, pEstado, pCel1, pCel2, pEmail, pRecado, pTelefone);
         return ClienteDAO.Atualizar(p);
     }
@@ -51,17 +51,16 @@ public class ClienteController {
                 p.get(i).getNome(),
                 p.get(i).getCPF(),
                 p.get(i).getDataNasc(),
-                String.valueOf(p.get(i).getSexo()),
+                p.get(i).getSexo(),
                 p.get(i).getCEP(),
                 p.get(i).getRua(),
                 String.valueOf(p.get(i).getNumero()),
                 p.get(i).getBairro(),
                 p.get(i).getComplemento(),
-                String.valueOf(p.get(i).getEstado()),
+                p.get(i).getEstado(),
                 p.get(i).getCidade(),
                 p.get(i).getCelular1(),
                 p.get(i).getCelular2(),
-                p.get(i).getCelular1(),
                 p.get(i).getTelefone(),
                 p.get(i).getRecado(),
                 p.get(i).getEmail()});

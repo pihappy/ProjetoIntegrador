@@ -49,7 +49,7 @@ public class TelaLogin extends javax.swing.JFrame {
         lblIntroducaoLogin.setText("Entre com seus dados");
 
         lblNomeLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        lblNomeLogin.setText("Nome:");
+        lblNomeLogin.setText("Usuário:");
 
         lblSenhaLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblSenhaLogin.setText("Senha:");

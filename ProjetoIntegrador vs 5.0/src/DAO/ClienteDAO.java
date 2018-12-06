@@ -119,9 +119,7 @@ public class ClienteDAO {
                 retorno = false;
             }
             
-        } catch (ClassNotFoundException ex) {
-            retorno = false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             retorno = false;
         }finally{
             try {
@@ -163,9 +161,7 @@ public class ClienteDAO {
                 retorno = false;
             }
             
-        } catch (ClassNotFoundException ex) {
-            retorno = false;
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             retorno = false;
         }finally{
             try {
@@ -202,8 +198,7 @@ public class ClienteDAO {
                 retorno = false;
             }
 
-        } catch (ClassNotFoundException ex) {
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             retorno = false;
         } finally {
             try {
@@ -230,17 +225,17 @@ public class ClienteDAO {
             while(rs.next())
             {
                 Cliente c = new Cliente();
-                c.setId(rs.getInt("idcliente"));
+                c.setId(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
                 c.setCPF(rs.getString("CPF"));
                 c.setDataNasc(rs.getString("datanasc"));
-                c.setSexo(rs.getInt("sexo"));
+                c.setSexo(rs.getString("sexo"));
                 c.setCEP(rs.getString("CEP"));
                 c.setRua(rs.getString("rua"));
                 c.setNumero(rs.getInt("numero"));
                 c.setBairro(rs.getString("bairro"));
                 c.setComplemento(rs.getString("complemento"));
-                c.setEstado(rs.getInt("estado"));
+                c.setEstado(rs.getString("estado"));
                 c.setCidade(rs.getString("cidade"));
                 c.setCelular1(rs.getString("celular1"));
                 c.setCelular2(rs.getString("celular2"));

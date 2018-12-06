@@ -25,21 +25,6 @@ public class CadastrarCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-    public void LoadTable(){
-        
-        //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasClientes = ClienteController.getClientes();
-        
-        DefaultTableModel tmClientes = new DefaultTableModel();
-        tmClientes.addColumn("ID");
-        tmClientes.addColumn("Nome");
-        tmClientes.addColumn("CPF");
-        
-        for(String[] c:linhasClientes)
-        {
-            tmClientes.addRow(c);
-        }
-    }
     
     public void LimparFormulario()
     {
@@ -612,7 +597,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(),jcEstado.getSelectedItem().toString(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
             {
                 JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
                 AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
@@ -638,7 +623,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private void btnSalvarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCliente1ActionPerformed
       
         //Passar a Controller do método Atualizar
-        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedIndex(),jcEstado.getSelectedIndex(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
+        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(), txtCEP.getText(), txtBairro.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()),txtComplemento.getText(),txtCidade.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(),jcEstado.getSelectedItem().toString(),txtCelular1.getText(),txtCelular2.getText(),txtEmail.getText(),txtRecado.getText(),txtTelefone.getText()))
         {
             JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
             AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  

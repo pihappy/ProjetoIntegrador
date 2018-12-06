@@ -416,8 +416,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnProcurarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarClienteActionPerformed
-        AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
-        form2.setVisible(true);  
+        AtualizarExcluirCliente formPesqCliente = new AtualizarExcluirCliente();  
+        formPesqCliente.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnProcurarClienteActionPerformed
 
