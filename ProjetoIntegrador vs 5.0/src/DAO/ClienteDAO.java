@@ -108,7 +108,7 @@ public class ClienteDAO {
                     " telefone =" + "'" + p.getTelefone()+ "'"  + "," +
                     " recado =" + "'" + p.getRecado() + "'" + "," +
                     " email =" + "'" + p.getEmail()+ "'"  + "," +
-                    " WHERE idcliente =" + p.getId()
+                    " WHERE id =" + p.getId()
                     );
             
             if(linhasAfetadas>0)
@@ -150,7 +150,7 @@ public class ClienteDAO {
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement();
             int linhasAfetadas = comando.executeUpdate("DELETE FROM cliente " + 
-                    " WHERE idcliente =" + pID
+                    " WHERE id =" + pID
                     );
             
             if(linhasAfetadas>0)
