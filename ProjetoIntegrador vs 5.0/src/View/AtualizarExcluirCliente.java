@@ -6,6 +6,7 @@
 package View;
 
 import Controller.ClienteController;
+import Model.Cliente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +21,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
      * Creates new form telaPrincipal
      */
     private String modoTela; //   "Criar/Editar"
-    
+    public int numero;
     
     public AtualizarExcluirCliente() {
         initComponents();
@@ -93,6 +94,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         return true;
         
     }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -449,7 +451,12 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnProcurarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarClienteActionPerformed
-        HabilitarFormulario();
+        if(numero == 0){
+            HabilitarFormulario();
+        }else{
+            
+        }
+        numero++;
     }//GEN-LAST:event_btnProcurarClienteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -561,4 +568,6 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNomeCliente;
     // End of variables declaration//GEN-END:variables
+
+
 }

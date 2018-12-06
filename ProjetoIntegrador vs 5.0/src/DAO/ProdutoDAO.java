@@ -153,8 +153,7 @@ public class ProdutoDAO {
                 retorno = false;
             }
 
-        } catch (ClassNotFoundException ex) {
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             retorno = false;
         } finally {
             try {
