@@ -23,7 +23,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        
+        txtIdCliente.setEditable(false);
     }
     
     public void LimparFormulario()

@@ -22,6 +22,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
      */
     private String modoTela; //   "Criar/Editar"
     public int numero;
+    public int numero1;
     
     public AtualizarExcluirCliente() {
         initComponents();
@@ -429,34 +430,37 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this,"Não há clientes para editar!");
-        }             
+        }
     }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
-        if(tblClientes.getRowCount()>0)
-        {
-            int numeroLinha = tblClientes.getSelectedRow();
-            if(ClienteController.Excluir(Integer.parseInt(tblClientes.getValueAt(numeroLinha,0).toString()) ) )
+        YesNoOption("Deseja excluir este cliente permanentemente?");
+        if(numero == 0){
+            if(tblClientes.getRowCount()>0)
             {
-                this.LoadTable();
-                JOptionPane.showMessageDialog(this,"Cliente excluído da base de dados");
-            }else{
-                JOptionPane.showMessageDialog(this,"Falha ao excluir o cliente!");
+                int numeroLinha = tblClientes.getSelectedRow();
+                if(ClienteController.Excluir(Integer.parseInt(tblClientes.getValueAt(numeroLinha,0).toString()) ) )
+                {
+                    this.LoadTable();
+                    JOptionPane.showMessageDialog(this,"Cliente excluído da base de dados");
+                }else{
+                    JOptionPane.showMessageDialog(this,"Falha ao excluir o cliente!");
+                }
             }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this,"Não há clientes para excluir!");
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Não há clientes para excluir!");
+            }
         }
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 
     private void btnProcurarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarClienteActionPerformed
-        if(numero == 0){
+        if(numero1 == 0){
             HabilitarFormulario();
         }else{
             
         }
-        numero++;
+        numero1++;
     }//GEN-LAST:event_btnProcurarClienteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -540,6 +544,11 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
                 new AtualizarExcluirCliente().setVisible(true);
             }
         });
+    }
+    
+    public int YesNoOption(String MensagemExcluir){
+        numero = JOptionPane.showConfirmDialog(null,MensagemExcluir,"Confirmação de Exclusão",JOptionPane.YES_NO_OPTION);
+        return numero;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
