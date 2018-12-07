@@ -447,10 +447,8 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"Falha ao excluir o cliente!");
                 }
             }
-            else
-            {
-                JOptionPane.showMessageDialog(this,"Não há clientes para excluir!");
-            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Cliente não excluído!");
         }
     }//GEN-LAST:event_btnExcluirClienteActionPerformed
 

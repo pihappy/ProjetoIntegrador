@@ -20,22 +20,23 @@ public class Cliente {
     private String sexo;
     private String estado;
 
-    public Cliente(String pNome, String pCPF, String pCEP, String pBairro, String pRua, int pNumero, String pComp, String pCidade, String pDataNasc, String pSexo, String pEstado, String pCel1, String pCel2, String pEmail, String pRecado, String pTelefone) {
+    public Cliente(String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
         this.nome = pNome;
         this.cpf = pCPF;
-        this.cep = pCEP;
-        this.bairro = pBairro;
-        this.rua = pRua;
-        this.complemento = pComp;
-        this.cidade = pCidade;
         this.datanasc = pDataNasc;
         this.sexo = pSexo;
+        this.cep = pCEP;
+        this.rua = pRua;
+        this.numero = pNumero;
+        this.bairro = pBairro;
+        this.complemento = pComp;
         this.estado = pEstado;
+        this.cidade = pCidade;
         this.cel1 = pCel1;
         this.cel2 = pCel2;
-        this.email = pEmail;
-        this.recado = pRecado;
         this.tel = pTelefone;
+        this.recado = pRecado;
+        this.email = pEmail;
     }
 
     public String getCPF() {
@@ -63,7 +64,7 @@ public class Cliente {
     }
     
         public String getDataNasc() {
-        return cpf;
+        return datanasc;
     }
 
     public void setDataNasc(String pDataNasc) {
