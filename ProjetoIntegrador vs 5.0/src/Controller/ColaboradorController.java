@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author mikael.asilva3
  */
-public class AtualizarExcluirColaboradorController {
+public class ColaboradorController {
 
     public static boolean salvar(String pNome, int pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, float pSalario) {
         //Salvo na memória
