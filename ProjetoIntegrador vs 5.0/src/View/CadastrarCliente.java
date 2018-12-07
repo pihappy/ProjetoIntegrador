@@ -6,24 +6,49 @@
 package View;
 
 import Controller.ClienteController;
+import Model.Cliente;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import static javax.swing.UIManager.getString;
 import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Mikael
  */
 public class CadastrarCliente extends javax.swing.JFrame {
-
     /**
      * Creates new form CadastrarCliente1
      */
+    
+    
     public CadastrarCliente() {
     
         initComponents();
         
         this.setLocationRelativeTo(null);
         txtIdCliente.setEditable(false);
+    }
+    
+    public void PreencherAuto(Cliente c){
+        txtIdCliente.setText(getString(c.getId()));
+        txtNomeCliente.setText(c.getNome());
+        txtCPFCliente.setText(c.getCPF());
+        txtCEP.setText(c.getCEP());
+        txtBairro.setText(c.getBairro());
+        txtRua.setText(c.getRua());
+        txtNumero.setText(getString(c.getNumero()));
+        txtComplemento.setText(c.getComplemento());
+        txtCidade.setText(c.getCidade());
+        txtDataNascCliente.setText(c.getDataNasc());
+        jcSexo1.setSelectedItem(c.getSexo());
+        jcEstado.setSelectedItem(c.getEstado());
+        txtCelular1.setText(c.getCelular1());
+        txtCelular2.setText(c.getCelular2());
+        txtEmail.setText(c.getEmail());
+        txtRecado.setText(c.getRecado());
+        txtTelefone.setText(c.getTelefone());
     }
     
     public void LimparFormulario()
@@ -714,4 +739,5 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtRua;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
 }

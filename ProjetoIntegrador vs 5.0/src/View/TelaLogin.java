@@ -7,21 +7,22 @@ package View;
 
 import static java.lang.String.valueOf;
 import javax.swing.JOptionPane;
+import Model.Login;
 
 /**
  *
  * @author Mikael
  */
 public class TelaLogin extends javax.swing.JFrame {
-
-    /**
+        /**
      * Creates new form telaLogin1
      */
     public TelaLogin() {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    String usuario = getUsuario();
+    String senha = getSenha();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +56,11 @@ public class TelaLogin extends javax.swing.JFrame {
         lblSenhaLogin.setText("Senha:");
 
         txtNomeLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtNomeLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeLoginActionPerformed(evt);
+            }
+        });
 
         btnEntrarLogin.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnEntrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/login.png"))); // NOI18N
@@ -132,10 +138,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
-        String usuario = "Pihappy";
-        String senha = "pihappy123";
-        if(usuario.equalsIgnoreCase(txtNomeLogin.getText())){
-            if(senha.equals(valueOf(txtSenhaLogin.getPassword()))){
+        
+        if(txtNomeLogin.getText().equalsIgnoreCase(usuario)){
+            if(txtSenhaLogin.getPassword().equals(valueOf(senha))){
                 TelaPrincipal form2 = new TelaPrincipal();  
                 form2.setVisible(true);  
                 dispose();
@@ -146,6 +151,10 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuário incorreto!");
         }
     }//GEN-LAST:event_btnEntrarLoginActionPerformed
+
+    private void txtNomeLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeLoginActionPerformed
 
     /**
      * @param args the command line arguments

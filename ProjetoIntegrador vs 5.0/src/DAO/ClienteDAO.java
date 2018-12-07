@@ -85,6 +85,7 @@ public class ClienteDAO {
         boolean retorno = false;
         
         try {
+            
             //Simulo uma inserção no banco de dados (INSERT INTO...)
             //return SimulaDB.getInstance().SalvarCliente(p);
             Class.forName(DRIVER);
@@ -108,7 +109,7 @@ public class ClienteDAO {
                     " telefone =" + "'" + p.getTelefone()+ "'"  + "," +
                     " recado =" + "'" + p.getRecado() + "'" + "," +
                     " email =" + "'" + p.getEmail()+ "'"  + "," +
-                    " WHERE id =" + p.getId()
+                    " WHERE id =" + p.getId() + ";"
                     );
             
             if(linhasAfetadas>0)

@@ -20,7 +20,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     /**
      * Creates new form telaPrincipal
      */
-    private String modoTela; //   "Criar/Editar"
+    public String modoTela; //   "Criar/Editar"
     public int numero;
     public int numero1;
     
@@ -419,7 +419,8 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
             if(tblClientes.getSelectedRow()>=0)
             {
                 CadastrarCliente form2 = new CadastrarCliente();  
-                form2.setVisible(true);  
+                form2.setVisible(true);
+                modoTela = "Atualizar";
                 dispose();      
             }
             else
