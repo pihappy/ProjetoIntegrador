@@ -31,12 +31,11 @@ public class ProdutoDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("INSERT INTO produtos (codigoProduto,descricaoProduto,quantidadeProduto,valorUni,categoriaProduto) VALUES(?, ?, ?, ?, ?);");
-            comando.setInt(1, p.getCodigoProduto());
-            comando.setString(2, p.getDescricaoProduto());
-            comando.setInt(3, p.getQuantidadeProduto());
-            comando.setDouble(4, p.getValorUni());
-            comando.setString(5, p.getCategoriaProduto());
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO produtos(descricaoProduto,quantidadeProduto,valorUni,categoriaProduto)VALUES(?, ?, ?, ?);");
+            comando.setString(1, p.getDescricaoProduto());
+            comando.setInt(2, p.getQuantidadeProduto());
+            comando.setDouble(3, p.getValorUni());
+            comando.setString(4, p.getCategoriaProduto());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -45,7 +44,7 @@ public class ProdutoDAO {
                 retorno = false;
             }
 
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException ex) {
             retorno = true;
         } catch (SQLException ex) {
             retorno = false;
@@ -106,7 +105,7 @@ public class ProdutoDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("DELETE FROM relatorio");
+            PreparedStatement comando = conexao.prepareStatement("DELETE FROM produtos" + "WHERE = ?");
             comando.setInt(1, codigoProduto);
 
             int linhasAfetadas = comando.executeUpdate();
