@@ -2,6 +2,7 @@ package View;
 
 import Controller.ProdutoController;
 import java.util.ArrayList;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +19,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        DesabilitarFormulario();
     }
     
     public void LoadTable(){
@@ -38,6 +40,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
         }
     }
     
+    public void DesabilitarFormulario(){
+    txtCodigoCadProduto.setEditable(false);
+    txtCodigoCadProduto.setEnabled(false);
+    
+    }
+    
     public void LimparFormulario()
     {
         txtCodigoCadProduto.setText("");
@@ -49,11 +57,11 @@ public class CadastrarProduto extends javax.swing.JFrame {
     
     private boolean ValidarFormulario() {
     
-    if(this.txtCodigoCadProduto.getText().equalsIgnoreCase(""))
+    /*if(this.txtCodigoCadProduto.getText().equalsIgnoreCase(""))
         {
             JOptionPane.showMessageDialog(this,"Defina um codigo para o produto!");
             return false;
-        }     
+        }     */
 
     if(this.txtDescricaoProduto.getText().equalsIgnoreCase(""))
         {
@@ -75,6 +83,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
             return false;
         } 
     
+     
+     
+     
     
     return true;
     
@@ -294,11 +305,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-    if(ValidarFormulario())
+        
+        if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ProdutoController.salvar(Integer.parseInt(txtCodigoCadProduto.getText())
-                    ,txtDescricaoProduto.getText()
+            if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
+                    txtDescricaoProduto.getText()
                     , Integer.parseInt(txtQuantidade.getText())
                     , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
                     ,cboCategoriaProduto.getSelectedItem().toString()))
@@ -315,7 +327,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtValorUnitarioActionPerformed
 
     private void txtQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeActionPerformed

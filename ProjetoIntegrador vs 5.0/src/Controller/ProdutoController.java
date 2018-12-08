@@ -11,25 +11,42 @@ import java.util.ArrayList;
  */
 public class ProdutoController {
 
-    public static boolean salvar(int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
+    public static boolean Salvar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
 
-        Produto p = new Produto(pcodigoProduto, pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
+        Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
         return ProdutoDAO.salvar(p);
     }
 
-    public static boolean atualizar(int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
+    public static boolean Atualizar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
 
-        Produto p = new Produto(pcodigoProduto, pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
+        Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
         return ProdutoDAO.atualizar(p);
     }
 
-    public static boolean excluir(int codigoProduto) {
+    public static boolean Excluir(int codigoProduto) {
         return ProdutoDAO.excluir(codigoProduto);
     }
 
-    public static boolean pesquisar(int pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
-        Produto p = new Produto(pcodigoProduto, pdescricaoProduto, pcategoriaProduto);
-        return ProdutoDAO.pesquisar(p);
+    public static ArrayList<String[]> Pesquisar(int pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
+        
+        Produto p  = new Produto();
+        p.setCodigoProduto(pcodigoProduto);
+        p.setDescricaoProduto(pdescricaoProduto);
+        p.setCategoriaProduto(pcategoriaProduto);
+        
+        ArrayList<Produto> retorno = ProdutoDAO.pesquisar(p);
+        
+        ArrayList<String[]> listaProdutos = new ArrayList<>();
+
+        for (int i = 0; i < retorno.size(); i++) {
+            listaProdutos.add(new String[]{String.valueOf(retorno.get(i).getCodigoProduto()),
+                retorno.get(i).getDescricaoProduto(),
+                String.valueOf(retorno.get(i).getQuantidadeProduto()),
+                String.valueOf(retorno.get(i).getValorUni()),
+                String.valueOf(retorno.get(i).getCategoriaProduto())});
+        }
+
+        return listaProdutos;
 
     }
 

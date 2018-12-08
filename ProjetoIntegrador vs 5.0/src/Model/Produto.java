@@ -18,10 +18,25 @@ public class Produto {
 
     public Produto(int codigoProduto, String descricaoProduto, int quantidadeProduto,
             double valorUni, String categoriaProduto) {
-
+        this.codigoProduto = codigoProduto;
+        this.descricaoProduto = descricaoProduto;
+        this.quantidadeProduto = quantidadeProduto;
+        this.valorUni = valorUni;
+        this.categoriaProduto = categoriaProduto;
     }
 
     public Produto(int codigoProduto, String descricaoProduto, String categoriaProduto) {
+        this.codigoProduto = codigoProduto;
+        this.descricaoProduto = descricaoProduto;
+        this.categoriaProduto = categoriaProduto;
+    }
+
+    public Produto(String descricaoProduto, int quantidadeProduto,
+            double valorUni, String categoriaProduto) {
+        this.descricaoProduto = descricaoProduto;
+        this.quantidadeProduto = quantidadeProduto;
+        this.valorUni = valorUni;
+        this.categoriaProduto = categoriaProduto;
 
     }
 
