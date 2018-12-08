@@ -7,7 +7,7 @@ package Model;
  */
 public class Relatorio {
     
-    private String cliente;
+    private String psqcliente;
     private int dtInicio;
     private int dtFim;
     private String clienteVenda;
@@ -19,9 +19,9 @@ public class Relatorio {
         
     }
 
-    public Relatorio (String cliente, int dtInicio, int dtFim, String clienteVenda, int totalVendas, int totalVendasPeriodo) {
+    public Relatorio (String psqcliente, int dtInicio, int dtFim, String clienteVenda, int totalVendas, int totalVendasPeriodo) {
      
-        this.cliente = cliente;
+        this.psqcliente = psqcliente;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
         this.clienteVenda = clienteVenda;
@@ -30,13 +30,14 @@ public class Relatorio {
         
         
     }
+   
 
-    public String getCliente() {
-        return cliente;
+    public String getpsqCliente() {
+        return psqcliente;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setbscCliente(String cliente) {
+        this.psqcliente = cliente;
     }
 
     public int getDtInicio() {
