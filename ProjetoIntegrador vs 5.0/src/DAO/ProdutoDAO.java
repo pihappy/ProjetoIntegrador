@@ -131,9 +131,9 @@ public class ProdutoDAO {
 
     }
 
-    public static boolean pesquisar(Produto p) throws SQLException {
+    public static ArrayList<Produto> pesquisar(Produto p) throws SQLException {
 
-        boolean retorno = false;
+        ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
         try {
 
@@ -141,28 +141,34 @@ public class ProdutoDAO {
             url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("SELECT * FROM produtos WHERE codigoProduto = ? OR descricaoProduto = ? OR categoriaProduto = ?;");
-            comando.setString(1, p.getCodigoProduto() + "%");
-            comando.setString(2, p.getDescricaoProduto() + "%");
-            comando.setString(3, p.getCategoriaProduto() + "%");
+            comando.setInt(1, p.getCodigoProduto() );
+            comando.setString(2, p.getDescricaoProduto() );
+            comando.setString(3, p.getCategoriaProduto() );
 
-            int linhasAfetadas = comando.executeUpdate();
-            if (linhasAfetadas > 0) {
-                retorno = true;
-            } else {
-                retorno = false;
+            ResultSet rs = comando.executeQuery();
+            
+            while (rs.next()) {
+                Produto produto = new Produto();
+                produto.setCodigoProduto(rs.getInt("codigoProduto"));
+                produto.setDescricaoProduto(rs.getString("descricaoProduto"));
+                produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
+                produto.setValorUni(rs.getDouble("valorUni"));
+                produto.setCategoriaProduto(rs.getString("categoriaProduto"));
+                listaProdutos.add(produto);
             }
+            
 
         } catch (ClassNotFoundException | SQLException ex) {
-            retorno = false;
+            listaProdutos = null;
         } finally {
             try {
                 conexao.close();
             } catch (SQLException ex) {
-                retorno = false;
+                listaProdutos = null;
             }
         }
 
-        return retorno;
+        return listaProdutos;
     }
 
     public static ArrayList<Produto> getProdutos() {

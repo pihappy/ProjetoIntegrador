@@ -27,9 +27,26 @@ public class ProdutoController {
         return ProdutoDAO.excluir(codigoProduto);
     }
 
-    public static boolean Pesquisar(int pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
-        Produto p = new Produto(pcodigoProduto, pdescricaoProduto, pcategoriaProduto);
-        return ProdutoDAO.pesquisar(p);
+    public static ArrayList<String[]> Pesquisar(int pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
+        
+        Produto p  = new Produto();
+        p.setCodigoProduto(pcodigoProduto);
+        p.setDescricaoProduto(pdescricaoProduto);
+        p.setCategoriaProduto(pcategoriaProduto);
+        
+        ArrayList<Produto> retorno = ProdutoDAO.pesquisar(p);
+        
+        ArrayList<String[]> listaProdutos = new ArrayList<>();
+
+        for (int i = 0; i < retorno.size(); i++) {
+            listaProdutos.add(new String[]{String.valueOf(retorno.get(i).getCodigoProduto()),
+                retorno.get(i).getDescricaoProduto(),
+                String.valueOf(retorno.get(i).getQuantidadeProduto()),
+                String.valueOf(retorno.get(i).getValorUni()),
+                String.valueOf(retorno.get(i).getCategoriaProduto())});
+        }
+
+        return listaProdutos;
 
     }
 
