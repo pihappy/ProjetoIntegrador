@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author mikael.asilva3
@@ -308,7 +312,14 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCadastrarClienteActionPerformed
-        CadastrarCliente form2 = new CadastrarCliente();  
+        CadastrarCliente form2 = null;  
+        try {
+            form2 = new CadastrarCliente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AtualizarExcluirColaborador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AtualizarExcluirColaborador.class.getName()).log(Level.SEVERE, null, ex);
+        }
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_jmCadastrarClienteActionPerformed

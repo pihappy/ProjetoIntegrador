@@ -396,7 +396,14 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodigoProdutoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        CadastrarCliente formCadastroCliente = new CadastrarCliente();  
+        CadastrarCliente formCadastroCliente = null;  
+        try {
+            formCadastroCliente = new CadastrarCliente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         formCadastroCliente.setVisible(true);  
         dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

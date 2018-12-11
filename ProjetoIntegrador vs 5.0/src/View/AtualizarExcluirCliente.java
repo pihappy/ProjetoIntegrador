@@ -7,7 +7,10 @@ package View;
 
 import Controller.ClienteController;
 import Model.Cliente;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,13 +19,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Mikael
  */
 public final class AtualizarExcluirCliente extends javax.swing.JFrame {
-
-    /**
+        /**
      * Creates new form telaPrincipal
      */
     public String modoTela; //   "Criar/Editar"
     public int numero;
     public int numero1;
+    public int id;
+    CadastrarCliente enviaTexto;
     
     public AtualizarExcluirCliente() {
         initComponents();
@@ -405,7 +409,14 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-            CadastrarCliente form2 = new CadastrarCliente();  
+            CadastrarCliente form2 = null;  
+        try {
+            form2 = new CadastrarCliente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
             form2.setVisible(true);  
             dispose();
         
@@ -413,15 +424,23 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
 
     private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
         //Verifico se há linhas para poder editar
+        int row = tblClientes.getSelectedRowCount();
         if(tblClientes.getRowCount()>0)
         {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
             if(tblClientes.getSelectedRow()>=0)
             {
-                CadastrarCliente form2 = new CadastrarCliente();  
-                form2.setVisible(true);
-                modoTela = "Atualizar";
-                dispose();      
+                if(enviaTexto == null){
+                    try {  
+                        enviaTexto = new CadastrarCliente();
+                    } catch (ClassNotFoundException | SQLException ex) {
+                        Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    enviaTexto.setVisible(true);
+                    enviaTexto.receberValores(Integer.parseInt(tblClientes.getValueAt(row,0).toString()),tblClientes.getValueAt(row,1).toString(),tblClientes.getValueAt(row,2).toString());
+                    
+                }
+                dispose();
             }
             else
             {
@@ -447,6 +466,8 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
                 }else{
                     JOptionPane.showMessageDialog(this,"Falha ao excluir o cliente!");
                 }
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecione um cliente para excluir!");
             }
         }else{
             JOptionPane.showMessageDialog(null, "Cliente não excluído!");
@@ -576,6 +597,6 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNomeCliente;
     // End of variables declaration//GEN-END:variables
-
+    
 
 }

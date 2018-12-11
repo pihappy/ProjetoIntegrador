@@ -7,7 +7,16 @@ package View;
 
 import Controller.ClienteController;
 import Model.Cliente;
+import static View.AtualizarExcluirCliente.tblClientes;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -17,38 +26,26 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Mikael
  */
-public class CadastrarCliente extends javax.swing.JFrame {
+public final class CadastrarCliente extends javax.swing.JFrame {
     /**
      * Creates new form CadastrarCliente1
      */
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String SERVIDOR = "localhost";
+    private static final String BASEDADOS = "projeto";
+    private static final String LOGIN = "root";
+    private static final String SENHA = "";
+    private static String url = "";
+    private static Connection conexao;
     
-    
-    public CadastrarCliente() {
+    public CadastrarCliente() throws ClassNotFoundException, SQLException {
     
         initComponents();
         
         this.setLocationRelativeTo(null);
         txtIdCliente.setEditable(false);
-    }
-    
-    public void PreencherAuto(Cliente c){
-        txtIdCliente.setText(getString(c.getId()));
-        txtNomeCliente.setText(c.getNome());
-        txtCPFCliente.setText(c.getCPF());
-        txtCEP.setText(c.getCEP());
-        txtBairro.setText(c.getBairro());
-        txtRua.setText(c.getRua());
-        txtNumero.setText(getString(c.getNumero()));
-        txtComplemento.setText(c.getComplemento());
-        txtCidade.setText(c.getCidade());
-        txtDataNascCliente.setText(c.getDataNasc());
-        jcSexo1.setSelectedItem(c.getSexo());
-        jcEstado.setSelectedItem(c.getEstado());
-        txtCelular1.setText(c.getCelular1());
-        txtCelular2.setText(c.getCelular2());
-        txtEmail.setText(c.getEmail());
-        txtRecado.setText(c.getRecado());
-        txtTelefone.setText(c.getTelefone());
+        
+        PreencherFormulario();
     }
     
     public void LimparFormulario()
@@ -72,7 +69,34 @@ public class CadastrarCliente extends javax.swing.JFrame {
         txtTelefone.setText("");
     }
     
-    
+    public void PreencherFormulario() throws ClassNotFoundException, SQLException{
+        if(txtIdCliente.getText().equals("")){
+            
+        }else{
+            Class.forName(DRIVER);
+            url="jdbc:mysql://localhost:3306/" + "projeto";
+            conexao = DriverManager.getConnection(url,"root","");
+            Statement comando = conexao.createStatement(); 
+            ResultSet rs = comando.executeQuery("select * from cliente where id = "+txtIdCliente.getText()); 
+            rs.next();
+            txtNomeCliente.setText(rs.getString("nome"));
+            txtCPFCliente.setText(rs.getString("CPF"));
+            txtCEP.setText(rs.getString("CEP"));
+            txtBairro.setText(rs.getString("bairro"));
+            txtRua.setText(rs.getString("rua"));
+            txtNumero.setText(rs.getString("numero"));
+            txtComplemento.setText(rs.getString("complemento"));
+            txtCidade.setText(rs.getString("cidade"));
+            txtDataNascCliente.setText(rs.getString("datanasc"));
+            jcSexo1.setSelectedItem(rs.getString("sexo"));
+            jcEstado.setSelectedItem(rs.getString("estado"));
+            txtCelular1.setText(rs.getString("celular1"));
+            txtCelular2.setText(rs.getString("celular2"));
+            txtEmail.setText(rs.getString("email"));
+            txtRecado.setText(rs.getString("recado"));
+            txtTelefone.setText(rs.getString("telefone"));
+        }
+    }
     
     public void HabilitarFormulario()
     {
@@ -699,7 +723,13 @@ public class CadastrarCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastrarCliente().setVisible(true);
+                try {
+                    new CadastrarCliente().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -749,5 +779,9 @@ public class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtRua;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-
+    public void receberValores(int Id, String Nome,String CPF){
+        txtIdCliente.setText(String.valueOf(Id));
+        txtNomeCliente.setText(String.valueOf(Nome));
+        txtCPFCliente.setText(String.valueOf(CPF));
+    }
 }

@@ -63,7 +63,7 @@ public class Cliente {
         this.estado = pEstado;
     }
     
-        public String getDataNasc() {
+    public String getDataNasc() {
         return datanasc;
     }
 

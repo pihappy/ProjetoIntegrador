@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package View;
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Mikael
@@ -412,7 +417,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarProdutoActionPerformed
 
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
-        CadastrarCliente form2 = new CadastrarCliente();  
+        CadastrarCliente form2 = null;  
+        try {
+            form2 = new CadastrarCliente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
