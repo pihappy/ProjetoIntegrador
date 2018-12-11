@@ -20,8 +20,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    public void LimparFormulario(){
+
+    public void LimparFormulario() {
         txtIdColaborador.setText("");
         txtNomeColaborador.setText("");
         txtCpfColaborador.setText("");
@@ -40,30 +40,82 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtRecadoColaborador.setText("");
         txtEmailColaborador.setText("");
         cboCargoColaborador.setSelectedIndex(0);
-        txtDeptoColaborador.setText("");
+        cboDeptoColaborador.setSelectedIndex(0);
         txtAdmissaoColaborador.setText("");
         txtSalarioColaborador.setText("");
     }
-    
-    
-    public void ValidarFormulario(){
+
+    public void ValidarFormulario() {
         if (txtNomeColaborador.getText().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Defina um Nome para o Colaborador!");
+            JOptionPane.showMessageDialog(null, "Defina um Nome para o colaborador!");
         }
-        
+
         if (txtCpfColaborador.getText().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Defina um CPF para o Colaborador!");
+            JOptionPane.showMessageDialog(null, "Defina um CPF para o colaborador!");
         }
-        
+
         if (txtDtNasc.getText().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Defina uma Data de Nascimento para o Colaborador!");
+            JOptionPane.showMessageDialog(null, "Defina uma Data de Nascimento para o colaborador!");
         }
-        
+
         int sexo = 0;
         if (this.cboSexoColaborador.equals(sexo)) {
-            
-            JOptionPane.showMessageDialog(null, "Defina um Sexo para o Colaborador!");
-           
+            JOptionPane.showMessageDialog(null, "Defina um Sexo para o colaborador!");
+        }
+
+        if (txtCepColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um CEP para o colaborador!");
+        }
+
+        if (txtRuaColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina uma Rua para o colaborador!");
+        }
+
+        if (txtNumRuaColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um Número de Rua para o colaborador");
+        }
+
+        if (txtBairroColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um Bairro para o colaborador!");
+        }
+
+        if (txtComplementoColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um Complemento para a Rua do colaborador!");
+        }
+
+        int estado = 0;
+        if (this.cboEstadoColaborador.equals(estado)) {
+            JOptionPane.showMessageDialog(null, "Defina um Estado para o colaborador!");
+        }
+
+        if (txtCidadeColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina uma Cidade para o colaborador");
+        }
+        
+        if (txtCelular1Colaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um Número de Celular para o colaborador");
+        }
+        
+        if (txtEmailColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um E-mail para o colaborador");
+        }
+        
+        int cargo = 0;
+        if (this.cboCargoColaborador.equals(cargo)) {
+            JOptionPane.showMessageDialog(null, "Defina umm Cargo para o colaborador");
+        }
+        
+        int depto = 0;
+        if (cboDeptoColaborador.equals(depto)) {
+            JOptionPane.showMessageDialog(null, "Defina um Departamento para o colaborador");
+        }
+        
+        if (txtAdmissaoColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina uma data de Admissão para o colaborador");
+        }
+        
+        if (txtSalarioColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Defina um Salário para o colaborador");
         }
     }
 
@@ -122,29 +174,29 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtDeptoColaborador = new javax.swing.JTextField();
         txtAdmissaoColaborador = new javax.swing.JFormattedTextField();
         txtSalarioColaborador = new javax.swing.JFormattedTextField();
         cboCargoColaborador = new javax.swing.JComboBox<>();
+        cboDeptoColaborador = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Colaborador");
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais Colaborador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel18.setText("Nome:");
 
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel20.setText("CPF:");
 
-        jLabel21.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel21.setText("Sexo:");
 
         txtNomeColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtNomeColaborador.setPreferredSize(new java.awt.Dimension(300, 20));
 
-        cboSexoColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cboSexoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cboSexoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Masculino", "Feminino" }));
 
         try {
@@ -154,8 +206,13 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         }
         txtCpfColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCpfColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtCpfColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfColaboradorActionPerformed(evt);
+            }
+        });
 
-        jLabel22.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel22.setText("Dt. Nascimento:");
 
         try {
@@ -166,7 +223,10 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtDtNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDtNasc.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
+        lblIdCliente.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         lblIdCliente.setText("ID:");
+
+        txtIdColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -222,19 +282,19 @@ public class CadastrarColaborador extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel23.setText("CEP:");
 
-        jLabel24.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel24.setText("Rua:");
 
-        jLabel25.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel25.setText("Número:");
 
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel26.setText("Bairro:");
 
-        jLabel27.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel27.setText("Cidade:");
 
         txtRuaColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -245,10 +305,10 @@ public class CadastrarColaborador extends javax.swing.JFrame {
 
         txtCidadeColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        jLabel28.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel28.setText("Estado:");
 
-        jLabel29.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel29.setText("Complemento:");
 
         txtComplementoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -261,7 +321,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtCepColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCepColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        cboEstadoColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cboEstadoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cboEstadoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -282,7 +342,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCidadeColaborador))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCepColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboEstadoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,7 +358,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNumRuaColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                .addGap(7, 7, 7))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,19 +390,19 @@ public class CadastrarColaborador extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contato", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jLabel30.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel30.setText("Celular (1):");
 
-        jLabel31.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel31.setText("Celular (2):");
 
-        jLabel32.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel32.setText("Telefone:");
 
-        jLabel33.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel33.setText("Recado:");
 
-        jLabel34.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel34.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel34.setText("E - mail:");
 
         txtEmailColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -427,7 +487,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnSalvarColaborador.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnSalvarColaborador.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         btnSalvarColaborador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
         btnSalvarColaborador.setText("Salvar");
         btnSalvarColaborador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -453,54 +513,57 @@ public class CadastrarColaborador extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Atuação", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("Cargo:");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setText("Departamento:");
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setText("Admissão:");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setText("Salário:");
 
-        txtDeptoColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
-        txtAdmissaoColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        txtAdmissaoColaborador.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        try {
+            txtAdmissaoColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtAdmissaoColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtAdmissaoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         txtSalarioColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        txtSalarioColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtSalarioColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        cboCargoColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cboCargoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboCargoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cboCargoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Administrador", "Estoquista", "Gerente", "Operador de Caixa" }));
+
+        cboDeptoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        cboDeptoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Administração", "Operacional" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cboCargoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDeptoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAdmissaoColaborador))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboCargoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboDeptoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,32 +573,35 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(cboCargoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(txtDeptoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(cboDeptoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSalvarColaborador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLimparColaborador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCancelarColaborador)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSalvarColaborador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimparColaborador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelarColaborador)
+                        .addGap(13, 13, 13))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,12 +613,12 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCancelarColaborador)
-                        .addComponent(btnLimparColaborador))
-                    .addComponent(btnSalvarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnLimparColaborador)))
                 .addGap(12, 12, 12))
         );
 
@@ -563,9 +629,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,10 +648,14 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarColaboradorActionPerformed
 
     private void btnCancelarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarColaboradorActionPerformed
-        AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();  
-        form2.setVisible(true);  
+        AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();
+        form2.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCancelarColaboradorActionPerformed
+
+    private void txtCpfColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfColaboradorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfColaboradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,7 +668,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -629,6 +698,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JButton btnLimparColaborador;
     private javax.swing.JButton btnSalvarColaborador;
     private javax.swing.JComboBox<String> cboCargoColaborador;
+    private javax.swing.JComboBox<String> cboDeptoColaborador;
     private javax.swing.JComboBox<String> cboEstadoColaborador;
     private javax.swing.JComboBox<String> cboSexoColaborador;
     private javax.swing.JLabel jLabel1;
@@ -665,7 +735,6 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtCidadeColaborador;
     private javax.swing.JTextField txtComplementoColaborador;
     private javax.swing.JFormattedTextField txtCpfColaborador;
-    private javax.swing.JTextField txtDeptoColaborador;
     private javax.swing.JFormattedTextField txtDtNasc;
     private javax.swing.JTextField txtEmailColaborador;
     private javax.swing.JTextField txtIdColaborador;
