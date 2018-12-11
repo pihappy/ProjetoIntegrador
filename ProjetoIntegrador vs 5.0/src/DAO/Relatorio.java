@@ -6,7 +6,6 @@
 package DAO;
 
 
-import Model.Relatorio;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author milena.sgalvao
  */
-public class RelatorioDAO {
+public class Relatorio {
     
        
     private static final String DRIVER = "com.mysql.jdbc.Driver";
@@ -27,8 +26,29 @@ public class RelatorioDAO {
     private static final String SENHA = "";
     private static String url = "";
     private static Connection conexao;
+
     
-    public static boolean salvar(Relatorio r) {
+    
+
+
+/*public class gerarRelatorio 
+    try{
+    this.conectar();
+    this.insertSQL("INSERT INTO tbl_relatorio ("
+            + "CodigoProduto,"
+            + "DescricaoProduto"
+            + "QuantidadeProduto"
+            + "ValorUni"
+            + "CategoriaProduto"
+            + "FormPag"
+            + ") VALUES ("
+            +"'" + pRelatorio.get);*/
+           
+    
+                
+
+    
+   public static boolean salvar(Model.Relatorio r){
 
         boolean retorno = false;
 
@@ -36,7 +56,7 @@ public class RelatorioDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("INSERT INTO Relatorio (psqcliente,dtInicio,dtFim,clienteVenda,totalVendas,totalVendasPeriodo) VALUES(?, ?, ?, ?, ?);");
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO tbl_relatorio (psqcliente,dtInicio,dtFim,clienteVenda,totalVendas,totalVendasPeriodo) VALUES(?, ?, ?, ?, ?);");
             comando.setString(1, r.getpsqCliente());
             comando.setInt(2, r.getDtInicio());
             comando.setInt(3, r.getDtFim());
@@ -65,7 +85,7 @@ public class RelatorioDAO {
         return retorno;
     }
 
-    public static boolean atualizar (Relatorio r) {
+    public static boolean atualizar (Model.Relatorio r) {
 
         boolean retorno = false;
 
@@ -73,7 +93,7 @@ public class RelatorioDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("UPDATE relatorio SET (gerarrelatorio = ?,limparrelatorio = ?, cancelarrelatorio " + "WHERE gerarrelatorio = ?;");
+            PreparedStatement comando = conexao.prepareStatement("UPDATE tbl_relatorio SET (gerarrelatorio = ?,limparrelatorio = ?, cancelarrelatorio " + "WHERE gerarrelatorio = ?;");
             comando.setString(1, r.getpsqCliente());
             comando.setInt(2, r.getDtInicio());
             comando.setInt(3, r.getDtFim());
@@ -108,10 +128,10 @@ public class RelatorioDAO {
         //return SimulaDB.getInstance().salvarRelatorio(r);
     }
     
-    public static ArrayList<Relatorio> getRelatorio()
+ /*   public static ArrayList<Model.Relatorio> getRelatorio()
     {
         //Simulo uma consulta no banco de dados (SELECT ID,Nome,CPF FROM TabelaXYZ)
         return SimulaDB.getInstance().getRelatorio();
-    }
+    }*/
     
 }
