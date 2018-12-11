@@ -1,7 +1,9 @@
 package Controller;
 
+
 import DAO.RelatorioDAO;
 import Model.Relatorio;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -15,6 +17,10 @@ public class RelatorioController {
         Relatorio r = new Relatorio(ppsqCliente, pDtInicio, pDtFim, pClienteVenda, pTotalVendas, pTotalVendasPeriodo);
         return RelatorioDAO.salvar(r);
     }
+    
+     public static boolean Pesquisar(int pId, String pNome, String pCPF) throws SQLException {
+        Relatorio r = new Relatorio(ppsqCliente, pDtInicio, pDtFim, pClienteVenda, pTotalVendas, pTotalVendasPeriodo );
+        return RelatorioDAO.Pesquisar(r);
 
     /*public static ArrayList<String[]> getRelatorio() {
          ArrayList<Relatorio> r = RelatorioDAO.getRelatorio();
@@ -33,4 +39,5 @@ public class RelatorioController {
         return relatorioVendas;
 
     }*/
+}
 }

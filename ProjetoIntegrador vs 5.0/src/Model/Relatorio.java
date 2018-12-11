@@ -36,7 +36,7 @@ public class Relatorio {
         return psqcliente;
     }
 
-    public void setbscCliente(String cliente) {
+    public void setpsqCliente(String cliente) {
         this.psqcliente = cliente;
     }
 
