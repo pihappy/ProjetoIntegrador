@@ -22,6 +22,10 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     /**
      * Creates new form AtualizarExcluirProduto
      */
+    public String modoTela; //   "Criar/Editar"
+    public int numero;
+    
+    
     public AtualizarExcluirProduto() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -208,6 +212,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         btnExcluirProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/delete.png"))); // NOI18N
         btnExcluirProduto.setText("Excluir");
         btnExcluirProduto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         btnAtulizarProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnAtulizarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atualizar(3).png"))); // NOI18N
@@ -267,11 +276,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Produto", "Categoria", "Quantidade"
+                "Id", "Produto", "Quantidade", "Valor", "Categoria"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -437,8 +446,8 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
 
             DefaultTableModel tmProdutos = new DefaultTableModel();
             tmProdutos.addColumn("Id");
-            tmProdutos.addColumn("Categoria");
             tmProdutos.addColumn("Produto");
+            tmProdutos.addColumn("Categoria");
             tmProdutos.addColumn("Quantidade");
             tblProdutos.setModel(tmProdutos);
 
@@ -478,6 +487,26 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         }             
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
 
+    private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
+        YesNoOption("Desejar excluir produto?");
+        if (numero == 0) {
+            if (tblProdutos.getRowCount() > 0) {
+                int linhaSelecionada = tblProdutos.getSelectedRow();
+                if (ProdutoController.Excluir(Integer.parseInt(tblProdutos.getValueAt(linhaSelecionada, 0).toString()))) {
+                    this.LoadTable();
+                    JOptionPane.showMessageDialog(this, "Produto excluído!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Falha ao excluir Produto");
+                }
+
+            }
+        }else{
+        JOptionPane.showMessageDialog(this,"Produto não foi excluído");
+        
+        }
+
+    }//GEN-LAST:event_btnExcluirProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -513,6 +542,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         });
     }
 
+    public int YesNoOption(String MensagemExcluir){
+        int numero1 = JOptionPane.showConfirmDialog(null,MensagemExcluir,"Confirmar Exclusão",JOptionPane.YES_NO_OPTION);
+        return numero1;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JcboCategoria;
     private javax.swing.JButton btnAtulizarProduto;

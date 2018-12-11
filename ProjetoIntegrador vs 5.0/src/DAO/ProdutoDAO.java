@@ -105,7 +105,7 @@ public class ProdutoDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("DELETE FROM produtos" + "WHERE = ?");
+            PreparedStatement comando = conexao.prepareStatement("DELETE FROM produtos WHERE codigoProduto = ?");
             comando.setInt(1, codigoProduto);
 
             int linhasAfetadas = comando.executeUpdate();
