@@ -139,10 +139,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
         String usuario = "admin";
         String senha = "admin";
-        if(txtNomeLogin.getText().equalsIgnoreCase(usuario)){
-            if(txtSenhaLogin.getPassword().equals(valueOf(senha))){
-                TelaPrincipal form2 = new TelaPrincipal();  
-                form2.setVisible(true);  
+        
+        if(usuario.equalsIgnoreCase(txtNomeLogin.getText())){
+            if(senha.equals(valueOf(txtSenhaLogin.getPassword()))){
+                TelaPrincipal form2 = new TelaPrincipal();
+                form2.setVisible(true);
                 dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Senha incorreta!");
