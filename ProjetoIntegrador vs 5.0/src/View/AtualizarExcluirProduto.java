@@ -208,6 +208,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         btnExcluirProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/delete.png"))); // NOI18N
         btnExcluirProduto.setText("Excluir");
         btnExcluirProduto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         btnAtulizarProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnAtulizarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atualizar(3).png"))); // NOI18N
@@ -471,6 +476,12 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         }             
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
 
+    private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
+        YesNoOption("Desejar excluir produto?");
+        
+      
+    }//GEN-LAST:event_btnExcluirProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -506,6 +517,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         });
     }
 
+    public int YesNoOption(String MensagemExcluir){
+        int numero = JOptionPane.showConfirmDialog(null,MensagemExcluir,"Confirmar Exclusão",JOptionPane.YES_NO_OPTION);
+        return numero;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JcboCategoria;
     private javax.swing.JButton btnAtulizarProduto;
