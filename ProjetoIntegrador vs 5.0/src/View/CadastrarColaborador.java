@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.ColaboradorController;
+import Model.Colaborador;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,78 +47,96 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtSalarioColaborador.setText("");
     }
 
-    public void ValidarFormulario() {
+    private boolean ValidarFormulario() {
         if (txtNomeColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Nome para o colaborador!");
+            return false;
         }
 
         if (txtCpfColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um CPF para o colaborador!");
+            return false;
         }
 
         if (txtDtNasc.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina uma Data de Nascimento para o colaborador!");
+            return false;
         }
 
         int sexo = 0;
         if (this.cboSexoColaborador.equals(sexo)) {
             JOptionPane.showMessageDialog(null, "Defina um Sexo para o colaborador!");
+            return false;
         }
 
         if (txtCepColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um CEP para o colaborador!");
+            return false;
         }
 
         if (txtRuaColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina uma Rua para o colaborador!");
+            return false;
         }
 
         if (txtNumRuaColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Número de Rua para o colaborador");
+            return false;
         }
 
         if (txtBairroColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Bairro para o colaborador!");
+            return false;
         }
 
         if (txtComplementoColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Complemento para a Rua do colaborador!");
+            return false;
         }
 
         int estado = 0;
         if (this.cboEstadoColaborador.equals(estado)) {
             JOptionPane.showMessageDialog(null, "Defina um Estado para o colaborador!");
+            return false;
         }
 
         if (txtCidadeColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina uma Cidade para o colaborador");
+            return false;
         }
-        
+
         if (txtCelular1Colaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Número de Celular para o colaborador");
+            return false;
         }
-        
+
         if (txtEmailColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um E-mail para o colaborador");
+            return false;
         }
-        
+
         int cargo = 0;
         if (this.cboCargoColaborador.equals(cargo)) {
             JOptionPane.showMessageDialog(null, "Defina umm Cargo para o colaborador");
+            return false;
         }
-        
+
         int depto = 0;
         if (cboDeptoColaborador.equals(depto)) {
             JOptionPane.showMessageDialog(null, "Defina um Departamento para o colaborador");
+            return false;
         }
-        
+
         if (txtAdmissaoColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina uma data de Admissão para o colaborador");
+            return false;
         }
-        
+
         if (txtSalarioColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um Salário para o colaborador");
+            return false;
         }
+        return true;
     }
 
     /**
@@ -614,11 +634,11 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCancelarColaborador)
-                        .addComponent(btnLimparColaborador)))
+                        .addComponent(btnLimparColaborador))
+                    .addComponent(btnSalvarColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -644,7 +664,20 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarColaboradorActionPerformed
-
+/*
+        if (ValidarFormulario()) {
+            if (ColaboradorController.salvar(txtNomeColaborador.getText(), txtCpfColaborador.getText(), txtDtNasc.getText(), cboSexoColaborador.getSelectedItem().toString(), txtCepColaborador.getText(), txtRuaColaborador.getText(), Integer.parseInt(txtNumRuaColaborador.;getText()), txtBairroColaborador.getText(), txtComplementoColaborador.getText(), cboEstadoColaborador.getSelectedItem().toString(), txtCidadeColaborador.getText(), txtCelular1Colaborador.getText(), txtCelular2Colaborador.getText(), txtTelefoneColaborador.getText(), txtRecadoColaborador.getText(), txtEmailColaborador.getText(), cboCargoColaborador.getSelectedItem().toString(), cboDeptoColaborador.getSelectedItem().toString(), txtAdmissaoColaborador.getText(), txtSalarioColaborador.getText())){
+            JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
+                JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
+                AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();
+                form2.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null,"Falha ao cadastrar colaboprador!");
+                LimparFormulario();
+            }
+        } // párei aqui
+  */  
     }//GEN-LAST:event_btnSalvarColaboradorActionPerformed
 
     private void btnCancelarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarColaboradorActionPerformed

@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
+
+import Controller.ColaboradorController;
+import Model.Colaborador;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,7 +18,34 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     public AtualizarExcluirColaborador() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
+    
+    public void LoadTable(){
+        
+        //Peço ao controller resgatar os clientes do banco de dados
+        ArrayList<String[]> linhasClientes = ColaboradorController.getColaboradores();
+        
+        DefaultTableModel tmColaborador = new DefaultTableModel();
+        tmColaborador.addColumn("ID");
+        tmColaborador.addColumn("Nome");
+        tmColaborador.addColumn("CPF");
+        tblColaborador.setModel(tmColaborador);
+        
+        for(String[] c:linhasClientes)
+        {
+            tmColaborador.addRow(c);
+        }
+        
+        tblColaborador.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblColaborador.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tblColaborador.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tblColaborador.getColumnModel().getColumn(3).setPreferredWidth(50);
+    }
+   /* 
+    public void limparFormulario(){
+        txtNomeColaborador.setText("");
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +72,7 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblColaborador = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jmCadastrarCliente = new javax.swing.JMenuItem();
@@ -58,15 +86,15 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Colaborador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel1.setText("CPF:");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel2.setText("Nome:");
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar(2).png"))); // NOI18N
@@ -79,8 +107,10 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         jButton6.setText("Limpar");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Administração", "Operacional" }));
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel3.setText("Departamento:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -198,9 +228,9 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton3, jButton4});
 
-        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblColaborador.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        tblColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tblColaborador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -209,14 +239,14 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblColaborador);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -390,12 +420,12 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JMenuItem jmCadastrarCliente;
     private javax.swing.JMenuItem jmCadastroProduto;
     private javax.swing.JMenuItem jmPesqCliente;
     private javax.swing.JMenuItem jmPesqProduto;
+    private javax.swing.JTable tblColaborador;
     // End of variables declaration//GEN-END:variables
 }
