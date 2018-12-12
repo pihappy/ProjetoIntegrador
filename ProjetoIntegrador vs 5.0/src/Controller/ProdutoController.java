@@ -27,7 +27,7 @@ public class ProdutoController {
         return ProdutoDAO.excluir(codigoProduto);
     }
 
-    public static ArrayList<String[]> Pesquisar(int pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
+    public static ArrayList<String[]> Pesquisar(String pcodigoProduto, String pdescricaoProduto, String pcategoriaProduto) throws SQLException {
         
         Produto p  = new Produto();
         p.setCodigoProduto(pcodigoProduto);

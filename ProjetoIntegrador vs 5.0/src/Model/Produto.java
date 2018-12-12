@@ -6,7 +6,7 @@ package Model;
  */
 public class Produto {
 
-    private int codigoProduto;
+    private String codigoProduto;
     private String descricaoProduto;
     private int quantidadeProduto;
     private double valorUni;
@@ -16,7 +16,7 @@ public class Produto {
 
     }
 
-    public Produto(int codigoProduto, String descricaoProduto, int quantidadeProduto,
+    public Produto(String codigoProduto, String descricaoProduto, int quantidadeProduto,
             double valorUni, String categoriaProduto) {
         this.codigoProduto = codigoProduto;
         this.descricaoProduto = descricaoProduto;
@@ -25,7 +25,7 @@ public class Produto {
         this.categoriaProduto = categoriaProduto;
     }
 
-    public Produto(int codigoProduto, String descricaoProduto, String categoriaProduto) {
+    public Produto(String codigoProduto, String descricaoProduto, String categoriaProduto) {
         this.codigoProduto = codigoProduto;
         this.descricaoProduto = descricaoProduto;
         this.categoriaProduto = categoriaProduto;
@@ -40,7 +40,7 @@ public class Produto {
 
     }
 
-    public int getCodigoProduto() {
+    public String getCodigoProduto() {
         return codigoProduto;
     }
 
@@ -60,7 +60,7 @@ public class Produto {
         return categoriaProduto;
     }
 
-    public void setCodigoProduto(int codigoProduto) {
+    public void setCodigoProduto(String codigoProduto) {
         this.codigoProduto = codigoProduto;
     }
 
