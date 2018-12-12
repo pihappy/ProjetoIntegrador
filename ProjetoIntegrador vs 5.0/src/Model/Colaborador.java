@@ -13,7 +13,7 @@ public class Colaborador {
 
     private int id;
     private String nome;
-    private int cpf;
+    private String cpf;
     private String dtnasc;
     private String sexo;
     private int cep;
@@ -37,7 +37,7 @@ public class Colaborador {
         //Construtor Vazio
     }
 
-    public Colaborador(String nome, int cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
+    public Colaborador(String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
         //Construtor sem Id
         this.nome = nome;
         this.cpf = cpf;
@@ -60,7 +60,7 @@ public class Colaborador {
         this.admissao = admissao;
         this.salario = salario;
     }
-    public Colaborador(int id, String nome, int cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
+    public Colaborador(int id, String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
         //Construtor com Id
         this.id = id;
         this.nome = nome;
@@ -99,10 +99,10 @@ public class Colaborador {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

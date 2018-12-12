@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ColaboradorController {
 
-    public static boolean salvar(String pNome, int pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, float pSalario) {
+    public static boolean salvar(String pNome, String pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, float pSalario) {
         //Salvo na memória
         Colaborador c = new Colaborador(pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
         return ColaboradorDAO.salvarColaborador(c);
@@ -25,7 +25,7 @@ public class ColaboradorController {
         return ColaboradorDAO.ExcluirColaborador(pID);
     }
 
-    public static boolean atualizar(int pId, String pNome, int pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, float pSalario) {
+    public static boolean atualizar(int pId, String pNome, String pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, float pSalario) {
 
         Colaborador c = new Colaborador(pId, pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
 

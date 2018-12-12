@@ -26,10 +26,10 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     public void LimparFormulario() {
         txtIdColaborador.setText("");
         txtNomeColaborador.setText("");
-        txtCpfColaborador.setText("");
+        txtCPFColaborador.setText("");
         txtDtNasc.setText("");
         cboSexoColaborador.setSelectedIndex(0);
-        txtCepColaborador.setText("");
+        txtCEPColaborador.setText("");
         txtRuaColaborador.setText("");
         txtNumRuaColaborador.setText("");
         txtBairroColaborador.setText("");
@@ -53,7 +53,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
             return false;
         }
 
-        if (txtCpfColaborador.getText().equalsIgnoreCase("")) {
+        if (txtCPFColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um CPF para o colaborador!");
             return false;
         }
@@ -69,7 +69,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
             return false;
         }
 
-        if (txtCepColaborador.getText().equalsIgnoreCase("")) {
+        if (txtCEPColaborador.getText().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Defina um CEP para o colaborador!");
             return false;
         }
@@ -155,7 +155,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         txtNomeColaborador = new javax.swing.JTextField();
         cboSexoColaborador = new javax.swing.JComboBox<>();
-        txtCpfColaborador = new javax.swing.JFormattedTextField();
+        txtCPFColaborador = new javax.swing.JFormattedTextField();
         jLabel22 = new javax.swing.JLabel();
         txtDtNasc = new javax.swing.JFormattedTextField();
         lblIdCliente = new javax.swing.JLabel();
@@ -173,7 +173,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         txtComplementoColaborador = new javax.swing.JTextField();
-        txtCepColaborador = new javax.swing.JFormattedTextField();
+        txtCEPColaborador = new javax.swing.JFormattedTextField();
         cboEstadoColaborador = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
@@ -220,15 +220,15 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         cboSexoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Masculino", "Feminino" }));
 
         try {
-            txtCpfColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCPFColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpfColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCpfColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        txtCpfColaborador.addActionListener(new java.awt.event.ActionListener() {
+        txtCPFColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCPFColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtCPFColaborador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfColaboradorActionPerformed(evt);
+                txtCPFColaboradorActionPerformed(evt);
             }
         });
 
@@ -261,7 +261,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(txtCpfColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCPFColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,7 +291,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel20)
-                        .addComponent(txtCpfColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCPFColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel22)
                         .addComponent(txtDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,12 +334,12 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtComplementoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         try {
-            txtCepColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtCEPColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCepColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCepColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtCEPColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCEPColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         cboEstadoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cboEstadoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -364,7 +364,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCepColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCEPColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboEstadoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(txtBairroColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,7 +386,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(txtCepColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCEPColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
@@ -521,6 +521,11 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         btnLimparColaborador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/limpar(1).png"))); // NOI18N
         btnLimparColaborador.setText("Limpar");
         btnLimparColaborador.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnLimparColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparColaboradorActionPerformed(evt);
+            }
+        });
 
         btnCancelarColaborador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnCancelarColaborador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/sair.png"))); // NOI18N
@@ -664,20 +669,40 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarColaboradorActionPerformed
-/*
+
         if (ValidarFormulario()) {
-            if (ColaboradorController.salvar(txtNomeColaborador.getText(), txtCpfColaborador.getText(), txtDtNasc.getText(), cboSexoColaborador.getSelectedItem().toString(), txtCepColaborador.getText(), txtRuaColaborador.getText(), Integer.parseInt(txtNumRuaColaborador.;getText()), txtBairroColaborador.getText(), txtComplementoColaborador.getText(), cboEstadoColaborador.getSelectedItem().toString(), txtCidadeColaborador.getText(), txtCelular1Colaborador.getText(), txtCelular2Colaborador.getText(), txtTelefoneColaborador.getText(), txtRecadoColaborador.getText(), txtEmailColaborador.getText(), cboCargoColaborador.getSelectedItem().toString(), cboDeptoColaborador.getSelectedItem().toString(), txtAdmissaoColaborador.getText(), txtSalarioColaborador.getText())){
-            JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
+            if (ColaboradorController.salvar(txtNomeColaborador.getText(),
+                    txtCPFColaborador.getText(),
+                    txtDtNasc.getText(),
+                    cboSexoColaborador.getSelectedItem().toString(),
+                    Integer.parseInt(txtCEPColaborador.getText()),
+                    txtRuaColaborador.getText(),
+                    Integer.parseInt(txtNumRuaColaborador.getText()),
+                    txtBairroColaborador.getText(),
+                    txtComplementoColaborador.getText(),
+                    cboEstadoColaborador.getSelectedItem().toString(),
+                    txtCidadeColaborador.getText(),
+                    Integer.parseInt(txtCelular1Colaborador.getText()),
+                    Integer.parseInt(txtCelular2Colaborador.getText()),
+                    Integer.parseInt(txtTelefoneColaborador.getText()),
+                    Integer.parseInt(txtRecadoColaborador.getText()),
+                    txtEmailColaborador.getText(),
+                    cboCargoColaborador.getSelectedItem().toString(),
+                    cboDeptoColaborador.getSelectedItem().toString(),
+                    txtAdmissaoColaborador.getText(),
+                    Integer.parseInt(txtSalarioColaborador.getText()))) {
+
+                JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
                 JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
                 AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();
                 form2.setVisible(true);
                 dispose();
-            }else{
-                JOptionPane.showMessageDialog(null,"Falha ao cadastrar colaboprador!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Falha ao cadastrar colaborador!");
                 LimparFormulario();
             }
-        } // párei aqui
-  */  
+        }
+
     }//GEN-LAST:event_btnSalvarColaboradorActionPerformed
 
     private void btnCancelarColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarColaboradorActionPerformed
@@ -686,9 +711,15 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarColaboradorActionPerformed
 
-    private void txtCpfColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfColaboradorActionPerformed
+    private void txtCPFColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFColaboradorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfColaboradorActionPerformed
+    }//GEN-LAST:event_txtCPFColaboradorActionPerformed
+
+    private void btnLimparColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparColaboradorActionPerformed
+
+        LimparFormulario();
+        
+    }//GEN-LAST:event_btnLimparColaboradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -762,12 +793,12 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdCliente;
     private javax.swing.JFormattedTextField txtAdmissaoColaborador;
     private javax.swing.JTextField txtBairroColaborador;
+    private javax.swing.JFormattedTextField txtCEPColaborador;
+    private javax.swing.JFormattedTextField txtCPFColaborador;
     private javax.swing.JFormattedTextField txtCelular1Colaborador;
     private javax.swing.JFormattedTextField txtCelular2Colaborador;
-    private javax.swing.JFormattedTextField txtCepColaborador;
     private javax.swing.JTextField txtCidadeColaborador;
     private javax.swing.JTextField txtComplementoColaborador;
-    private javax.swing.JFormattedTextField txtCpfColaborador;
     private javax.swing.JFormattedTextField txtDtNasc;
     private javax.swing.JTextField txtEmailColaborador;
     private javax.swing.JTextField txtIdColaborador;
