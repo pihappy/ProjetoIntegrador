@@ -1,16 +1,13 @@
 package View;
 
-<<<<<<< HEAD
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-=======
 import Controller.ColaboradorController;
 import Model.Colaborador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
->>>>>>> FinalColaborador
 
 /**
  *
