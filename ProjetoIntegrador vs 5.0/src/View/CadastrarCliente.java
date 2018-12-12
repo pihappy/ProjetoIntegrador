@@ -45,7 +45,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         txtIdCliente.setEditable(false);
         
-        PreencherFormulario();
     }
     
     public void LimparFormulario()
@@ -67,35 +66,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         txtEmail.setText("");
         txtRecado.setText("");
         txtTelefone.setText("");
-    }
-    
-    public void PreencherFormulario() throws ClassNotFoundException, SQLException{
-        if(txtIdCliente.getText().equals("")){
-            
-        }else{
-            Class.forName(DRIVER);
-            url="jdbc:mysql://localhost:3306/" + "pihappy";
-            conexao = DriverManager.getConnection(url,"root","");
-            Statement comando = conexao.createStatement(); 
-            ResultSet rs = comando.executeQuery("select * from cliente where id = "+txtIdCliente.getText()); 
-            rs.next();
-            txtNomeCliente.setText(rs.getString("nome"));
-            txtCPFCliente.setText(rs.getString("CPF"));
-            txtCEP.setText(rs.getString("CEP"));
-            txtBairro.setText(rs.getString("bairro"));
-            txtRua.setText(rs.getString("rua"));
-            txtNumero.setText(rs.getString("numero"));
-            txtComplemento.setText(rs.getString("complemento"));
-            txtCidade.setText(rs.getString("cidade"));
-            txtDataNascCliente.setText(rs.getString("datanasc"));
-            jcSexo1.setSelectedItem(rs.getString("sexo"));
-            jcEstado.setSelectedItem(rs.getString("estado"));
-            txtCelular1.setText(rs.getString("celular1"));
-            txtCelular2.setText(rs.getString("celular2"));
-            txtEmail.setText(rs.getString("email"));
-            txtRecado.setText(rs.getString("recado"));
-            txtTelefone.setText(rs.getString("telefone"));
-        }
     }
     
     public void HabilitarFormulario()
@@ -240,7 +210,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         btnSalvarCliente = new javax.swing.JButton();
         btnLimparDados = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnSalvarCliente1 = new javax.swing.JButton();
+        btnAtualizarCliente = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -573,13 +543,13 @@ public final class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        btnSalvarCliente1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnSalvarCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
-        btnSalvarCliente1.setText("Atualizar Cadastro");
-        btnSalvarCliente1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnSalvarCliente1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnAtualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
+        btnAtualizarCliente.setText("Atualizar Cadastro");
+        btnAtualizarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarCliente1ActionPerformed(evt);
+                btnAtualizarClienteActionPerformed(evt);
             }
         });
 
@@ -598,13 +568,13 @@ public final class CadastrarCliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLimparDados))
                     .addGroup(pnlGeralCadClienteLayout.createSequentialGroup()
-                        .addComponent(btnSalvarCliente1)
+                        .addComponent(btnAtualizarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelar, btnSalvarCliente1});
+        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtualizarCliente, btnCancelar});
 
         pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLimparDados, btnSalvarCliente});
 
@@ -623,13 +593,13 @@ public final class CadastrarCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
-                    .addComponent(btnSalvarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAtualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLimparDados, btnSalvarCliente});
 
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCancelar, btnSalvarCliente1});
+        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtualizarCliente, btnCancelar});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -655,7 +625,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
+            if(ClienteController.Salvar(Integer.parseInt(txtIdCliente.getText()), txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
             {
                 JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
                 AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
@@ -678,19 +648,22 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void btnSalvarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCliente1ActionPerformed
+    private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
       
-        //Passar a Controller do método Atualizar
-        if(ClienteController.Atualizar(txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
-        {
-            JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
-            AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
-            form2.setVisible(true);  
-            dispose();
-        }else{
+        try {
+            if(ClienteController.Atualizar(Integer.parseInt(txtIdCliente.getText()),txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
+            {
+                JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
+                AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();
+                form2.setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
         }
-    }//GEN-LAST:event_btnSalvarCliente1ActionPerformed
+    }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -736,10 +709,10 @@ public final class CadastrarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contato;
+    private javax.swing.JButton btnAtualizarCliente;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimparDados;
     private javax.swing.JButton btnSalvarCliente;
-    private javax.swing.JButton btnSalvarCliente1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> jcEstado;
     private javax.swing.JComboBox<String> jcSexo1;
@@ -772,16 +745,30 @@ public final class CadastrarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtComplemento;
     private javax.swing.JFormattedTextField txtDataNascCliente;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtIdCliente;
+    public javax.swing.JTextField txtIdCliente;
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JFormattedTextField txtRecado;
     private javax.swing.JTextField txtRua;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-    public void receberValores(int Id, String Nome,String CPF){
+    void receberValores(int Id, String Nome, String CPF, String DataNasc, String Sexo, String CEP, String Rua, int Numero, String Bairro, String Complemento, String Estado, String Cidade, String Celular1, String Celular2, String Telefone, String Recado, String Email) {
         txtIdCliente.setText(String.valueOf(Id));
         txtNomeCliente.setText(String.valueOf(Nome));
         txtCPFCliente.setText(String.valueOf(CPF));
+        txtDataNascCliente.setText(String.valueOf(DataNasc));
+        jcSexo1.setSelectedItem(String.valueOf(Sexo));
+        txtCEP.setText(String.valueOf(CEP));
+        txtRua.setText(String.valueOf(Rua));
+        txtNumero.setText(String.valueOf(Numero));
+        txtBairro.setText(String.valueOf(Bairro));
+        txtComplemento.setText(String.valueOf(Complemento));
+        jcEstado.setSelectedItem(String.valueOf(Estado));
+        txtCidade.setText(String.valueOf(Cidade));
+        txtCelular1.setText(String.valueOf(Celular1));
+        txtCelular2.setText(String.valueOf(Celular2));
+        txtTelefone.setText(String.valueOf(Telefone));
+        txtRecado.setText(String.valueOf(Recado));
+        txtEmail.setText(String.valueOf(Email));
     }
 }

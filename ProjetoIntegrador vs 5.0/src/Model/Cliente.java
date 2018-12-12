@@ -20,7 +20,8 @@ public class Cliente {
     private String sexo;
     private String estado;
 
-    public Cliente(String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
+    public Cliente(int pId, String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
+        this.id = pId;
         this.nome = pNome;
         this.cpf = pCPF;
         this.datanasc = pDataNasc;
