@@ -1,49 +1,44 @@
 package Controller;
 
-
-import DAO.Relatorio;
+import DAO.RelatorioDAO;
+import Model.Relatorio;
 import java.sql.SQLException;
 import java.util.ArrayList;
-//import Model.Relatorio;
+//import Model.RelatorioDAO;
 
 /**
  *
  * @author milena.sgalvao
  */
-/*public class RelatorioController {
+public class RelatorioController {
 
-    private Relatorio Relatorio = new Relatorio();
-    
-    
-    public int salvarRelatorioController(Relatorio) {
-        
-    }
-    
-    
-    
-    
-    public static boolean salvar(String ppsqCliente, int pDtInicio, int pDtFim, String pClienteVenda, int pTotalVendas, int pTotalVendasPeriodo) {
+    private final RelatorioDAO Relatorio = new RelatorioDAO();
 
-        Relatorio r = new Relatorio(ppsqCliente, pDtInicio, pDtFim, pClienteVenda, pTotalVendas, pTotalVendasPeriodo);
-        return Relatorio.salvar(r);
-    }
-    
-    
+   /* public static boolean gerarRelatorio(String ppsqCliente, int pDtInicio, int pDtFim, String pClienteVenda, int pTotalVendas, int pTotalVendasPeriodo) {
+
+        // RelatorioDAO r = new RelatorioDAO(ppsqCliente, pDtInicio,  pDtFim, pClienteVenda,pTotalVendas, pTotalVendasPeriodo);
+        return RelatorioDAO.gerarRelatorio(r);
+    }*/
+
     /*public static ArrayList<String[]> getRelatorio() {
-         ArrayList<Relatorio> r = Relatorio.getRelatorio();
+        //     ArrayList<Relatorio> r = RelatorioDAO.getRelatorio();
         ArrayList<String[]> relatorioVendas = new ArrayList<>();
 
         for (int i = 0; i < r.size(); i++) {
             relatorioVendas.add(new String[]{
-                String.valueOf(r.get(i).getpsqCliente(),
+       String.valueOf(r.get(i).getpsqCliente(),
                 r.get(i).getDtInicio(),
                 r.get(i).getDtFim(),
-                String.valueOf(r.get(i).getClienteVenda(),
+                r.get(i).getClienteVenda(),
                 r.get(i).getTotalVendas(),
-                r.get(i).getTotalVendasPeriodo()                  
-        }
+                r.get(i).getTotalVendasPeriodo())                  
+        };
 
-        return relatorioVendas;
+        return relatorioVendas 
 
-    }*/
+    }
 
+
+    }
+}*/
+}

@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.VendasDAO;
 import Model.Vendas;
+import java.awt.List;
 import java.util.ArrayList;
 
 
@@ -39,4 +40,5 @@ public class VendasController {
         return listaVendas;
         
     }
+
 }
