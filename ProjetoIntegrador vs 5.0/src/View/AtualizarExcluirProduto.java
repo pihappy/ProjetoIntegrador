@@ -52,7 +52,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         tblProdutos.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
         tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(50);
         tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
-        tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(50);
     }
     
     private boolean ValidarFormulario() {
@@ -71,6 +71,12 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         return true;
     }
     
+    public void LimparFormulario()
+    {
+        txtCodigoProduto.setText("");
+        txtProduto.setText("");
+        JcboCategoria.setSelectedIndex(0);
+    }
     
     
     
@@ -132,7 +138,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         jLabel3.setText("Categoria:");
 
         JcboCategoria.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JcboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma categoria", "Artes", "Bonecas", "Bonecos", "Carros", "Colecionáveis", "Eletrônicos", "Esportes", "Pelúcias", "Tabuleiro", " ", " " }));
+        JcboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma categoria", "Artes", "Bonecas", "Bonecos", "Carros", "Colecionáveis", "Eletrônicos", "Esportes", "Pelúcias", "Tabuleiro", "Meninas", "Meninos", " " }));
 
         btnProcurar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar(2).png"))); // NOI18N
@@ -149,6 +155,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         btnLimparProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/limpar(1).png"))); // NOI18N
         btnLimparProduto.setText("Limpar");
         btnLimparProduto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnLimparProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,6 +218,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         btnNovoProduto.setText("Novo Produto");
         btnNovoProduto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNovoProduto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNovoProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoProdutoActionPerformed(evt);
+            }
+        });
 
         btnExcluirProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnExcluirProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/delete.png"))); // NOI18N
@@ -273,7 +289,11 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         tblProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
                 "Id", "Produto", "Quantidade", "Valor", "Categoria"
@@ -421,15 +441,16 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
       String valorProcurarCodigo = "";
       String valorProcurarProduto = "";
       String valorProcurarCategoria = "";
+
       
-        if(!this.txtCodigoProduto.getText().equals(0)){
+      if(!this.txtCodigoProduto.getText().equals("")){
         
             valorProcurarCodigo = txtCodigoProduto.getText();
         }
         if(!this.txtProduto.getText().equals("")){
         
             valorProcurarProduto = txtProduto.getText();
-        }
+        }       
         if(!this.JcboCategoria.getSelectedItem().equals("")){
         
             if(JcboCategoria.getSelectedIndex()>0)
@@ -440,15 +461,14 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         try {
             
             
-            ArrayList<String[]> linhasProdutos = ProdutoController.Pesquisar(Integer.parseInt(valorProcurarCodigo)
-                    , valorProcurarProduto
-                    , valorProcurarCategoria);
+            ArrayList<String[]> linhasProdutos = ProdutoController.Pesquisar(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
 
             DefaultTableModel tmProdutos = new DefaultTableModel();
             tmProdutos.addColumn("Id");
             tmProdutos.addColumn("Produto");
-            tmProdutos.addColumn("Categoria");
             tmProdutos.addColumn("Quantidade");
+            tmProdutos.addColumn("Valor");
+            tmProdutos.addColumn("Categoria");
             tblProdutos.setModel(tmProdutos);
 
             for(String[] c:linhasProdutos)
@@ -459,7 +479,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
             tblProdutos.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
             tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(50);
             tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
-            tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(50);
            
         } catch (SQLException ex) {
             Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
@@ -506,6 +526,16 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
+
+    private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed
+       LimparFormulario();
+    }//GEN-LAST:event_btnLimparProdutoActionPerformed
+
+    private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
+        CadastrarProduto formCadProd = new CadastrarProduto();  
+        formCadProd.setVisible(true);  
+        dispose();
+    }//GEN-LAST:event_btnNovoProdutoActionPerformed
 
     /**
      * @param args the command line arguments
