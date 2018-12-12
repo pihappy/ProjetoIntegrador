@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.ColaboradorDAO;
@@ -38,8 +33,28 @@ public class ColaboradorController {
         ArrayList<String[]> listaColaboradores = new ArrayList<>();
 
         for (int i = 0; i < colaborador.size(); i++) {
-            listaColaboradores.add(new String[]{String.valueOf(colaborador.get(i).getId()), colaborador.get(i).getNome(), String.valueOf(colaborador.get(i).getCpf()), String.valueOf(colaborador.get(i).getDtnasc()), String.valueOf(colaborador.get(i).getSexo()), String.valueOf(colaborador.get(i).getCep()), String.valueOf(colaborador.get(i).getRua()), String.valueOf(colaborador.get(i).getNumero()), String.valueOf(colaborador.get(i).getBairro()), String.valueOf(colaborador.get(i).getComplemento()), String.valueOf(colaborador.get(i).getEstado()), String.valueOf(colaborador.get(i).getCidade()), String.valueOf(colaborador.get(i).getCelular1()), String.valueOf(colaborador.get(i).getCelular2()), String.valueOf(colaborador.get(i).getTelefone()), String.valueOf(colaborador.get(i).getRecado()), String.valueOf(colaborador.get(i).getEmail()), String.valueOf(colaborador.get(i).getCargo()), String.valueOf(colaborador.get(i).getDepartamento()), String.valueOf(colaborador.get(i).getAdmissao()), String.valueOf(colaborador.get(i).getSalario())});
-           }
+            listaColaboradores.add(new String[]{String.valueOf(colaborador.get(i).getId()),
+                colaborador.get(i).getNome(),
+                (colaborador.get(i).getCpf()),
+                (colaborador.get(i).getDtnasc()),
+                (colaborador.get(i).getSexo()),
+                String.valueOf(colaborador.get(i).getCep()),
+                (colaborador.get(i).getRua()),
+                String.valueOf(colaborador.get(i).getNumero()),
+                (colaborador.get(i).getBairro()),
+                (colaborador.get(i).getComplemento()),
+                (colaborador.get(i).getEstado()),
+                (colaborador.get(i).getCidade()),
+                String.valueOf(colaborador.get(i).getCelular1()),
+                String.valueOf(colaborador.get(i).getCelular2()),
+                String.valueOf(colaborador.get(i).getTelefone()),
+                String.valueOf(colaborador.get(i).getRecado()),
+                (colaborador.get(i).getEmail()),
+                (colaborador.get(i).getCargo()),
+                (colaborador.get(i).getDepartamento()),
+                (colaborador.get(i).getAdmissao()),
+                String.valueOf(colaborador.get(i).getSalario())});
+        }
 
         return listaColaboradores;
 

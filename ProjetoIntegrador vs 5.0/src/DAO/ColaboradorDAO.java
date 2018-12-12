@@ -35,7 +35,7 @@ public class ColaboradorDAO {
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("INSERT INTO colaborador(Nome, CPF, DtNasc, Sexo, Rua, NumRua, Bairro, Complemento, Estado, Cidade, Celular1, Celular2, Telefone, Recado, Email, Cargo, Departamento, Admissao, Salario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, )");;
             comando.setString(1, c.getNome());
-            comando.setInt(2, c.getCpf());
+            comando.setString(2, c.getCpf());
             comando.setString(3, c.getDtnasc());
             comando.setString(4, c.getSexo());
             comando.setString(5, c.getRua());
