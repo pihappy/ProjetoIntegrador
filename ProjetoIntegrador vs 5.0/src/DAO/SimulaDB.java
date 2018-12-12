@@ -24,13 +24,13 @@ public class SimulaDB {
     private final ArrayList<Produto> listaProdutos; // Simulação da tabela de Produtos
     private final ArrayList<Colaborador> listaColaborador; //Simulação da tabela de colaboradores
     private final ArrayList<Vendas>  listaVendas;
-    private final ArrayList<Relatorio> relatorioVendas;
+    private final ArrayList<RelatorioDAO> relatorioVendas;
     private SimulaDB() {
         listaVendas = new ArrayList<Vendas>();
         listaClientes = new ArrayList<Cliente>();
         listaProdutos = new ArrayList<Produto>();
         listaColaborador = new ArrayList<Colaborador>();
-        relatorioVendas = new ArrayList<Relatorio>();
+        relatorioVendas = new ArrayList<RelatorioDAO>();
     }
 
     public static synchronized SimulaDB getInstance() {
@@ -137,14 +137,14 @@ public class SimulaDB {
     }
     
 
-  public boolean salvarRelatorio(Relatorio r)
+  public boolean gerarRelatorio(RelatorioDAO r)
     {
         relatorioVendas.add(r);
         
         return true;
     }
     
-    public ArrayList<Relatorio> getRelatorio()
+    public ArrayList<RelatorioDAO> getRelatorio()
     {
         return this.relatorioVendas;
     }

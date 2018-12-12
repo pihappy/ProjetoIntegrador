@@ -6,6 +6,7 @@
 package DAO;
 
 
+import Model.Relatorio;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author milena.sgalvao
  */
-public class Relatorio {
+public class RelatorioDAO {
     
        
     private static final String DRIVER = "com.mysql.jdbc.Driver";
@@ -48,7 +49,7 @@ public class Relatorio {
                 
 
     
-   public static boolean salvar(Model.Relatorio r){
+   public static boolean gerarRelatorio(Model.Relatorio r){
 
         boolean retorno = false;
 
@@ -93,7 +94,7 @@ public class Relatorio {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("UPDATE tbl_relatorio SET (gerarrelatorio = ?,limparrelatorio = ?, cancelarrelatorio " + "WHERE gerarrelatorio = ?;");
+            PreparedStatement comando = conexao.prepareStatement("UPDATE tbl_relatorio SET (psqcliente,dtInicio,dtFim,clienteVenda,totalVendas,totalVendasPeriodo) VALUES(?, ?, ?, ?, ?);");
             comando.setString(1, r.getpsqCliente());
             comando.setInt(2, r.getDtInicio());
             comando.setInt(3, r.getDtFim());
@@ -123,15 +124,21 @@ public class Relatorio {
         return retorno;
  
 
-   //public static boolean salvar (Relatorio r){
+    }
+}
+   //public static boolean salvar (RelatorioDAO r){
      
         //return SimulaDB.getInstance().salvarRelatorio(r);
-    }
+
+       
     
- /*   public static ArrayList<Model.Relatorio> getRelatorio()
+ /*   public static ArrayList<Model.RelatorioDAO> getRelatorio()
     {
         //Simulo uma consulta no banco de dados (SELECT ID,Nome,CPF FROM TabelaXYZ)
         return SimulaDB.getInstance().getRelatorio();
     }*/
+
+
     
-}
+    
+
