@@ -305,25 +305,58 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-        
-        if(ValidarFormulario())
-        {
-            //Passar a Controller do método Salvar
-            if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
-                    txtDescricaoProduto.getText()
-                    , Integer.parseInt(txtQuantidade.getText())
-                    , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
-                    ,cboCategoriaProduto.getSelectedItem().toString()))
+        if(txtCodigoCadProduto.getText().equals("")){
+            if(ValidarFormulario())
             {
-                JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
-                AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
-                form2.setVisible(true);  
-       dispose();
-            }else{
-                JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto!");
-                LimparFormulario();
+                //Passar a Controller do método Salvar
+                if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
+                        txtDescricaoProduto.getText()
+                        , Integer.parseInt(txtQuantidade.getText())
+                        , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
+                        ,cboCategoriaProduto.getSelectedItem().toString()))
+                {
+                    JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
+                    AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+                    form2.setVisible(true);  
+           dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Falha ao cadastrar produto!");
+                    LimparFormulario();
+                }
             }
         }
+        
+        else if(!txtCodigoCadProduto.getText().equals("")){
+            if(ProdutoController.Atualizar(txtDescricaoProduto.getText()
+                    , Integer.parseInt(txtQuantidade.getText())
+                    , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
+                    , cboCategoriaProduto.getSelectedItem().toString()))
+        {
+            JOptionPane.showMessageDialog(this,"Produto atualizado com sucesso!");
+            AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+            form2.setVisible(true);  
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this,"Falha ao atualizar produto!");
+        } 
+        }
+       //Passa a Controller do método
+        /*if(ProdutoController.Atualizar(txtDescricaoProduto.getText()
+                    , Integer.parseInt(txtQuantidade.getText())
+                    , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
+                    ,cboCategoriaProduto.getSelectedItem().toString()))))
+        {
+            JOptionPane.showMessageDialog(this,"Produto atualizado com sucesso!");
+            AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+            form2.setVisible(true);  
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(this,"Falha ao atualizar produto!");
+        }
+    }*/    
+        
+        
+        
     }//GEN-LAST:event_btnSalvarProdutoActionPerformed
 
     private void txtValorUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorUnitarioActionPerformed
@@ -398,4 +431,14 @@ public class CadastrarProduto extends javax.swing.JFrame {
     private javax.swing.JTextField txtQuantidade;
     private javax.swing.JFormattedTextField txtValorUnitario;
     // End of variables declaration//GEN-END:variables
+
+ public void receberValores(String codigo, String descricao,String quantidade,String valor){
+        txtCodigoCadProduto.setText(String.valueOf(codigo));
+        txtDescricaoProduto.setText(String.valueOf(descricao));
+        txtQuantidade.setText(String.valueOf(quantidade));
+        txtValorUnitario.setText(String.valueOf(valor));
+    }
+
+
+
 }

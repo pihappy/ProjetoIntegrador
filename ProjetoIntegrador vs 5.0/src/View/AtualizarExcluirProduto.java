@@ -24,6 +24,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
      */
     public String modoTela; //   "Criar/Editar"
     public int numero;
+    CadastrarProduto enviaTexto;
     
     
     public AtualizarExcluirProduto() {
@@ -488,13 +489,27 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnAtulizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtulizarProdutoActionPerformed
-         if(tblProdutos.getRowCount()>0)
+        int linha = this.tblProdutos.getSelectedRow();
+       
+        
+        if(tblProdutos.getRowCount()>0)
         {
             if(tblProdutos.getSelectedRow()>=0)
             {
-                CadastrarProduto form2 = new CadastrarProduto();  
-                form2.setVisible(true);  
-                dispose();      
+                if(enviaTexto == null){
+                    try {
+                        enviaTexto = new CadastrarProduto();
+                    } catch (Exception e) {
+                    }
+                    enviaTexto.setVisible(true);
+                    enviaTexto.receberValores(tblProdutos.getValueAt(linha,0).toString(),
+                    tblProdutos.getValueAt(linha,1).toString(),
+                    tblProdutos.getValueAt(linha,2).toString(),
+                    tblProdutos.getValueAt(linha,3).toString());
+                
+                
+                }
+                dispose();
             }
             else
             {
