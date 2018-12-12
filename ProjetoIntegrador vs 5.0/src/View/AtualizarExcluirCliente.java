@@ -46,6 +46,20 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         tmClientes.addColumn("ID");
         tmClientes.addColumn("Nome");
         tmClientes.addColumn("CPF");
+        tmClientes.addColumn("DataNasc");
+        tmClientes.addColumn("Sexo");
+        tmClientes.addColumn("CEP");
+        tmClientes.addColumn("Rua");
+        tmClientes.addColumn("Numero");
+        tmClientes.addColumn("Bairro");
+        tmClientes.addColumn("Complemento");
+        tmClientes.addColumn("Estado");
+        tmClientes.addColumn("Cidade");
+        tmClientes.addColumn("Celular1");
+        tmClientes.addColumn("Celular2");
+        tmClientes.addColumn("Telefone");
+        tmClientes.addColumn("Recado");
+        tmClientes.addColumn("Email");
         tblClientes.setModel(tmClientes);
         
         for(String[] c:linhasClientes)
@@ -53,9 +67,23 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
             tmClientes.addRow(c);
         }
         
-        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+        tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); 
         tblClientes.getColumnModel().getColumn(1).setPreferredWidth(50);
         tblClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tblClientes.getColumnModel().getColumn(3).setPreferredWidth(0); 
+        tblClientes.getColumnModel().getColumn(4).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(5).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(6).setPreferredWidth(0); 
+        tblClientes.getColumnModel().getColumn(7).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(8).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(9).setPreferredWidth(0); 
+        tblClientes.getColumnModel().getColumn(10).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(11).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(12).setPreferredWidth(0); 
+        tblClientes.getColumnModel().getColumn(13).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(14).setPreferredWidth(0);
+        tblClientes.getColumnModel().getColumn(15).setPreferredWidth(0); 
+        tblClientes.getColumnModel().getColumn(16).setPreferredWidth(0);
     }
     
     public void LimparFormulario()
@@ -301,18 +329,18 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
 
         pnlFunçõesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtualizarCliente, btnExcluirCliente});
 
-        tblClientes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        tblClientes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         tblClientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "Nome", "CPF"
+                "Id", "Nome", "CPF", "DataNasc", "Sexo", "CEP", "Rua", "Numero", "Bairro", "Complemento", "Estado", "Cidade", "Celular1", "Celular2", "Telefone", "Recado", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -320,6 +348,36 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(3).setResizable(false);
+            tblClientes.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(4).setResizable(false);
+            tblClientes.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(5).setResizable(false);
+            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(6).setResizable(false);
+            tblClientes.getColumnModel().getColumn(6).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(7).setResizable(false);
+            tblClientes.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(8).setResizable(false);
+            tblClientes.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(9).setResizable(false);
+            tblClientes.getColumnModel().getColumn(9).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(10).setResizable(false);
+            tblClientes.getColumnModel().getColumn(10).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(11).setResizable(false);
+            tblClientes.getColumnModel().getColumn(11).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(12).setResizable(false);
+            tblClientes.getColumnModel().getColumn(12).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(13).setResizable(false);
+            tblClientes.getColumnModel().getColumn(13).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(14).setResizable(false);
+            tblClientes.getColumnModel().getColumn(14).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(15).setResizable(false);
+            tblClientes.getColumnModel().getColumn(15).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(16).setResizable(false);
+            tblClientes.getColumnModel().getColumn(16).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout pnlGeralLayout = new javax.swing.GroupLayout(pnlGeral);
         pnlGeral.setLayout(pnlGeralLayout);
@@ -412,9 +470,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
             CadastrarCliente form2 = null;  
         try {
             form2 = new CadastrarCliente();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
             form2.setVisible(true);  
@@ -437,7 +493,7 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
                         Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     enviaTexto.setVisible(true);
-                    enviaTexto.receberValores(Integer.parseInt(tblClientes.getValueAt(row,0).toString()),tblClientes.getValueAt(row,1).toString(),tblClientes.getValueAt(row,2).toString());
+                    enviaTexto.receberValores(Integer.parseInt(tblClientes.getValueAt(row,0).toString()),tblClientes.getValueAt(row,1).toString(),tblClientes.getValueAt(row,2).toString(),tblClientes.getValueAt(row,3).toString(),tblClientes.getValueAt(row,4).toString(),tblClientes.getValueAt(row,5).toString(),tblClientes.getValueAt(row,6).toString(),Integer.parseInt(tblClientes.getValueAt(row,7).toString()),tblClientes.getValueAt(row,8).toString(),tblClientes.getValueAt(row,9).toString(),tblClientes.getValueAt(row,10).toString(),tblClientes.getValueAt(row,11).toString(),tblClientes.getValueAt(row,12).toString(),tblClientes.getValueAt(row,13).toString(),tblClientes.getValueAt(row,14).toString(),tblClientes.getValueAt(row,15).toString(),tblClientes.getValueAt(row,16).toString());
                     
                 }
                 dispose();

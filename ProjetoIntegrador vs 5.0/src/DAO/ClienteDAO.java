@@ -77,7 +77,7 @@ public class ClienteDAO {
               
     }
     
-    public static boolean Atualizar(Cliente p)
+    public static boolean Atualizar(Cliente p, int pId) throws ClassNotFoundException, SQLException
     {
         //Simulo um  UPDATE no banco de dados (UPDATE TabelaXYZ SET...)
         //return SimulaDB.getInstance().AtualizarCliente(p);
@@ -91,26 +91,14 @@ public class ClienteDAO {
             Class.forName(DRIVER);
             url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
-            Statement comando = conexao.createStatement();
-            int linhasAfetadas = comando.executeUpdate("UPDATE cliente SET " + 
-                    " nome =" + "'" + p.getNome() + "'" + "," +
-                    " CPF =" + "'" + p.getCPF()+ "'"  + "," + 
-                    " datanasc =" + "'" + p.getDataNasc() + "'" + "," +
-                    " sexo =" + "'" + p.getSexo()+ "'"  + "," +
-                    " CEP =" + "'" + p.getCEP() + "'" + "," +
-                    " rua =" + "'" + p.getRua()+ "'"  + "," +
-                    " numero =" + "'" + p.getNumero()+ "'" + "," +
-                    " bairro =" + "'" + p.getBairro()+ "'"  + "," +
-                    " complemento =" + "'" + p.getComplemento() + "'" + "," +
-                    " estado =" + "'" + p.getEstado()+ "'" + "," +
-                    " cidade =" + "'" + p.getCidade()+ "'"  + "," +
-                    " celular1 =" + "'" + p.getCelular1()+ "'"  + "," +
-                    " celular2 =" + "'" + p.getCelular2()+ "'" + "," +
-                    " telefone =" + "'" + p.getTelefone()+ "'"  + "," +
-                    " recado =" + "'" + p.getRecado() + "'" + "," +
-                    " email =" + "'" + p.getEmail()+ "'"  + "," +
-                    " WHERE id =" + p.getId() + ";"
-                    );
+            Statement pst = conexao.createStatement();
+            int linhasAfetadas = pst.executeUpdate("UPDATE cliente SET " + 
+                " nome = '" + p.getNome() + "', CPF = '" + p.getCPF() + "', datanasc = '" + p.getDataNasc() + "', sexo = '" + p.getSexo() + "'"+
+                ", CEP = '" + p.getCEP() + "', rua = '" + p.getRua() + "', numero = " + p.getNumero() + ", bairro = '" + p.getBairro() + "'," +
+                " complemento = '" + p.getComplemento() + "', estado = '" + p.getEstado() + "', cidade = '" + p.getCidade() + "', celular1 = '" + p.getCelular1() + "'"+
+                ", celular2 = '" + p.getCelular2() + "', telefone = '" + p.getTelefone() + "', recado = '" + p.getRecado() + "', email = '" + p.getEmail() + "'" +
+                "where id = " + pId + ";"
+                );
             
             if(linhasAfetadas>0)
             {
@@ -118,7 +106,7 @@ public class ClienteDAO {
             }
             else{
                 retorno = false;
-            }
+            }    
             
         } catch (ClassNotFoundException | SQLException ex) {
             retorno = false;

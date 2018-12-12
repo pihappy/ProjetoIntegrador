@@ -72,7 +72,7 @@ public class ProdutoDAO {
             comando.setInt(2, p.getQuantidadeProduto());
             comando.setDouble(3, p.getValorUni());
             comando.setString(4, p.getCategoriaProduto());
-            comando.setInt(5, p.getCodigoProduto());
+            comando.setString(5, p.getCodigoProduto());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -141,7 +141,7 @@ public class ProdutoDAO {
             url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("SELECT * FROM produtos WHERE codigoProduto = ? OR descricaoProduto = ? OR categoriaProduto = ?;");
-            comando.setInt(1, p.getCodigoProduto() );
+            comando.setString(1, p.getCodigoProduto() );
             comando.setString(2, p.getDescricaoProduto() );
             comando.setString(3, p.getCategoriaProduto() );
 
@@ -149,7 +149,7 @@ public class ProdutoDAO {
             
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setCodigoProduto(rs.getInt("codigoProduto"));
+                produto.setCodigoProduto(rs.getString("codigoProduto"));
                 produto.setDescricaoProduto(rs.getString("descricaoProduto"));
                 produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
                 produto.setValorUni(rs.getDouble("valorUni"));
@@ -183,7 +183,7 @@ public class ProdutoDAO {
             ResultSet rs = comando.executeQuery("SELECT * FROM produtos;");
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setCodigoProduto(rs.getInt("codigoProduto"));
+                produto.setCodigoProduto(rs.getString("codigoProduto"));
                 produto.setDescricaoProduto(rs.getString("descricaoProduto"));
                 produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
                 produto.setValorUni(rs.getDouble("valorUni"));
