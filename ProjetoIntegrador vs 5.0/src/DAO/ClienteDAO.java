@@ -14,7 +14,7 @@ public class ClienteDAO {
    
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String SERVIDOR = "localhost";
-    private static final String BASEDADOS = "projeto";
+    private static final String BASEDADOS = "pihappy";
     private static final String LOGIN = "root";
     private static final String SENHA = "";
     private static String url = "";
@@ -28,7 +28,7 @@ public class ClienteDAO {
             //Simulo uma inserção no banco de dados (INSERT INTO...)
             //return SimulaDB.getInstance().SalvarCliente(p);
             Class.forName(DRIVER);
-            url="jdbc:mysql://localhost:3306/" + "projeto";
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement();
             int linhasAfetadas = comando.executeUpdate("INSERT INTO cliente (nome,CPF,datanasc,"+
@@ -89,7 +89,7 @@ public class ClienteDAO {
             //Simulo uma inserção no banco de dados (INSERT INTO...)
             //return SimulaDB.getInstance().SalvarCliente(p);
             Class.forName(DRIVER);
-            url="jdbc:mysql://localhost:3306/" + "projeto";
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement();
             int linhasAfetadas = comando.executeUpdate("UPDATE cliente SET " + 
@@ -147,7 +147,7 @@ public class ClienteDAO {
             //Simulo uma inserção no banco de dados (INSERT INTO...)
             //return SimulaDB.getInstance().SalvarCliente(p);
             Class.forName(DRIVER);
-            url="jdbc:mysql://localhost:3306/" + "projeto";
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement();
             int linhasAfetadas = comando.executeUpdate("DELETE FROM cliente " + 
@@ -185,7 +185,7 @@ public class ClienteDAO {
         try {
 
             Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306/" + "projeto";
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("SELECT * FROM cliente WHERE id = ? OR nome = ? OR CPF = ?;");
             comando.setString(1, p.getId() + "%");
@@ -219,7 +219,7 @@ public class ClienteDAO {
         try {
             //return SimulaDB.getInstance().getClientes();
             Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306/" + "projeto";
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery("SELECT * FROM cliente;");

@@ -32,7 +32,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
      */
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String SERVIDOR = "localhost";
-    private static final String BASEDADOS = "projeto";
+    private static final String BASEDADOS = "pihappy";
     private static final String LOGIN = "root";
     private static final String SENHA = "";
     private static String url = "";
@@ -74,7 +74,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
             
         }else{
             Class.forName(DRIVER);
-            url="jdbc:mysql://localhost:3306/" + "projeto";
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
             Statement comando = conexao.createStatement(); 
             ResultSet rs = comando.executeQuery("select * from cliente where id = "+txtIdCliente.getText()); 
