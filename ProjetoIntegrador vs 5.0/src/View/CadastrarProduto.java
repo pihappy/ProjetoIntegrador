@@ -14,8 +14,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
     /**
      * Creates new form cadastrarProduto
      */
+    String statusBotao;
+    
+    
     public CadastrarProduto() {
         initComponents();
+        
         
         this.setLocationRelativeTo(null);
         DesabilitarFormulario();
@@ -116,6 +120,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         txtDescricaoProduto = new javax.swing.JTextField();
         txtValorUnitario = new javax.swing.JFormattedTextField();
         btnCancelarProduto1 = new javax.swing.JButton();
+        btnAlterardoCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Produto");
@@ -246,6 +251,15 @@ public class CadastrarProduto extends javax.swing.JFrame {
             }
         });
 
+        btnAlterardoCadastro.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnAlterardoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/atualizar(3).png"))); // NOI18N
+        btnAlterardoCadastro.setText("Alterar");
+        btnAlterardoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterardoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlCadastrarProdutoLayout = new javax.swing.GroupLayout(pnlCadastrarProduto);
         pnlCadastrarProduto.setLayout(pnlCadastrarProdutoLayout);
         pnlCadastrarProdutoLayout.setHorizontalGroup(
@@ -257,6 +271,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
                     .addGroup(pnlCadastrarProdutoLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(btnSalvarProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterardoCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLimparProduto)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,6 +280,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                         .addGap(14, 14, 14)))
                 .addContainerGap())
         );
+
+        pnlCadastrarProdutoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterardoCadastro, btnSalvarProduto});
+
         pnlCadastrarProdutoLayout.setVerticalGroup(
             pnlCadastrarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCadastrarProdutoLayout.createSequentialGroup()
@@ -271,13 +290,17 @@ public class CadastrarProduto extends javax.swing.JFrame {
                 .addComponent(pnlCadastrarPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCadastrarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLimparProduto)
-                    .addComponent(btnSalvarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelarProduto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCancelarProduto1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlCadastrarProdutoLayout.createSequentialGroup()
+                        .addGroup(pnlCadastrarProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAlterardoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnLimparProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSalvarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        pnlCadastrarProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLimparProduto, btnSalvarProduto});
+        pnlCadastrarProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAlterardoCadastro, btnLimparProduto, btnSalvarProduto});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,7 +327,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescricaoProdutoActionPerformed
 
     private void btnSalvarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarProdutoActionPerformed
-       // if(txtCodigoCadProduto.getText().equals("")){
+          if(txtCodigoCadProduto.getText().equals("")){
             if(ValidarFormulario()){
                 if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
                         txtDescricaoProduto.getText()
@@ -322,9 +345,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
                     LimparFormulario();
                 }
             }
-       // }
+       }
         
-        /*else if(!txtCodigoCadProduto.getText().equals("")){
+      /* else if(!txtCodigoCadProduto.getText().equals("")){
             if(ProdutoController.Atualizar(txtDescricaoProduto.getText()
                     , Integer.parseInt(txtQuantidade.getText())
                     , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
@@ -350,8 +373,8 @@ public class CadastrarProduto extends javax.swing.JFrame {
             dispose();
         }else{
             JOptionPane.showMessageDialog(this,"Falha ao atualizar produto!");
-        }
-    }*/    
+        }*/
+      
         
         
         
@@ -375,6 +398,10 @@ public class CadastrarProduto extends javax.swing.JFrame {
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnCancelarProduto1ActionPerformed
+
+    private void btnAlterardoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterardoCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterardoCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,6 +440,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterardoCadastro;
     private javax.swing.JButton btnCancelarProduto1;
     private javax.swing.JButton btnLimparProduto;
     private javax.swing.JButton btnSalvarProduto;
@@ -431,11 +459,13 @@ public class CadastrarProduto extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
   
     
- public void receberValores(String codigo, String descricao,String quantidade,String valor){
+ public void receberValores(String codigo, String descricao,String quantidade,String valor, String categoria){
         txtCodigoCadProduto.setText(String.valueOf(codigo));
         txtDescricaoProduto.setText(String.valueOf(descricao));
         txtQuantidade.setText(String.valueOf(quantidade));
         txtValorUnitario.setText(String.valueOf(valor));
+        cboCategoriaProduto.getSelectedItem().toString();
+       
     }
 
 
