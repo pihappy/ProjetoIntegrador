@@ -38,21 +38,22 @@ public class ColaboradorDAO {
             comando.setString(2, c.getCpf());
             comando.setString(3, c.getDtnasc());
             comando.setString(4, c.getSexo());
-            comando.setString(5, c.getRua());
-            comando.setInt(6, c.getNumero());
-            comando.setString(7, c.getBairro());
-            comando.setString(8, c.getComplemento());
-            comando.setString(9, c.getEstado());
-            comando.setString(10, c.getCidade());
-            comando.setInt(11, c.getCelular1());
-            comando.setInt(12, c.getCelular2());
-            comando.setInt(13, c.getTelefone());
-            comando.setInt(14, c.getRecado());
-            comando.setString(15, c.getEmail());
-            comando.setString(16, c.getCargo());
-            comando.setString(17, c.getDepartamento());
-            comando.setString(18, c.getAdmissao());
-            comando.setDouble(19, c.getSalario());
+            comando.setString(5, c.getCep());
+            comando.setString(6, c.getRua());
+            comando.setInt(7, c.getNumero());
+            comando.setString(8, c.getBairro());
+            comando.setString(9, c.getComplemento());
+            comando.setString(10, c.getEstado());
+            comando.setString(11, c.getCidade());
+            comando.setString(12, c.getCelular1());
+            comando.setString(13, c.getCelular2());
+            comando.setString(14, c.getTelefone());
+            comando.setString(15, c.getRecado());
+            comando.setString(16, c.getEmail());
+            comando.setString(17, c.getCargo());
+            comando.setString(18, c.getDepartamento());
+            comando.setString(19, c.getAdmissao());
+            comando.setDouble(20, c.getSalario());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
