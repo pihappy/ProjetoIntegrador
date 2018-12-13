@@ -9,8 +9,18 @@ import java.util.ArrayList;
  *
  * @author gabriela.vsmarques
  */
+
 public class ProdutoController {
 
+    
+    /**
+     * 
+     * @param pdescricaoProduto
+     * @param pquantidadeProduto
+     * @param pvalorUni
+     * @param pcategoriaProduto
+     * @return 
+     */
     public static boolean Salvar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
 
         Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
@@ -50,8 +60,8 @@ public class ProdutoController {
 
     }
 
-    public static ArrayList<String[]> getProdutos() {
-        ArrayList<Produto> p = ProdutoDAO.getProdutos();
+    public static ArrayList<String[]> getListProdutos() {
+        ArrayList<Produto> p = ProdutoDAO.getListProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();
 
         for (int i = 0; i < p.size(); i++) {

@@ -36,7 +36,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+        ArrayList<String[]> linhasProdutos = ProdutoController.getListProdutos();
         
         DefaultTableModel tmProdutos = new DefaultTableModel();
         tmProdutos.addColumn("Id");
@@ -489,7 +489,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnAtulizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtulizarProdutoActionPerformed
-        int linha = this.tblProdutos.getSelectedRow();
+        /*int linha = this.tblProdutos.getSelectedRow();
        
         
         if(tblProdutos.getRowCount()>0)
@@ -519,7 +519,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this,"Não há produtos para editar!");
-        }             
+        }  */           
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
 
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed

@@ -25,7 +25,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
+        ArrayList<String[]> linhasProdutos = ProdutoController.getListProdutos();
         
         DefaultTableModel tmProdutos = new DefaultTableModel();
         tmProdutos.addColumn("codigoProduto");
