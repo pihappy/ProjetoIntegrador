@@ -489,7 +489,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnAtulizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtulizarProdutoActionPerformed
-        /*int linha = this.tblProdutos.getSelectedRow();
+        int linhaSelecionada = this.tblProdutos.getSelectedRow();
        
         
         if(tblProdutos.getRowCount()>0)
@@ -502,12 +502,10 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
                     } catch (Exception e) {
                     }
                     enviaTexto.setVisible(true);
-                    enviaTexto.receberValores(tblProdutos.getValueAt(linha,0).toString(),
-                    tblProdutos.getValueAt(linha,1).toString(),
-                    tblProdutos.getValueAt(linha,2).toString(),
-                    tblProdutos.getValueAt(linha,3).toString());
-                
-                
+                    enviaTexto.receberValores(tblProdutos.getValueAt(linhaSelecionada,0).toString(),
+                    tblProdutos.getValueAt(linhaSelecionada,1).toString(),
+                    tblProdutos.getValueAt(linhaSelecionada,2).toString(),
+                    tblProdutos.getValueAt(linhaSelecionada,3).toString());
                 }
                 dispose();
             }
@@ -519,7 +517,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this,"Não há produtos para editar!");
-        }  */           
+        }          
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
 
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
@@ -529,17 +527,14 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
                 int linhaSelecionada = tblProdutos.getSelectedRow();
                 if (ProdutoController.Excluir(Integer.parseInt(tblProdutos.getValueAt(linhaSelecionada, 0).toString()))) {
                     this.LoadTable();
-                    JOptionPane.showMessageDialog(this, "Produto excluído!");
+                    JOptionPane.showMessageDialog(this, "Produto excluído!","EXCLUSÃO",JOptionPane.WARNING_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(this, "Falha ao excluir Produto");
+                    JOptionPane.showMessageDialog(this,  "Falha ao excluir Produto","ERRO",JOptionPane.ERROR_MESSAGE);
                 }
-
             }
-        }else{
-        JOptionPane.showMessageDialog(this,"Produto não foi excluído");
-        
+        } else {
+            JOptionPane.showMessageDialog(this, "Produto não foi excluído");
         }
-
     }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     private void btnLimparProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparProdutoActionPerformed

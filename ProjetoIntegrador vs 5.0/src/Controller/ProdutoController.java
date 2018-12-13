@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public class ProdutoController {
 
     
+    private ProdutoDAO pProdutoDAO = new ProdutoDAO(); 
+    
     /**
      * 
      * @param pdescricaoProduto
@@ -60,6 +62,15 @@ public class ProdutoController {
 
     }
 
+    
+    public Produto retornaProdutoController(int pcodigoProduto){
+        //return this.ProdutoDAO.retornaProdutoCod(pcodigoProduto);
+        return ProdutoDAO.retornaProdutoCod(pcodigoProduto);
+    
+    
+    }
+    
+    
     public static ArrayList<String[]> getListProdutos() {
         ArrayList<Produto> p = ProdutoDAO.getListProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();

@@ -187,7 +187,7 @@ public class ProdutoDAO {
     }
 
    
-    public Produto retornaProdutoCod(int pcodigoProduto){
+    public static Produto retornaProdutoCod(int pcodigoProduto){
       Produto pProduto = new Produto();
         try {
             Class.forName(DRIVER);
