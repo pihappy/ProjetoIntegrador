@@ -23,7 +23,13 @@ public class ProdutoDAO {
     private static String url = "";
     private static Connection conexao;
 
-    public static boolean salvar(Produto p) {
+    
+    /**
+     * Metodo salvar que recebe como parametro um objeto produto da model e a partir disso salva no dados no banco.
+     * @param pProduto
+     * @return boolean
+     */
+    public static boolean salvar(Produto pProduto) {
 
         boolean retorno = false;
 
@@ -32,10 +38,10 @@ public class ProdutoDAO {
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("INSERT INTO produtos(descricaoProduto,quantidadeProduto,valorUni,categoriaProduto)VALUES(?, ?, ?, ?);");
-            comando.setString(1, p.getDescricaoProduto());
-            comando.setInt(2, p.getQuantidadeProduto());
-            comando.setDouble(3, p.getValorUni());
-            comando.setString(4, p.getCategoriaProduto());
+            comando.setString(1, pProduto.getDescricaoProduto());
+            comando.setInt(2, pProduto.getQuantidadeProduto());
+            comando.setDouble(3, pProduto.getValorUni());
+            comando.setString(4, pProduto.getCategoriaProduto());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -45,7 +51,7 @@ public class ProdutoDAO {
             }
 
         } catch (ClassNotFoundException ex) {
-            retorno = true;
+            retorno = false;
         } catch (SQLException ex) {
             retorno = false;
         } finally {
@@ -59,7 +65,12 @@ public class ProdutoDAO {
         return retorno;
     }
 
-    public static boolean atualizar(Produto p) {
+    /**
+     * Metodo atualizar que recebe como parametro um objeto produto da model e a partir disso salva no dados no banco.
+     * @param pProduto
+     * @return boolean
+     */
+    public static boolean atualizar(Produto pProduto) {
 
         boolean retorno = false;
 
@@ -68,11 +79,11 @@ public class ProdutoDAO {
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("UPDATE produtos SET (descricaoProduto = ?, quantidadeProduto = ?, valorUni = ?, categoriaProduto = ?) " + "WHERE codigoProduto = ?;");
-            comando.setString(1, p.getDescricaoProduto());
-            comando.setInt(2, p.getQuantidadeProduto());
-            comando.setDouble(3, p.getValorUni());
-            comando.setString(4, p.getCategoriaProduto());
-            comando.setString(5, p.getCodigoProduto());
+            comando.setString(1, pProduto.getDescricaoProduto());
+            comando.setInt(2, pProduto.getQuantidadeProduto());
+            comando.setDouble(3, pProduto.getValorUni());
+            comando.setString(4, pProduto.getCategoriaProduto());
+            comando.setString(5, pProduto.getCodigoProduto());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -97,24 +108,25 @@ public class ProdutoDAO {
 
     }
 
-    public static boolean excluir(int codigoProduto) {
-
+    /**
+     * Metodo excluir que recebe como parametro o codigo do produto da model e a partir disso excluir no dados no banco. 
+     * @param pcodigoProduto
+     * @return boolean
+     */
+    public static boolean excluir(int pcodigoProduto) {
         boolean retorno = false;
-
         try {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("DELETE FROM produtos WHERE codigoProduto = ?");
-            comando.setInt(1, codigoProduto);
-
+            comando.setInt(1, pcodigoProduto);
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
                 retorno = true;
             } else {
                 retorno = false;
             }
-
         } catch (ClassNotFoundException ex) {
             retorno = true;
         } catch (SQLException ex) {
@@ -126,11 +138,14 @@ public class ProdutoDAO {
                 retorno = false;
             }
         }
-
         return retorno;
-
     }
 
+    /**
+     * @param p
+     * @return Lista de produtos por campos especificos que o usuário pode escolher por qual pesquisar e retornar para a View AtualizarExcluirProduto.
+     * @throws SQLException 
+     */
     public static ArrayList<Produto> pesquisar(Produto p) throws SQLException {
 
         ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
@@ -171,7 +186,36 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
-    public static ArrayList<Produto> getProdutos() {
+   
+    public static Produto retornaProdutoCod(int pcodigoProduto){
+      Produto pProduto = new Produto();
+        try {
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
+            conexao = DriverManager.getConnection(url, "root", "");
+            Statement comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery("SELECT codigoProduto, descricaoProduto, quantidadeProduto, valorUni, categoriaProduto FROM produtos WHERE codigoProduto = '"+pcodigoProduto+"';");
+            while(rs.next()){
+            pProduto.setCodigoProduto(rs.getString(1));
+            pProduto.setDescricaoProduto(rs.getString(2));
+            pProduto.setQuantidadeProduto(rs.getInt(3));
+            pProduto.setValorUni(rs.getDouble(4));
+            pProduto.setCategoriaProduto(rs.getString(5));
+            }            
+                    
+        } catch (Exception e) {
+        }finally{
+        try {
+                conexao.close();
+            } catch (SQLException ex) {
+                return pProduto;
+            }
+        
+        }
+    return pProduto;
+    }
+    
+    public static ArrayList<Produto> getListProdutos() {
         ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
         try {

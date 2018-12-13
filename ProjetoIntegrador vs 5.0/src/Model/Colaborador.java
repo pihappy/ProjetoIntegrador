@@ -31,13 +31,13 @@ public class Colaborador {
     private String cargo;
     private String departamento;
     private String admissao;
-    private float salario;
+    private Double salario;
 
     public Colaborador() {
         //Construtor Vazio
     }
 
-    public Colaborador(String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
+    public Colaborador(String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, Double salario) {
         //Construtor sem Id
         this.nome = nome;
         this.cpf = cpf;
@@ -60,7 +60,7 @@ public class Colaborador {
         this.admissao = admissao;
         this.salario = salario;
     }
-    public Colaborador(int id, String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, float salario) {
+    public Colaborador(int id, String nome, String cpf, String dtnasc, String sexo, int cep, String rua, int numero, String bairro, String complemento, String estado, String cidade, int celular1, int celular2, int telefone, int recado, String email, String cargo, String departamento, String admissao, Double salario) {
         //Construtor com Id
         this.id = id;
         this.nome = nome;
@@ -224,10 +224,10 @@ public class Colaborador {
         this.admissao = admissao;
     }
     
-    public float getSalario(){
+    public Double getSalario(){
      return salario;   
     }
-    public void setSalario(float salario){
+    public void setSalario(Double salario){
         this.salario = salario;
     }
 

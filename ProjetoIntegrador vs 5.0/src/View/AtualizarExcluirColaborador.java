@@ -85,44 +85,40 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
         txtIdColaborador.setText("");
         txtNomeColaborador.setText("");
         txtCPFColaborador.setText("");
-        cboDeptoColaborador.setSelectedItem("");
+        cboDeptoColaborador.setSelectedIndex(0);
 
     }
 
     public void DesabilitarFormulario() {
 
         txtIdColaborador.setEditable(false);
-        
+
     }
-    
-     public void HabilitarFormulario()
-    {
+
+    public void HabilitarFormulario() {
         txtNomeColaborador.setEditable(true);
         txtCPFColaborador.setEditable(true);
-        
+
         btnNovoColaborador.setEnabled(true);
         btnCancelar.setEnabled(true);
     }
-     
-      private boolean ValidarFormulario() {
-        
-        if(this.txtNomeColaborador.getText().equalsIgnoreCase(""))
-        {
-            JOptionPane.showMessageDialog(this,"Defina um Nome para o colaborador!");
+
+    private boolean ValidarFormulario() {
+
+        if (this.txtNomeColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Defina um Nome para o colaborador!");
             return false;
         }
-        
-        if(this.txtCPFColaborador.getText().equalsIgnoreCase(""))
-        {
-            JOptionPane.showMessageDialog(this,"Defina um CPF para colaborador!");
+
+        if (this.txtCPFColaborador.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(this, "Defina um CPF para colaborador!");
             return false;
         }
-        
+
         return true;
-        
+
     }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -478,7 +474,7 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_jmPesqProdutoActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        LimparFormulario();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -490,11 +486,13 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcurarActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnNovoColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoColaboradorActionPerformed
-        // TODO add your handling code here:
+        CadastrarColaborador tela1 = new CadastrarColaborador();
+        tela1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnNovoColaboradorActionPerformed
 
     /**
