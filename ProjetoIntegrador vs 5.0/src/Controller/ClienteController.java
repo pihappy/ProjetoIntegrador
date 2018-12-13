@@ -36,6 +36,29 @@ public class ClienteController {
         return ClienteDAO.Pesquisar(p);
 
     }
+    
+        /*public static ArrayList<String[]> pesquisarClienteVendas(int pId, String pNome, String pCPF, String pEmail) throws SQLException {
+        
+            Cliente ClienteVenda = new Cliente();
+            ClienteVenda.setId(pId);
+            ClienteVenda.setNome(pNome);
+            ClienteVenda.setCPF(pCPF);
+            ClienteVenda.setEmail(pEmail);
+            
+        ArrayList<Cliente> retorno = ClienteDAO.pesquisarClienteVendas(ClienteVenda);
+        
+        ArrayList<String[]> linhasClientesVendas = new ArrayList<>();
+        
+        for (int i = 0; i < retorno.size(); i++) {
+            linhasClientesVendas.add(new String[]{String.valueOf(retorno.get(i).getId()),
+                retorno.get(i).getCPF(),
+                retorno.get(i).getNome(),
+                retorno.get(i).getEmail()});
+        }
+        return linhasClientesVendas;
+
+    }*/
+    
     /**
      * Transformo uma lista de objetos Cliente em uma lista de Strings
      * @return lista de string

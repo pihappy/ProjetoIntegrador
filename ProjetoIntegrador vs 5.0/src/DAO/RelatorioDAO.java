@@ -85,8 +85,11 @@ public class RelatorioDAO {
 
         return retorno;
     }
-
-    public static boolean atualizar (Model.Relatorio r) {
+ // public static boolean Pesquisar(int ppsqCliente, int pDtInicio, int pDtFim, String pclienteVendas, int ptotalVendas, int ptotalVendasPeriodo) throws SQLException {
+   //     Relatorio r = new Relatorio(ppsqCliente, pDtInicio, pDtFim, pclienteVenda, ptotalVendas,p totalVendasPeriodo );
+     //   return RelatorioDAO.Pesquisar(r);
+  
+public static boolean atualizar (Model.Relatorio r) {
 
         boolean retorno = false;
 
@@ -125,6 +128,8 @@ public class RelatorioDAO {
  
 
     }
+
+    
 }
    //public static boolean salvar (RelatorioDAO r){
      

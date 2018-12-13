@@ -40,6 +40,13 @@ public class Cliente {
         this.email = pEmail;
     }
 
+    public Cliente(int pId, String pNome, String pCPF, String pEmail) {
+        this.id = pId;
+        this.nome = pNome;
+        this.cpf = pCPF;
+        this.email = pEmail;
+    }
+
     public String getCPF() {
         return cpf;
     }

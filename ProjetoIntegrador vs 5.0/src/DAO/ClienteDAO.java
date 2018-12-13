@@ -200,6 +200,59 @@ public class ClienteDAO {
         return retorno;
     }
     
+     /*public static ArrayList<Cliente> pesquisarClienteVendas(Cliente ClienteVenda) throws SQLException {
+
+        ArrayList<Cliente> listaProdutos = new ArrayList<Cliente>();
+
+        try {
+
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
+            conexao = DriverManager.getConnection(url, "root", "");
+            PreparedStatement comando = conexao.prepareStatement("SELECT id, CPF, nome,email  FROM clientes WHERE id = ? OR CPF = ?;");
+            comando.setInt(1, ClienteVenda.getId());
+            comando.setString(2, ClienteVenda.getCPF());
+
+            ResultSet rs = comando.executeQuery();
+            
+            while (rs.next()) {
+                Cliente ClienteVenda = new Cliente();
+                ClienteVenda.setCodigoProduto(rs.getString("codigoProduto"));
+                ClienteVenda.setDescricaoProduto(rs.getString("descricaoProduto"));
+                produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
+                produto.setValorUni(rs.getDouble("valorUni"));
+                produto.setCategoriaProduto(rs.getString("categoriaProduto"));
+                listaProdutos.add(produto);
+            }
+            
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            listaProdutos = null;
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaProdutos = null;
+            }
+        }
+
+        return listaProdutos;
+    }
+    
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static ArrayList<Cliente> getClientes()
     {
         ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
