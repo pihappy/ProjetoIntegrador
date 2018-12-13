@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class ColaboradorController {
 
-    public static boolean salvar(String pNome, String pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
+    public static boolean salvar(String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
         //Salvo na memória
         Colaborador c = new Colaborador(pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
         return ColaboradorDAO.salvarColaborador(c);
@@ -20,7 +20,7 @@ public class ColaboradorController {
         return ColaboradorDAO.ExcluirColaborador(pID);
     }
 
-    public static boolean atualizar(int pId, String pNome, String pCPF, String pDtnasc, String pSexo, int pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, int pCelular1, int pCelular2, int pTelefone, int pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
+    public static boolean atualizar(int pId, String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
 
         Colaborador c = new Colaborador(pId, pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
 
@@ -38,17 +38,17 @@ public class ColaboradorController {
                 (colaborador.get(i).getCpf()),
                 (colaborador.get(i).getDtnasc()),
                 (colaborador.get(i).getSexo()),
-                String.valueOf(colaborador.get(i).getCep()),
+                (colaborador.get(i).getCep()),
                 (colaborador.get(i).getRua()),
                 String.valueOf(colaborador.get(i).getNumero()),
                 (colaborador.get(i).getBairro()),
                 (colaborador.get(i).getComplemento()),
                 (colaborador.get(i).getEstado()),
                 (colaborador.get(i).getCidade()),
-                String.valueOf(colaborador.get(i).getCelular1()),
-                String.valueOf(colaborador.get(i).getCelular2()),
-                String.valueOf(colaborador.get(i).getTelefone()),
-                String.valueOf(colaborador.get(i).getRecado()),
+                (colaborador.get(i).getCelular1()),
+                (colaborador.get(i).getCelular2()),
+                (colaborador.get(i).getTelefone()),
+                (colaborador.get(i).getRecado()),
                 (colaborador.get(i).getEmail()),
                 (colaborador.get(i).getCargo()),
                 (colaborador.get(i).getDepartamento()),

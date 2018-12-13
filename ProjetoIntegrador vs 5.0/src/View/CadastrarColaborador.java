@@ -160,8 +160,20 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         lblIdCliente = new javax.swing.JLabel();
         txtIdColaborador = new javax.swing.JTextField();
-        txtCPFColaborador = new javax.swing.JTextField();
-        txtDtNasc = new javax.swing.JTextField();
+        txtDtNasc = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter dtNasc= new javax.swing.text.MaskFormatter("##/##/####");
+            txtDtNasc = new javax.swing.JFormattedTextField(dtNasc);
+        }
+        catch (Exception e){
+        }
+        txtCPFColaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter CPF= new javax.swing.text.MaskFormatter("###.###.###-##");
+            txtCPFColaborador  = new javax.swing.JFormattedTextField(CPF);
+        }
+        catch (Exception e){
+        }
         jPanel7 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -176,7 +188,13 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         txtComplementoColaborador = new javax.swing.JTextField();
         cboEstadoColaborador = new javax.swing.JComboBox<>();
-        txtCEPColaborador = new javax.swing.JTextField();
+        txtCEPColaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter cep = new javax.swing.text.MaskFormatter("#####-###");
+            txtCEPColaborador  = new javax.swing.JFormattedTextField(cep);
+        }
+        catch (Exception e){
+        }
         jPanel8 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -184,10 +202,34 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         txtEmailColaborador = new javax.swing.JTextField();
-        txtCelular1Colaborador = new javax.swing.JTextField();
-        txtTelefoneColaborador = new javax.swing.JTextField();
-        txtCelular2Colaborador = new javax.swing.JTextField();
-        txtRecadoColaborador = new javax.swing.JTextField();
+        txtCelular1Colaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter celular1= new javax.swing.text.MaskFormatter("#######-####");
+            txtCelular1Colaborador  = new javax.swing.JFormattedTextField(celular1);
+        }
+        catch (Exception e){
+        }
+        txtTelefoneColaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter telefone= new javax.swing.text.MaskFormatter("######-####");
+            txtTelefoneColaborador  = new javax.swing.JFormattedTextField(telefone);
+        }
+        catch (Exception e){
+        }
+        txtCelular2Colaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter celular2= new javax.swing.text.MaskFormatter("#######-####");
+            txtCelular2Colaborador  = new javax.swing.JFormattedTextField(celular2);
+        }
+        catch (Exception e){
+        }
+        txtRecadoColaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter recado= new javax.swing.text.MaskFormatter("######-####");
+            txtRecadoColaborador  = new javax.swing.JFormattedTextField(recado);
+        }
+        catch (Exception e){
+        }
         btnSalvarColaborador = new javax.swing.JButton();
         btnLimparColaborador = new javax.swing.JButton();
         btnCancelarColaborador = new javax.swing.JButton();
@@ -199,7 +241,13 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtSalarioColaborador = new javax.swing.JFormattedTextField();
         cboCargoColaborador = new javax.swing.JComboBox<>();
         cboDeptoColaborador = new javax.swing.JComboBox<>();
-        txtAdmissaoColaborador = new javax.swing.JTextField();
+        txtAdmissaoColaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter admissao= new javax.swing.text.MaskFormatter("##/##/####");
+            txtAdmissaoColaborador  = new javax.swing.JFormattedTextField(admissao);
+        }
+        catch (Exception e){
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastrar Colaborador");
@@ -229,9 +277,9 @@ public class CadastrarColaborador extends javax.swing.JFrame {
 
         txtIdColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        txtCPFColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-
         txtDtNasc.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
+        txtCPFColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -246,8 +294,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(txtCPFColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtCPFColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,7 +330,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                         .addComponent(jLabel21)
                         .addComponent(cboSexoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(9, 9, 9))
+                .addGap(6, 6, 6))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
@@ -356,7 +404,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                                 .addComponent(jLabel25)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNumRuaColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtCEPColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtCEPColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7))
         );
         jPanel7Layout.setVerticalGroup(
@@ -532,7 +580,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cboCargoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -591,7 +639,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnCancelarColaborador)
@@ -628,17 +676,17 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                         txtCPFColaborador.getText(),
                         txtDtNasc.getText(),
                         cboSexoColaborador.getSelectedItem().toString(),
-                        Integer.parseInt(txtCEPColaborador.getText()),
+                        txtCEPColaborador.getText(),
                         txtRuaColaborador.getText(),
                         Integer.parseInt(txtNumRuaColaborador.getText()),
                         txtBairroColaborador.getText(),
                         txtComplementoColaborador.getText(),
                         cboEstadoColaborador.getSelectedItem().toString(),
                         txtCidadeColaborador.getText(),
-                        Integer.parseInt(txtCelular1Colaborador.getText()),
-                        Integer.parseInt(txtCelular2Colaborador.getText()),
-                        Integer.parseInt(txtTelefoneColaborador.getText()),
-                        Integer.parseInt(txtRecadoColaborador.getText()),
+                        txtCelular1Colaborador.getText(),
+                        txtCelular2Colaborador.getText(),
+                        txtTelefoneColaborador.getText(),
+                        txtRecadoColaborador.getText(),
                         txtEmailColaborador.getText(),
                         cboCargoColaborador.getSelectedItem().toString(),
                         cboDeptoColaborador.getSelectedItem().toString(),
@@ -742,22 +790,22 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JLabel lblIdCliente;
-    private javax.swing.JTextField txtAdmissaoColaborador;
+    private javax.swing.JFormattedTextField txtAdmissaoColaborador;
     private javax.swing.JTextField txtBairroColaborador;
-    private javax.swing.JTextField txtCEPColaborador;
-    private javax.swing.JTextField txtCPFColaborador;
-    private javax.swing.JTextField txtCelular1Colaborador;
-    private javax.swing.JTextField txtCelular2Colaborador;
+    private javax.swing.JFormattedTextField txtCEPColaborador;
+    private javax.swing.JFormattedTextField txtCPFColaborador;
+    private javax.swing.JFormattedTextField txtCelular1Colaborador;
+    private javax.swing.JFormattedTextField txtCelular2Colaborador;
     private javax.swing.JTextField txtCidadeColaborador;
     private javax.swing.JTextField txtComplementoColaborador;
-    private javax.swing.JTextField txtDtNasc;
+    private javax.swing.JFormattedTextField txtDtNasc;
     private javax.swing.JTextField txtEmailColaborador;
     private javax.swing.JTextField txtIdColaborador;
     private javax.swing.JTextField txtNomeColaborador;
     private javax.swing.JTextField txtNumRuaColaborador;
-    private javax.swing.JTextField txtRecadoColaborador;
+    private javax.swing.JFormattedTextField txtRecadoColaborador;
     private javax.swing.JTextField txtRuaColaborador;
     private javax.swing.JFormattedTextField txtSalarioColaborador;
-    private javax.swing.JTextField txtTelefoneColaborador;
+    private javax.swing.JFormattedTextField txtTelefoneColaborador;
     // End of variables declaration//GEN-END:variables
 }
