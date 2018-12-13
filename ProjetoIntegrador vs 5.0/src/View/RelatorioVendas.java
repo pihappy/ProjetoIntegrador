@@ -303,7 +303,9 @@ public class RelatorioVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-
+txtCliente.setText("");
+jTextField1.setText("");
+jTextField2.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
