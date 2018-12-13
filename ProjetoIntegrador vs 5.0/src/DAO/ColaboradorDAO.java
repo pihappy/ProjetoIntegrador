@@ -20,7 +20,7 @@ public class ColaboradorDAO {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String SERVIDOR = "localhost";
-    private static final String BASEADOS = "pihappyColaborador";
+    private static final String BASEADOS = "pihappycolaborador";
     private static final String LOGIN = "root";
     private static final String SENHA = "adminadmin";
     private static String url = "";

@@ -184,10 +184,16 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         txtEmailColaborador = new javax.swing.JTextField();
-        txtCelular1Colaborador = new javax.swing.JTextField();
         txtTelefoneColaborador = new javax.swing.JTextField();
         txtCelular2Colaborador = new javax.swing.JTextField();
         txtRecadoColaborador = new javax.swing.JTextField();
+        txtCelular1Colaborador = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter celular1= new javax.swing.text.MaskFormatter("#######-####");
+            txtCelular1Colaborador  = new javax.swing.JFormattedTextField(celular1);
+        }
+        catch (Exception e){
+        }
         btnSalvarColaborador = new javax.swing.JButton();
         btnLimparColaborador = new javax.swing.JButton();
         btnCancelarColaborador = new javax.swing.JButton();
@@ -407,13 +413,14 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtEmailColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         txtEmailColaborador.setToolTipText("");
 
-        txtCelular1Colaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-
         txtTelefoneColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         txtCelular2Colaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         txtRecadoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
+        txtCelular1Colaborador.setFocusable(false);
+        txtCelular1Colaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -429,8 +436,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCelular1Colaborador, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(txtTelefoneColaborador))
+                            .addComponent(txtTelefoneColaborador, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(txtCelular1Colaborador))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
@@ -451,8 +458,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jLabel31)
-                    .addComponent(txtCelular1Colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCelular2Colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCelular2Colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCelular1Colaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
@@ -746,7 +753,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtBairroColaborador;
     private javax.swing.JTextField txtCEPColaborador;
     private javax.swing.JTextField txtCPFColaborador;
-    private javax.swing.JTextField txtCelular1Colaborador;
+    private javax.swing.JFormattedTextField txtCelular1Colaborador;
     private javax.swing.JTextField txtCelular2Colaborador;
     private javax.swing.JTextField txtCidadeColaborador;
     private javax.swing.JTextField txtComplementoColaborador;
