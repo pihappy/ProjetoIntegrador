@@ -25,6 +25,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     public String modoTela; //   "Criar/Editar"
     public int numero;
     CadastrarProduto enviaTexto;
+    String statusBotao;
     
     
     public AtualizarExcluirProduto() {
@@ -489,9 +490,10 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnAtulizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtulizarProdutoActionPerformed
+        statusBotao = "Atualizar";
         int linhaSelecionada = this.tblProdutos.getSelectedRow();
-       
-        
+        String codigoProduto = (String) this.tblProdutos.getValueAt(linhaSelecionada,0);
+
         if(tblProdutos.getRowCount()>0)
         {
             if(tblProdutos.getSelectedRow()>=0)
@@ -505,7 +507,9 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
                     enviaTexto.receberValores(tblProdutos.getValueAt(linhaSelecionada,0).toString(),
                     tblProdutos.getValueAt(linhaSelecionada,1).toString(),
                     tblProdutos.getValueAt(linhaSelecionada,2).toString(),
-                    tblProdutos.getValueAt(linhaSelecionada,3).toString());
+                    tblProdutos.getValueAt(linhaSelecionada,3).toString(),
+                    tblProdutos.getValueAt(linhaSelecionada,4).toString());
+                    
                 }
                 dispose();
             }
@@ -520,6 +524,21 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         }          
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
 
+    
+    /*if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
+                        txtDescricaoProduto.getText()
+                        , Integer.parseInt(txtQuantidade.getText())
+                        , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
+                        ,cboCategoriaProduto.getSelectedItem().toString()))
+                {
+                    
+                    JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
+                    AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
+                    form2.setVisible(true);  
+           dispose();
+                }*/
+    
+    
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
         YesNoOption("Desejar excluir produto?");
         if (numero == 0) {
