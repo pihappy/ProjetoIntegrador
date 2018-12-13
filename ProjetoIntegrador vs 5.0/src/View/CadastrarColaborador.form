@@ -797,7 +797,7 @@
             <Component class="javax.swing.JFormattedTextField" name="txtSalarioColaborador">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="0" type="4"/>
+                  <Format format="&#xa4;#,##0.00" subtype="-1" type="4"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="12" style="0"/>

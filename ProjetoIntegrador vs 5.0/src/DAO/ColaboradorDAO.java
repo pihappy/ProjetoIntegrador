@@ -52,7 +52,7 @@ public class ColaboradorDAO {
             comando.setString(16, c.getCargo());
             comando.setString(17, c.getDepartamento());
             comando.setString(18, c.getAdmissao());
-            comando.setFloat(19, c.getSalario());
+            comando.setDouble(19, c.getSalario());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {

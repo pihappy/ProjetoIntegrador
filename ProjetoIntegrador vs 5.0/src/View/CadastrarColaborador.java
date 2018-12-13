@@ -559,7 +559,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         txtAdmissaoColaborador.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtAdmissaoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
-        txtSalarioColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtSalarioColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
         txtSalarioColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
 
         cboCargoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
@@ -691,7 +691,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                     cboCargoColaborador.getSelectedItem().toString(),
                     cboDeptoColaborador.getSelectedItem().toString(),
                     txtAdmissaoColaborador.getText(),
-                    Integer.parseInt(txtSalarioColaborador.getText()))) {
+                    Double.parseDouble(txtSalarioColaborador.getText().replace(",", ".")))) {
 
                 JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
                 JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");

@@ -494,7 +494,7 @@ public class AtualizarExcluirColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnNovoColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoColaboradorActionPerformed
-        // TODO add your handling code here:
+      CadastrarColaborador tela1 = CadastrarColaborador();
     }//GEN-LAST:event_btnNovoColaboradorActionPerformed
 
     /**
