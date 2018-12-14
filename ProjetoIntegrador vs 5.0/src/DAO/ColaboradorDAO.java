@@ -9,7 +9,9 @@ import Model.Colaborador;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -54,7 +56,7 @@ public class ColaboradorDAO {
             comando.setString(17, c.getCargo());
             comando.setString(18, c.getDepartamento());
             comando.setString(19, c.getAdmissao());
-            comando.setDouble(20, c.getSalario());
+            comando.setString(20, c.getSalario());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -104,7 +106,7 @@ public class ColaboradorDAO {
             comando.setString(17, c.getCargo());
             comando.setString(18, c.getDepartamento());
             comando.setString(19, c.getAdmissao());
-            comando.setDouble(20, c.getSalario());
+            comando.setString(20, c.getSalario());
 
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
@@ -128,7 +130,7 @@ public class ColaboradorDAO {
     }
 
     public static boolean ExcluirColaborador(int pIdColaborador) {
-        
+
         boolean retorno = false;
 
         try {
@@ -162,7 +164,110 @@ public class ColaboradorDAO {
     }
 
     public static ArrayList<Colaborador> getColaboradores() {
-        
-    }
+        ArrayList<Colaborador> listaColaborador = new ArrayList<Colaborador>();
 
+        try {
+            //return SimulaDB.getInstance().getClientes();
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappyColaborador";
+            conexao = DriverManager.getConnection(url, "root", "");
+            Statement comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery("SELECT * FROM cliente;");
+            while (rs.next()) {
+                Colaborador c = new Colaborador();
+                c.setId(rs.getInt("Id"));
+                c.setNome(rs.getString("Nome"));
+                c.setCpf(rs.getString("CPF"));
+                c.setDtnasc(rs.getString("DtNasc"));
+                c.setSexo(rs.getString("Sexo"));
+                c.setCep(rs.getString("CEP"));
+                c.setRua(rs.getString("Rua"));
+                c.setNumero(rs.getInt("Numero"));
+                c.setBairro(rs.getString("Bairro"));
+                c.setComplemento(rs.getString("Complemento"));
+                c.setEstado(rs.getString("Estado"));
+                c.setCidade(rs.getString("Cidade"));
+                c.setCelular1(rs.getString("Celular1"));
+                c.setCelular2(rs.getString("Celular2"));
+                c.setTelefone(rs.getString("Telefone"));
+                c.setRecado(rs.getString("Recado"));
+                c.setEmail(rs.getString("Email"));
+                c.setCargo(rs.getString("Cargo"));
+                c.setDepartamento(rs.getString("Depto"));
+                c.setAdmissao(rs.getString("Admissao"));
+                c.setSalario(rs.getString("Salario"));
+                listaColaborador.add(c);
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            listaColaborador = null;
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaColaborador = null;
+            }
+        }
+
+        return listaColaborador;
+    }
+    
+    public static ArrayList<Colaborador> Pesquisar(Colaborador p) {
+        ArrayList<Colaborador> listaColaborador = new ArrayList<>();
+
+        try {
+
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappyColaborador";
+            conexao = DriverManager.getConnection(url, "root", "");
+            PreparedStatement comando = conexao.prepareStatement("SELECT * FROM colaborador WHERE id LIKE ? OR nome LIKE ? OR CPF LIKE ?;");
+            comando.setString(1, p.getId() + "%");
+            comando.setString(2, p.getNome() + "%");
+            comando.setString(3, p.getCpf() + "%");
+
+            ResultSet rs = comando.executeQuery();
+            
+            while (rs.next()) {
+                
+                Colaborador c = new Colaborador();
+                c.setId(rs.getInt("Id"));
+                c.setNome(rs.getString("Nome"));
+                c.setCpf(rs.getString("CPF"));
+                c.setDtnasc(rs.getString("DtNasc"));
+                c.setSexo(rs.getString("Sexo"));
+                c.setCep(rs.getString("CEP"));
+                c.setRua(rs.getString("Rua"));
+                c.setNumero(rs.getInt("Numero"));
+                c.setBairro(rs.getString("Bairro"));
+                c.setComplemento(rs.getString("Complemento"));
+                c.setEstado(rs.getString("Estado"));
+                c.setCidade(rs.getString("Cidade"));
+                c.setCelular1(rs.getString("Celular1"));
+                c.setCelular2(rs.getString("Celular2"));
+                c.setTelefone(rs.getString("Telefone"));
+                c.setRecado(rs.getString("Recado"));
+                c.setEmail(rs.getString("Email"));
+                c.setCargo(rs.getString("Cargo"));
+                c.setDepartamento(rs.getString("Depto"));
+                c.setAdmissao(rs.getString("Admissao"));
+                c.setSalario(rs.getString("Salario"));
+                listaColaborador.add(c);
+            }
+            
+        } catch (SQLException ex) {
+            listaColaborador = null;
+        } catch (ClassNotFoundException ex) {
+            listaColaborador = null;
+        }
+            
+        finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaColaborador = null;
+            }
+        }
+
+        return listaColaborador;
+    }
 }
