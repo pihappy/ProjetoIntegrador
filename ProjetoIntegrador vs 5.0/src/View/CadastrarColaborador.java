@@ -238,13 +238,19 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtSalarioColaborador = new javax.swing.JFormattedTextField();
         cboCargoColaborador = new javax.swing.JComboBox<>();
         cboDeptoColaborador = new javax.swing.JComboBox<>();
         txtAdmissaoColaborador = new javax.swing.JFormattedTextField();
         try{ 
             javax.swing.text.MaskFormatter admissao= new javax.swing.text.MaskFormatter("##/##/####");
             txtAdmissaoColaborador  = new javax.swing.JFormattedTextField(admissao);
+        }
+        catch (Exception e){
+        }
+        txtSalarioColaborador = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter salario = new javax.swing.text.MaskFormatter("#,###.##");
+            txtSalarioColaborador  = new javax.swing.JFormattedTextField(salario);
         }
         catch (Exception e){
         }
@@ -557,9 +563,6 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel4.setText("Salário:");
 
-        txtSalarioColaborador.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        txtSalarioColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-
         cboCargoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         cboCargoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Administrador", "Estoquista", "Gerente", "Operador de Caixa" }));
 
@@ -567,6 +570,13 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         cboDeptoColaborador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Administração", "Operacional" }));
 
         txtAdmissaoColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+
+        txtSalarioColaborador.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        txtSalarioColaborador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalarioColaboradorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -586,9 +596,9 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboDeptoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cboDeptoColaborador, 0, 175, Short.MAX_VALUE)
+                    .addComponent(txtSalarioColaborador))
                 .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
@@ -603,9 +613,9 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAdmissaoColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalarioColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -691,7 +701,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                         cboCargoColaborador.getSelectedItem().toString(),
                         cboDeptoColaborador.getSelectedItem().toString(),
                         txtAdmissaoColaborador.getText(),
-                        Double.parseDouble(txtSalarioColaborador.getText().replace(",", ".")))) {
+                        (txtSalarioColaborador.getText()))) {
 
                     JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
                     AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();
@@ -719,6 +729,10 @@ public class CadastrarColaborador extends javax.swing.JFrame {
         LimparFormulario();
 
     }//GEN-LAST:event_btnLimparColaboradorActionPerformed
+
+    private void txtSalarioColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioColaboradorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioColaboradorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -805,7 +819,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumRuaColaborador;
     private javax.swing.JFormattedTextField txtRecadoColaborador;
     private javax.swing.JTextField txtRuaColaborador;
-    private javax.swing.JFormattedTextField txtSalarioColaborador;
+    private javax.swing.JTextField txtSalarioColaborador;
     private javax.swing.JFormattedTextField txtTelefoneColaborador;
     // End of variables declaration//GEN-END:variables
 }
