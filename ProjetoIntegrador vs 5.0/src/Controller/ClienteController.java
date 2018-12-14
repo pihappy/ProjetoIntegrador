@@ -67,13 +67,11 @@ public class ClienteController {
 
     
     
-        /*public static ArrayList<String[]> pesquisarClienteVendas(int pId, String pNome, String pCPF, String pEmail) throws SQLException {
+        public static ArrayList<String[]> pesquisarClienteVendas(String pId, String pNome) throws SQLException {
         
             Cliente ClienteVenda = new Cliente();
             ClienteVenda.setId(pId);
             ClienteVenda.setNome(pNome);
-            ClienteVenda.setCPF(pCPF);
-            ClienteVenda.setEmail(pEmail);
             
         ArrayList<Cliente> retorno = ClienteDAO.pesquisarClienteVendas(ClienteVenda);
         
@@ -87,7 +85,7 @@ public class ClienteController {
         }
         return linhasClientesVendas;
 
-    }*/
+    }
     
     /**
      * Transformo uma lista de objetos Cliente em uma lista de Strings

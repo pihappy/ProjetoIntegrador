@@ -7,21 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-/**
- *
- * @author gabriela.vsmarques
- */
-/*public class VendasController {
+public class VendasController {
     
-   /* public static boolean salvar(int pId, String pNome, String pCPF, int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto, String pformPag)  {
+    public static boolean salvar(int pId, String pNome, String pCPF, int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto, String pformPag)  {
     	 
     	Vendas v =  new Vendas(pId, pNome, pCPF,pcodigoProduto,pdescricaoProduto,pquantidadeProduto,pvalorUni,pcategoriaProduto,pformPag);
         return VendasDAO.salvar(v);
     }
     
-    public static ArrayList<String[]> getVendas()
-    {
-     /*   ArrayList<Vendas> v = VendasDAO.getVendas(v);
+    public static ArrayList<String[]> getVendas(){
+    
+      ArrayList<Vendas> v = VendasDAO.getVendas();
         ArrayList<String[]> listaVendas = new ArrayList<>();
         
         for(int i=0;i<v.size();i++)
@@ -37,10 +33,9 @@ import java.util.ArrayList;
                             String.valueOf(v.get(i).getCategoriaProduto()),
                             v.get(i).getFormPag()});
         }
-        
         return listaVendas;
         
+        }  
     }
-        }
+        
 
-}}*/

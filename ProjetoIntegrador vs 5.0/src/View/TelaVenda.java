@@ -6,6 +6,7 @@
 package View;
 
 import Controller.ClienteController;
+import Controller.ProdutoController;
 import Model.Produto;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,13 +27,7 @@ public class TelaVenda extends javax.swing.JFrame {
     public TelaVenda() {
         initComponents();
     }
-Controller.ClienteController controllerClienteController = new Controller.ClienteController();
-Model.Cliente listaClientes = new Model.Cliente();
-//ArrayList<Cliente> listaCliente = new ArrayList<>;
 
-Controller.ProdutoController controllerProdutos = new Controller.ProdutoController();
-Model.Produto Produtos = new Model.Produto();
-//ArrayList<Model.Produto> listaModelProdutos = new ArrayList<>;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +50,7 @@ Model.Produto Produtos = new Model.Produto();
         txtIdCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblClienteVenda = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -69,13 +64,13 @@ Model.Produto Produtos = new Model.Produto();
         jLabel10 = new javax.swing.JLabel();
         txtCategoria = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
+        txtEstoque = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtQtdVenda = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtValorTotal = new javax.swing.JFormattedTextField();
         jButton8 = new javax.swing.JButton();
@@ -85,7 +80,7 @@ Model.Produto Produtos = new Model.Produto();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProdutosVenda = new javax.swing.JTable();
 
         jTableCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,7 +142,7 @@ Model.Produto Produtos = new Model.Produto();
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setText("ID:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblClienteVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -155,7 +150,7 @@ Model.Produto Produtos = new Model.Produto();
                 "Id", "Cpf", "Cliente", "E-mail"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblClienteVenda);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -248,7 +243,7 @@ Model.Produto Produtos = new Model.Produto();
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Informações Estoque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
-        jTextField7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtEstoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Qtd. Estoque:");
@@ -266,7 +261,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,7 +274,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -290,7 +285,7 @@ Model.Produto Produtos = new Model.Produto();
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Valor Total:");
 
-        jTextField8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtQtdVenda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Qtd. Venda:");
@@ -314,7 +309,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtQtdVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -323,7 +318,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtQtdVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -438,24 +433,24 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap())
         );
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProdutosVenda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tblProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id Cliente", "Cliente", "Id Produto", "Produto", "Quantidade", "Valor"
+                "Id Produto", "Produto", "Quantidade", "Valor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblProdutosVenda);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -547,42 +542,38 @@ Model.Produto Produtos = new Model.Produto();
         
             valorProcurarCPFCliente = txtCPFCliente.getText();
         }
-    /*       
+          
 
-       try {
-            
-            
-            ArrayList<String[]> linhasClientesVendas = ClienteController.pesquisarClienteVendas(valorProcurarCodigoCliente, valorProcurarCPFCliente);
-
-            DefaultTableModel tmClienteVenda = new DefaultTableModel();
-            tmClienteVenda.addColumn("Id");
-            tmClienteVenda.addColumn("Cpf");
-            tmClienteVenda.addColumn("Nome");
-            tmClienteVenda.addColumn("E-mail");
-          //  tblClienteVenda.setModel(tmClienteVenda);
-
-            for(String[] c:linhasClientesVendas)
-            {
-                tmClienteVenda.addRow(c);
-            }
-
-            //tblClienteVenda.getColumnModel().getColumn(0).setPreferredWidth(10); //ID
-            //tblClienteVenda.getColumnModel().getColumn(1).setPreferredWidth(10); //CPF
-            //tblClienteVenda.getColumnModel().getColumn(2).setPreferredWidth(30); //NOME
-            //tblClienteVenda.getColumnModel().getColumn(3).setPreferredWidth(60); //E-MAIL
-           
-        //} catch (SQLException ex) {
-            Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        ArrayList<String[]> linhasClientesVendas;
+        try {
+            linhasClientesVendas = ClienteController.pesquisarClienteVendas(valorProcurarCodigoCliente, valorProcurarCPFCliente);
+              DefaultTableModel tmClienteVenda = new DefaultTableModel();
+        tmClienteVenda.addColumn("Id");
+        tmClienteVenda.addColumn("Cpf");
+        tmClienteVenda.addColumn("Nome");
+        tmClienteVenda.addColumn("E-mail");
+        tblClienteVenda.setModel(tmClienteVenda);
+        for(String[] c:linhasClientesVendas)
+        {
+            tmClienteVenda.addRow(c);
         }
+        tblClienteVenda.getColumnModel().getColumn(0).setPreferredWidth(10); //ID
+        tblClienteVenda.getColumnModel().getColumn(1).setPreferredWidth(10); //CPF
+        tblClienteVenda.getColumnModel().getColumn(2).setPreferredWidth(30); //NOME
+        tblClienteVenda.getColumnModel().getColumn(3).setPreferredWidth(60); //E-MAIL
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaVenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
                
-        /*/
+        
     
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
 
-       // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtValorTotalActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -602,7 +593,7 @@ Model.Produto Produtos = new Model.Produto();
         }           
         
         
-    /*    try {
+        try {
             
             
             ArrayList<String[]> linhasProdutos = ProdutoController.Pesquisar(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
@@ -620,10 +611,10 @@ Model.Produto Produtos = new Model.Produto();
                 tmProdutos.addRow(c);
             }
 
-     //  tblProdutos.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
-    //    tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(50);
-    //      tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
-    //        tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(50);
+      tblProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+      tblProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(50);
+      tblProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(50);
+      tblProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(50);
            
        } catch (SQLException ex) {
             Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
@@ -701,17 +692,17 @@ Model.Produto Produtos = new Model.Produto();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPaneCliente;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableCliente;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTable tblClienteVenda;
+    private javax.swing.JTable tblProdutosVenda;
     private javax.swing.JTextField txtCPFCliente;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtCodigoProduto;
     private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtEstoque;
     private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtQtdVenda;
     private javax.swing.JFormattedTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

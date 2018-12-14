@@ -266,9 +266,9 @@ public class ClienteDAO {
         // Alterar os dados do getConnection() de acordo com a tua implementação
 	
     
-     /*public static ArrayList<Cliente> pesquisarClienteVendas(Cliente ClienteVenda) throws SQLException {
+     public static ArrayList<Cliente> pesquisarClienteVendas(Cliente ClienteVenda) throws SQLException {
 
-        ArrayList<Cliente> listaProdutos = new ArrayList<Cliente>();
+        ArrayList<Cliente> listaVendas = new ArrayList<Cliente>();
 
         try {
 
@@ -276,36 +276,32 @@ public class ClienteDAO {
             url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("SELECT id, CPF, nome,email  FROM clientes WHERE id = ? OR CPF = ?;");
-            comando.setInt(1, ClienteVenda.getId());
+            comando.setString(1, ClienteVenda.getId());
             comando.setString(2, ClienteVenda.getCPF());
 
             ResultSet rs = comando.executeQuery();
             
             while (rs.next()) {
-                Cliente ClienteVenda = new Cliente();
-                ClienteVenda.setCodigoProduto(rs.getString("codigoProduto"));
-                ClienteVenda.setDescricaoProduto(rs.getString("descricaoProduto"));
-                produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
-                produto.setValorUni(rs.getDouble("valorUni"));
-                produto.setCategoriaProduto(rs.getString("categoriaProduto"));
-                listaProdutos.add(produto);
+                Cliente ClientesVenda = new Cliente();
+                ClientesVenda.setId(rs.getString("ID"));
+                ClientesVenda.setNome(rs.getString("Nome"));
+               
+                listaVendas.add(ClienteVenda);
             }
             
 
         } catch (ClassNotFoundException | SQLException ex) {
-            listaProdutos = null;
+            listaVendas = null;
         } finally {
             try {
                 conexao.close();
             } catch (SQLException ex) {
-                listaProdutos = null;
+                listaVendas = null;
             }
         }
 
-        return listaProdutos;
+        return listaVendas;
     }
-    
-    */
         
      
 public static ArrayList<Cliente> getClientes()
