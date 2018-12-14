@@ -3,6 +3,7 @@ package Controller;
 import DAO.VendasDAO;
 import Model.Vendas;
 import java.awt.List;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -10,9 +11,9 @@ import java.util.ArrayList;
  *
  * @author gabriela.vsmarques
  */
-public class VendasController {
+/*public class VendasController {
     
-    public static boolean salvar(int pId, String pNome, String pCPF, int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto, String pformPag) {
+   /* public static boolean salvar(int pId, String pNome, String pCPF, int pcodigoProduto, String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto, String pformPag)  {
     	 
     	Vendas v =  new Vendas(pId, pNome, pCPF,pcodigoProduto,pdescricaoProduto,pquantidadeProduto,pvalorUni,pcategoriaProduto,pformPag);
         return VendasDAO.salvar(v);
@@ -20,7 +21,7 @@ public class VendasController {
     
     public static ArrayList<String[]> getVendas()
     {
-        ArrayList<Vendas> v = VendasDAO.getVendas();
+     /*   ArrayList<Vendas> v = VendasDAO.getVendas(v);
         ArrayList<String[]> listaVendas = new ArrayList<>();
         
         for(int i=0;i<v.size();i++)
@@ -40,5 +41,6 @@ public class VendasController {
         return listaVendas;
         
     }
+        }
 
-}
+}}*/
