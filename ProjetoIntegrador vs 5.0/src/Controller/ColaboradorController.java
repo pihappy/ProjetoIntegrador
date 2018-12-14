@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class ColaboradorController {
 
-    public static boolean salvar(String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
+    public static boolean salvar(String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, String pSalario) {
         //Salvo na memória
         Colaborador c = new Colaborador(pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
         return ColaboradorDAO.salvarColaborador(c);
@@ -20,7 +20,7 @@ public class ColaboradorController {
         return ColaboradorDAO.ExcluirColaborador(pID);
     }
 
-    public static boolean atualizar(int pId, String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, Double pSalario) {
+    public static boolean atualizar(int pId, String pNome, String pCPF, String pDtnasc, String pSexo, String pCep, String pRua, int pNumero, String pBairro, String pComplemento, String pEstado, String pCidade, String pCelular1, String pCelular2, String pTelefone, String pRecado, String pEmail, String pCargo, String pDepartamento, String pAdmissao, String pSalario) {
 
         Colaborador c = new Colaborador(pId, pNome, pCPF, pDtnasc, pSexo, pCep, pRua, pNumero, pBairro, pComplemento, pEstado, pCidade, pCelular1, pCelular2, pTelefone, pRecado, pEmail, pCargo, pDepartamento, pAdmissao, pSalario);
 
@@ -53,7 +53,7 @@ public class ColaboradorController {
                 (colaborador.get(i).getCargo()),
                 (colaborador.get(i).getDepartamento()),
                 (colaborador.get(i).getAdmissao()),
-                String.valueOf(colaborador.get(i).getSalario())});
+                (colaborador.get(i).getSalario())});
         }
 
         return listaColaboradores;

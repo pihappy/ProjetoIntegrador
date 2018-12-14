@@ -5,6 +5,8 @@
  */
 package View;
 
+import Model.Login;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,12 +20,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form telaPrincipal1
      */
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String SERVIDOR = "localhost";
+    private static final String BASEDADOS = "pihappy";
+    private static final String LOGIN = "root";
+    private static final String SENHA = "";
+    private static String url = "";
+    private static Connection conexao;
+    
     public TelaPrincipal() {
         initComponents();
         
         setLocationRelativeTo(null);
+        VerificarTipoUsuario();
     }
-
+    
+    public void VerificarTipoUsuario(){
+        String tipousuario = "";
+        tipousuario = "" ;
+        
+        if(!tipousuario.equals("admin")){
+            btnAlterarSenha.setEnabled(false);
+            btnCadastrarColaborador.setEnabled(false);
+            btnCadastrarSenha.setEnabled(false);
+            btnRelatório.setEnabled(false);
+            btnProcurarColaborador.setEnabled(false);
+            btnEstoque.setEnabled(false);
+        }else{
+            btnAlterarSenha.setEnabled(true);
+            btnCadastrarColaborador.setEnabled(true);
+            btnCadastrarSenha.setEnabled(true);
+            btnRelatório.setEnabled(true);
+            btnProcurarColaborador.setEnabled(true);
+            btnEstoque.setEnabled(true);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

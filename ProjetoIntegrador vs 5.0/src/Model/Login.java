@@ -12,10 +12,12 @@ package Model;
 public class Login {
     private String usuario;
     private String senha;
+    private String tipo;
     
-    public Login(String pUsuario, String pSenha){
+    public Login(String pUsuario, String pSenha, String pTipo){
         this.usuario = pUsuario;
         this.senha = pSenha;
+        this.tipo = pTipo;
     }
 
     public Login() {
@@ -36,5 +38,13 @@ public class Login {
     
     public void setSenha(String pSenha){
         this.senha = pSenha;
+    }
+    
+    public String getTipo(){
+        return tipo;
+    }
+    
+    public void setTipo(String pTipo){
+        this.tipo = pTipo;
     }
 }
