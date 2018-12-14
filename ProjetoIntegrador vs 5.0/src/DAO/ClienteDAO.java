@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClienteDAO {
    
@@ -77,17 +79,12 @@ public class ClienteDAO {
               
     }
     
-    public static boolean Atualizar(Cliente p, int pId) throws ClassNotFoundException, SQLException
+    public static boolean Atualizar(Cliente p, String pId) throws ClassNotFoundException, SQLException
     {
-        //Simulo um  UPDATE no banco de dados (UPDATE TabelaXYZ SET...)
-        //return SimulaDB.getInstance().AtualizarCliente(p);
-        
         boolean retorno = false;
         
         try {
             
-            //Simulo uma inserção no banco de dados (INSERT INTO...)
-            //return SimulaDB.getInstance().SalvarCliente(p);
             Class.forName(DRIVER);
             url="jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url,"root","");
@@ -166,39 +163,108 @@ public class ClienteDAO {
                        
     }
     
-    public static boolean Pesquisar(Cliente p) throws SQLException {
-
-        boolean retorno = false;
+    public static ArrayList<Cliente> Pesquisar(Cliente p) {
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
 
         try {
 
             Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
+            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("SELECT * FROM cliente WHERE id = ? OR nome = ? OR CPF = ?;");
+            PreparedStatement comando = conexao.prepareStatement("SELECT * FROM cliente WHERE id LIKE ? OR nome LIKE ? OR CPF LIKE ?;");
             comando.setString(1, p.getId() + "%");
             comando.setString(2, p.getNome() + "%");
             comando.setString(3, p.getCPF() + "%");
 
-            int linhasAfetadas = comando.executeUpdate();
-            if (linhasAfetadas > 0) {
-                retorno = true;
-            } else {
-                retorno = false;
+            ResultSet rs = comando.executeQuery();
+            
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                c.setId(rs.getString("id"));
+                c.setNome(rs.getString("nome"));
+                c.setCPF(rs.getString("CPF"));
+                c.setDataNasc(rs.getString("datanasc"));
+                c.setSexo(rs.getString("sexo"));
+                c.setCEP(rs.getString("CEP"));
+                c.setRua(rs.getString("rua"));
+                c.setNumero(rs.getInt("numero"));
+                c.setBairro(rs.getString("bairro"));
+                c.setComplemento(rs.getString("complemento"));
+                c.setEstado(rs.getString("estado"));
+                c.setCidade(rs.getString("cidade"));
+                c.setCelular1(rs.getString("celular1"));
+                c.setCelular2(rs.getString("celular2"));
+                c.setTelefone(rs.getString("telefone"));
+                c.setRecado(rs.getString("recado"));
+                c.setEmail(rs.getString("email"));
+                listaClientes.add(c);
             }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            retorno = false;
-        } finally {
+            
+        } catch (SQLException ex) {
+            listaClientes = null;
+        } catch (ClassNotFoundException ex) {
+            listaClientes = null;
+        }
+            
+        finally {
             try {
                 conexao.close();
             } catch (SQLException ex) {
-                retorno = false;
+                listaClientes = null;
             }
         }
 
-        return retorno;
+        return listaClientes;
     }
+        /*ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+        
+        try {
+        //return SimulaDB.getInstance().getClientes();
+        Class.forName(DRIVER);
+        url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
+        conexao = DriverManager.getConnection(url,"root","");
+        Statement comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("SELECT * FROM cliente where id = "+ p.getId() +" OR nome = "+ p.getNome() +" OR CPF = "+ p.getCPF()+";");
+        while(rs.next())
+        {
+        Cliente c = new Cliente();
+        c.setId(rs.getInt("id"));
+        c.setNome(rs.getString("nome"));
+        c.setCPF(rs.getString("CPF"));
+        c.setDataNasc(rs.getString("datanasc"));
+        c.setSexo(rs.getString("sexo"));
+        c.setCEP(rs.getString("CEP"));
+        c.setRua(rs.getString("rua"));
+        c.setNumero(rs.getInt("numero"));
+        c.setBairro(rs.getString("bairro"));
+        c.setComplemento(rs.getString("complemento"));
+        c.setEstado(rs.getString("estado"));
+        c.setCidade(rs.getString("cidade"));
+        c.setCelular1(rs.getString("celular1"));
+        c.setCelular2(rs.getString("celular2"));
+        c.setTelefone(rs.getString("telefone"));
+        c.setRecado(rs.getString("recado"));
+        c.setEmail(rs.getString("email"));
+        listaClientes.add(c);
+        }
+        
+        } catch (ClassNotFoundException | SQLException ex) {
+        listaClientes = null;
+        } finally{
+        try {
+        conexao.close();
+        } catch (SQLException ex) {
+        listaClientes = null;
+        }
+        }
+        
+        return listaClientes;
+        }*/
+    
+    
+        
+        // Alterar os dados do getConnection() de acordo com a tua implementação
+	
     
      /*public static ArrayList<Cliente> pesquisarClienteVendas(Cliente ClienteVenda) throws SQLException {
 
@@ -240,20 +306,9 @@ public class ClienteDAO {
     }
     
     */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public static ArrayList<Cliente> getClientes()
+        
+     
+public static ArrayList<Cliente> getClientes()
     {
         ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
         
@@ -267,7 +322,7 @@ public class ClienteDAO {
             while(rs.next())
             {
                 Cliente c = new Cliente();
-                c.setId(rs.getInt("id"));
+                c.setId(rs.getString("id"));
                 c.setNome(rs.getString("nome"));
                 c.setCPF(rs.getString("CPF"));
                 c.setDataNasc(rs.getString("datanasc"));

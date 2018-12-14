@@ -6,7 +6,6 @@
 package View;
 
 import Controller.ClienteController;
-import Model.Cliente;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Mikael
  */
-public final class AtualizarExcluirCliente extends javax.swing.JFrame {
+public class AtualizarExcluirCliente extends javax.swing.JFrame {
         /**
      * Creates new form telaPrincipal
      */
@@ -98,16 +97,15 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     {
         txtIdCliente.setEditable(false);
         txtCPFCliente.setEditable(false);
-        
+        txtNomeCliente.setEditable(false);
     }
     
     public void HabilitarFormulario()
     {
-        txtNomeCliente.setEditable(true);
+        txtIdCliente.setEditable(true);
         txtCPFCliente.setEditable(true);
+        txtNomeCliente.setEditable(true);
         
-        btnCadastrarCliente.setEnabled(true);
-        btnCancelar.setEnabled(true);
     }
 
     private boolean ValidarFormulario() {
@@ -479,15 +477,16 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
     private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
+        int row = tblClientes.getSelectedRow();
         //Verifico se há linhas para poder editar
-        int row = tblClientes.getSelectedRowCount();
+        
         if(tblClientes.getRowCount()>0)
         {
             //Verifico se o usuário selecionou alguma linha (Primeira linha = 0)
             if(tblClientes.getSelectedRow()>=0)
             {
-                if(enviaTexto == null){
-                    try {  
+                if(enviaTexto == null){  
+                    try {
                         enviaTexto = new CadastrarCliente();
                     } catch (ClassNotFoundException | SQLException ex) {
                         Logger.getLogger(AtualizarExcluirCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -534,7 +533,69 @@ public final class AtualizarExcluirCliente extends javax.swing.JFrame {
         if(numero1 == 0){
             HabilitarFormulario();
         }else{
+            String valorProcuraId = "";
+            String valorProcurarNome = "";
+            String valorProcurarCPF = "";
+
+
+            if(!this.txtIdCliente.getText().equals("")){
+
+                valorProcuraId = txtIdCliente.getText();
+            }
+            if(!this.txtNomeCliente.getText().equals("")){
+
+                valorProcurarNome = txtNomeCliente.getText();
+            }       
+            if(!this.txtCPFCliente.getText().equals("")){
+
+                valorProcurarCPF = txtCPFCliente.getText();
+            }
+
+
+            ArrayList<String[]> linhasClientes = ClienteController.Pesquisar(valorProcuraId, valorProcurarNome, valorProcurarCPF);
             
+            DefaultTableModel tmClientes = new DefaultTableModel();
+            tmClientes.addColumn("ID");
+            tmClientes.addColumn("Nome");
+            tmClientes.addColumn("CPF");
+            tmClientes.addColumn("DataNasc");
+            tmClientes.addColumn("Sexo");
+            tmClientes.addColumn("CEP");
+            tmClientes.addColumn("Rua");
+            tmClientes.addColumn("Numero");
+            tmClientes.addColumn("Bairro");
+            tmClientes.addColumn("Complemento");
+            tmClientes.addColumn("Estado");
+            tmClientes.addColumn("Cidade");
+            tmClientes.addColumn("Celular1");
+            tmClientes.addColumn("Celular2");
+            tmClientes.addColumn("Telefone");
+            tmClientes.addColumn("Recado");
+            tmClientes.addColumn("Email");
+            tblClientes.setModel(tmClientes);
+
+            for(String[] c:linhasClientes)
+            {
+                tmClientes.addRow(c);
+            }
+
+            tblClientes.getColumnModel().getColumn(0).setPreferredWidth(50); 
+            tblClientes.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblClientes.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tblClientes.getColumnModel().getColumn(3).setPreferredWidth(0); 
+            tblClientes.getColumnModel().getColumn(4).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(6).setPreferredWidth(0); 
+            tblClientes.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(9).setPreferredWidth(0); 
+            tblClientes.getColumnModel().getColumn(10).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(11).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(12).setPreferredWidth(0); 
+            tblClientes.getColumnModel().getColumn(13).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(14).setPreferredWidth(0);
+            tblClientes.getColumnModel().getColumn(15).setPreferredWidth(0); 
+            tblClientes.getColumnModel().getColumn(16).setPreferredWidth(0);
         }
         numero1++;
     }//GEN-LAST:event_btnProcurarClienteActionPerformed

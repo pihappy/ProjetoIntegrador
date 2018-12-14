@@ -210,7 +210,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         btnSalvarCliente = new javax.swing.JButton();
         btnLimparDados = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnAtualizarCliente = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -286,7 +285,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         pnlDadosGeraisLayout.setVerticalGroup(
             pnlDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDadosGeraisLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(pnlDadosGeraisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdCliente)
                     .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -369,7 +368,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCidade))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEndereçoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(pnlEndereçoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnlEndereçoLayout.createSequentialGroup()
                                 .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -543,16 +542,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
             }
         });
 
-        btnAtualizarCliente.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        btnAtualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/save.png"))); // NOI18N
-        btnAtualizarCliente.setText("Atualizar Cadastro");
-        btnAtualizarCliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarClienteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlGeralCadClienteLayout = new javax.swing.GroupLayout(pnlGeralCadCliente);
         pnlGeralCadCliente.setLayout(pnlGeralCadClienteLayout);
         pnlGeralCadClienteLayout.setHorizontalGroup(
@@ -562,21 +551,14 @@ public final class CadastrarCliente extends javax.swing.JFrame {
             .addComponent(Contato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlGeralCadClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlGeralCadClienteLayout.createSequentialGroup()
-                        .addComponent(btnSalvarCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLimparDados))
-                    .addGroup(pnlGeralCadClienteLayout.createSequentialGroup()
-                        .addComponent(btnAtualizarCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLimparDados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalvarCliente))
         );
 
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAtualizarCliente, btnCancelar});
-
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLimparDados, btnSalvarCliente});
+        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelar, btnLimparDados, btnSalvarCliente});
 
         pnlGeralCadClienteLayout.setVerticalGroup(
             pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,17 +571,12 @@ public final class CadastrarCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimparDados)
-                    .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlGeralCadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnAtualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalvarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar))
                 .addContainerGap())
         );
 
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnLimparDados, btnSalvarCliente});
-
-        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAtualizarCliente, btnCancelar});
+        pnlGeralCadClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCancelar, btnLimparDados, btnSalvarCliente});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -622,18 +599,34 @@ public final class CadastrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        if(ValidarFormulario())
-        {
-            //Passar a Controller do método Salvar
-            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
-            {
-                JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
-                AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
-                form2.setVisible(true);  
-                dispose();
-            }else{
-                JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
-                LimparFormulario();
+        if(txtIdCliente.equals("")){
+            if(ValidarFormulario())
+                {
+                    //Passar a Controller do método Salvar
+                    if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
+                    {
+                        JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
+                        AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  
+                        form2.setVisible(true);  
+                        dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Falha ao cadastrar cliente!");
+                        LimparFormulario();
+                    }
+            }
+        }else{
+            try {
+                if(ClienteController.Atualizar(txtIdCliente.getText(),txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
+                {
+                    JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
+                    AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();
+                    form2.setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_btnSalvarClienteActionPerformed
@@ -647,23 +640,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         form2.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void btnAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarClienteActionPerformed
-      
-        try {
-            if(ClienteController.Atualizar(Integer.parseInt(txtIdCliente.getText()),txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
-            {
-                JOptionPane.showMessageDialog(this,"Cliente atualizado com sucesso!");
-                AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();
-                form2.setVisible(true);
-                dispose();
-            }else{
-                JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(this,"Falha ao atualizar cliente!");
-        }
-    }//GEN-LAST:event_btnAtualizarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -709,7 +685,6 @@ public final class CadastrarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contato;
-    private javax.swing.JButton btnAtualizarCliente;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimparDados;
     private javax.swing.JButton btnSalvarCliente;

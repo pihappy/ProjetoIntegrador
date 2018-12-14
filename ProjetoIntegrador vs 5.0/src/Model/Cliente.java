@@ -2,7 +2,7 @@ package Model;
 //@author victor.maoliveira
 public class Cliente {
     
-    private int id;
+    private String id;
     private String nome;
     private String cpf;
     private String datanasc;
@@ -20,7 +20,7 @@ public class Cliente {
     private String sexo;
     private String estado;
     
-    public Cliente(int pId, String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
+    public Cliente(String pId, String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
         this.id = pId;
         this.nome = pNome;
         this.cpf = pCPF;
@@ -59,7 +59,7 @@ public class Cliente {
         this.email = pEmail;
     }
 
-    public Cliente(int pId, String pNome, String pCPF, String pEmail) {
+    public Cliente(String pId, String pNome, String pCPF, String pEmail) {
         this.id = pId;
         this.nome = pNome;
         this.cpf = pCPF;
@@ -102,7 +102,7 @@ public class Cliente {
      public Cliente() {
     }
 
-    public Cliente(int id, String pNome, String pCPF) {
+    public Cliente(String id, String pNome, String pCPF) {
         this.id = id;
         this.nome = pNome;
         this.cpf = pCPF;
@@ -113,11 +113,11 @@ public class Cliente {
         this.cpf = pCPF;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     
