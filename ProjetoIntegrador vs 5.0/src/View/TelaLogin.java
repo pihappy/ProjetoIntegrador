@@ -5,9 +5,18 @@
  */
 package View;
 
+import Model.Login;
 import static java.lang.String.valueOf;
 import javax.swing.JOptionPane;
-import Model.Login;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +31,13 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String SERVIDOR = "localhost";
+    private static final String BASEDADOS = "pihappy";
+    private static final String LOGIN = "root";
+    private static final String SENHA = "";
+    private static String url = "";
+    private static Connection conexao;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,19 +153,39 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarLoginActionPerformed
-        String usuario = "admin";
-        String senha = "admin";
-        
-        if(usuario.equalsIgnoreCase(txtNomeLogin.getText())){
-            if(senha.equals(valueOf(txtSenhaLogin.getPassword()))){
+        boolean retorno = false;
+        try {
+            Class.forName(DRIVER);
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
+            conexao = DriverManager.getConnection(url,"root","");
+            PreparedStatement comando = conexao.prepareStatement("SELECT * FROM login WHERE usuario = ? AND senha = ?");
+            comando.setString(1, txtNomeLogin.getText());
+            comando.setString(2, txtSenhaLogin.getText());
+            
+            ResultSet rs = comando.executeQuery();
+            
+            if(rs.next()){
+                retorno = true;
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario ou Senha incorretos!");
+                txtNomeLogin.setText("");
+                txtSenhaLogin.setText("");
+                retorno = false;
+            }
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Problema com o SQL!");
+        }
+        finally{
+            if(retorno = true){
                 TelaPrincipal form2 = new TelaPrincipal();
                 form2.setVisible(true);
                 dispose();
             }else{
-                JOptionPane.showMessageDialog(null, "Senha incorreta!");
+                JOptionPane.showMessageDialog(null, "Tente Novamente!");
+                txtNomeLogin.setText("");
+                txtSenhaLogin.setText("");
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuário incorreto!");
         }
     }//GEN-LAST:event_btnEntrarLoginActionPerformed
 
@@ -205,4 +241,10 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeLogin;
     private javax.swing.JPasswordField txtSenhaLogin;
     // End of variables declaration//GEN-END:variables
+
+    private static class ValidarUsuario {
+
+        public ValidarUsuario() {
+        }
+    }
 }
