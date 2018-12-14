@@ -30,6 +30,18 @@ public class Produto {
         this.descricaoProduto = descricaoProduto;
         this.categoriaProduto = categoriaProduto;
     }
+    
+    public Produto(String descricaoProduto, int quantidadeProduto,
+            double valorUni, String categoriaProduto, String codigoProduto) {
+        this.descricaoProduto = descricaoProduto;
+        this.quantidadeProduto = quantidadeProduto;
+        this.valorUni = valorUni;
+        this.categoriaProduto = categoriaProduto;
+        this.codigoProduto = codigoProduto;
+
+    }
+    
+    
 
     public Produto(String descricaoProduto, int quantidadeProduto,
             double valorUni, String categoriaProduto) {

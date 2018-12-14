@@ -12,26 +12,15 @@ import java.util.ArrayList;
 
 public class ProdutoController {
 
-    
-    private ProdutoDAO pProdutoDAO = new ProdutoDAO(); 
-    
-    /**
-     * 
-     * @param pdescricaoProduto
-     * @param pquantidadeProduto
-     * @param pvalorUni
-     * @param pcategoriaProduto
-     * @return 
-     */
     public static boolean Salvar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
 
         Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
         return ProdutoDAO.salvar(p);
     }
 
-    public static boolean Atualizar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto) {
+    public static boolean Atualizar(String pdescricaoProduto, int pquantidadeProduto, double pvalorUni, String pcategoriaProduto, String pcodigoProduto) {
 
-        Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto);
+        Produto p = new Produto(pdescricaoProduto, pquantidadeProduto, pvalorUni, pcategoriaProduto, pcodigoProduto);
         return ProdutoDAO.atualizar(p);
     }
 
@@ -63,16 +52,8 @@ public class ProdutoController {
     }
 
     
-    public Produto retornaProdutoController(int pcodigoProduto){
-        //return this.ProdutoDAO.retornaProdutoCod(pcodigoProduto);
-        return ProdutoDAO.retornaProdutoCod(pcodigoProduto);
-    
-    
-    }
-    
-    
-    public static ArrayList<String[]> getListProdutos() {
-        ArrayList<Produto> p = ProdutoDAO.getListProdutos();
+    public static ArrayList<String[]> getProdutos() {
+        ArrayList<Produto> p = ProdutoDAO.getProdutos();
         ArrayList<String[]> listaProdutos = new ArrayList<>();
 
         for (int i = 0; i < p.size(); i++) {
