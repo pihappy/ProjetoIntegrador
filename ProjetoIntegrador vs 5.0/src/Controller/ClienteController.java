@@ -22,8 +22,8 @@ public class ClienteController {
         return ClienteDAO.Excluir(indice);
     }
     
-    public static boolean Salvar(int pId, String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
-        Cliente p =  new Cliente(pId,pNome, pCPF, pDataNasc, pSexo, pCEP, pRua, pNumero, pBairro, pComp, pEstado, pCidade, pCel1, pCel2, pTelefone, pRecado, pEmail);
+    public static boolean Salvar(String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
+        Cliente p =  new Cliente(pNome, pCPF, pDataNasc, pSexo, pCEP, pRua, pNumero, pBairro, pComp, pEstado, pCidade, pCel1, pCel2, pTelefone, pRecado, pEmail);
         return ClienteDAO.Salvar(p);
     }
 

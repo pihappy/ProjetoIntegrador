@@ -625,7 +625,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
         if(ValidarFormulario())
         {
             //Passar a Controller do método Salvar
-            if(ClienteController.Salvar(Integer.parseInt(txtIdCliente.getText()), txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
+            if(ClienteController.Salvar(txtNomeCliente.getText(),txtCPFCliente.getText(),txtDataNascCliente.getText(),jcSexo1.getSelectedItem().toString(), txtCEP.getText(),txtRua.getText(),Integer.parseInt(txtNumero.getText()), txtBairro.getText(), txtComplemento.getText(),jcEstado.getSelectedItem().toString(),txtCidade.getText(),txtCelular1.getText(),txtCelular2.getText(),txtTelefone.getText(),txtRecado.getText(),txtEmail.getText()))
             {
                 JOptionPane.showMessageDialog(null,"Cliente cadastrado com sucesso!");
                 AtualizarExcluirCliente form2 = new AtualizarExcluirCliente();  

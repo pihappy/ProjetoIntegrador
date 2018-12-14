@@ -19,9 +19,28 @@ public class Cliente {
     private String email;
     private String sexo;
     private String estado;
-
+    
     public Cliente(int pId, String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
         this.id = pId;
+        this.nome = pNome;
+        this.cpf = pCPF;
+        this.datanasc = pDataNasc;
+        this.sexo = pSexo;
+        this.cep = pCEP;
+        this.rua = pRua;
+        this.numero = pNumero;
+        this.bairro = pBairro;
+        this.complemento = pComp;
+        this.estado = pEstado;
+        this.cidade = pCidade;
+        this.cel1 = pCel1;
+        this.cel2 = pCel2;
+        this.tel = pTelefone;
+        this.recado = pRecado;
+        this.email = pEmail;
+    }
+    
+    public Cliente(String pNome, String pCPF, String pDataNasc, String pSexo, String pCEP, String pRua, int pNumero, String pBairro, String pComp, String pEstado, String pCidade, String pCel1, String pCel2, String pTelefone, String pRecado, String pEmail) {
         this.nome = pNome;
         this.cpf = pCPF;
         this.datanasc = pDataNasc;
@@ -46,6 +65,7 @@ public class Cliente {
         this.cpf = pCPF;
         this.email = pEmail;
     }
+
 
     public String getCPF() {
         return cpf;
