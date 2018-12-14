@@ -22,7 +22,7 @@ public class ColaboradorDAO {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String SERVIDOR = "localhost";
-    private static final String BASEADOS = "pihappycolaborador";
+    private static final String BASEADOS = "pihappy";
     private static final String LOGIN = "root";
     private static final String SENHA = "adminadmin";
     private static String url = "";
@@ -34,7 +34,7 @@ public class ColaboradorDAO {
 
         try {
             Class.forName(DRIVER);
-            url = "jdbc:mysql://localhost:3306/" + "pihappyColaborador";
+            url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("INSERT INTO colaborador Nome = ?, CPF = ?, DtNasc = ?, Sexo = ?, Rua = ?, NumRua = ?, Bairro = ?, Complemento = ?, Estado = ?, Cidade = ?, Celular1 = ?, Celular2 = ?, Telefone = ?, Recado = ?, Email = ?, Cargo = ?, Departamento = ?, Admissao = ?, Salario = ? WHERE IdColaborador = ?;");;
             comando.setString(1, c.getNome());
@@ -84,7 +84,7 @@ public class ColaboradorDAO {
 
         try {
             Class.forName(DRIVER);
-            url = "jdbc:mysql://localhost:3306/" + "pihappyColaborador";
+            url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("UPDATE colaborador SET (Nome, CPF, DtNasc, Sexo, Rua, NumRua, Bairro, Complemento, Estado, Cidade, Celular1, Celular2, Telefone, Recado, Email, Cargo, Departamento, Admissao, Salario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, )");;
             comando.setString(1, c.getNome());
@@ -135,7 +135,7 @@ public class ColaboradorDAO {
 
         try {
             Class.forName(DRIVER);
-            url = "jdbc:mysql://localhost:3306/" + "pihappyColabhorador";
+            url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("DELETE FROM colaborador WHERE IdColaborador = ?");
             comando.setInt(1, pIdColaborador);
@@ -169,10 +169,10 @@ public class ColaboradorDAO {
         try {
             //return SimulaDB.getInstance().getClientes();
             Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306/" + "pihappyColaborador";
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             Statement comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery("SELECT * FROM cliente;");
+            ResultSet rs = comando.executeQuery("SELECT * FROM colaborador;");
             while (rs.next()) {
                 Colaborador c = new Colaborador();
                 c.setId(rs.getInt("Id"));
@@ -218,7 +218,7 @@ public class ColaboradorDAO {
         try {
 
             Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306/" + "pihappyColaborador";
+            url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("SELECT * FROM colaborador WHERE id LIKE ? OR nome LIKE ? OR CPF LIKE ?;");
             comando.setString(1, p.getId() + "%");

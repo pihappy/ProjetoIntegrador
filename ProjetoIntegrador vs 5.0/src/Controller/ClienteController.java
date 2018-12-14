@@ -79,8 +79,8 @@ public class ClienteController {
         
         for (int i = 0; i < retorno.size(); i++) {
             linhasClientesVendas.add(new String[]{String.valueOf(retorno.get(i).getId()),
-                retorno.get(i).getCPF(),
                 retorno.get(i).getNome(),
+                retorno.get(i).getCPF(),
                 retorno.get(i).getEmail()});
         }
         return linhasClientesVendas;

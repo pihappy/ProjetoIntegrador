@@ -32,7 +32,7 @@ public class VendasDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("INSERT INTO tbl_vendas (pId,pCPF, pCodigoProduto, pDescricaoProduto,pCategoriaProduto,pQuantidadeProduto, pValorUni, pFormPag) VALUES(?, ?, ?, ?, ?, ?, ?, ? );");
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO vendas (Id,CPF, CodigoProduto, DescricaoProduto,CategoriaProduto,QuantidadeProduto, ValorUni, FormPag) VALUES(?, ?, ?, ?, ?, ?, ?, ? );");
          comando.setInt(1,v.getId());
          comando.setString(2, v.getNome());
          comando.setString(3, v.getCPF());
