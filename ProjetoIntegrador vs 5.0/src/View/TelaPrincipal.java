@@ -32,29 +32,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         initComponents();
         
         setLocationRelativeTo(null);
-        VerificarTipoUsuario();
+        /*VerificarTipoUsuario();*/
     }
     
-    public void VerificarTipoUsuario(){
-        String tipousuario = "";
-        tipousuario = "" ;
-        
-        if(!tipousuario.equals("admin")){
-            btnAlterarSenha.setEnabled(false);
-            btnCadastrarColaborador.setEnabled(false);
-            btnCadastrarSenha.setEnabled(false);
-            btnRelatório.setEnabled(false);
-            btnProcurarColaborador.setEnabled(false);
-            btnEstoque.setEnabled(false);
-        }else{
-            btnAlterarSenha.setEnabled(true);
-            btnCadastrarColaborador.setEnabled(true);
-            btnCadastrarSenha.setEnabled(true);
-            btnRelatório.setEnabled(true);
-            btnProcurarColaborador.setEnabled(true);
-            btnEstoque.setEnabled(true);
-        }
+    /*public void VerificarTipoUsuario(){
+    String tipousuario = "";
+    tipousuario = "" ;
+    
+    if(!tipousuario.equals("admin")){
+    btnAlterarSenha.setEnabled(false);
+    btnCadastrarColaborador.setEnabled(false);
+    btnCadastrarSenha.setEnabled(false);
+    btnRelatório.setEnabled(false);
+    btnProcurarColaborador.setEnabled(false);
+    btnEstoque.setEnabled(false);
+    }else{
+    btnAlterarSenha.setEnabled(true);
+    btnCadastrarColaborador.setEnabled(true);
+    btnCadastrarSenha.setEnabled(true);
+    btnRelatório.setEnabled(true);
+    btnProcurarColaborador.setEnabled(true);
+    btnEstoque.setEnabled(true);
     }
+    }*/
     
     /**
      * This method is called from within the constructor to initialize the form.

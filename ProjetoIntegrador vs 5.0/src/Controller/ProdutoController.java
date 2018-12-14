@@ -4,6 +4,8 @@ import DAO.ProdutoDAO;
 import Model.Produto;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -50,7 +52,26 @@ public class ProdutoController {
         return listaProdutos;
 
     }
+    
+    public static ArrayList<String[]> pesquisarProdutoVendas(String pId) throws SQLException{
+        
+            Produto ProdutoVenda = new Produto();
+            ProdutoVenda.setCodigoProduto(pId);
+            
+        
+            ArrayList<Produto> retorno = ProdutoDAO.pesquisarProdutoVendas(ProdutoVenda);
+            ArrayList<String[]> linhasProdutosVendas = new ArrayList<>();
+        
+            for (int i = 0; i < retorno.size(); i++) {
+                linhasProdutosVendas.add(new String[]{String.valueOf(retorno.get(i).getCodigoProduto()),
+                    retorno.get(i).getDescricaoProduto(),
+                    retorno.get(i).getCategoriaProduto(),
+                    String.valueOf(retorno.get(i).getQuantidadeProduto()),
+                    String.valueOf(retorno.get(i).getValorUni())});
+            }
+            return linhasProdutosVendas; 
 
+    }
     
     public static ArrayList<String[]> getProdutos() {
         ArrayList<Produto> p = ProdutoDAO.getProdutos();

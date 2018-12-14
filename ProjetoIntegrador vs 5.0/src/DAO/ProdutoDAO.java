@@ -192,6 +192,44 @@ public class ProdutoDAO {
         return listaProdutos;
     }
         
+    public static ArrayList<Produto> pesquisarProdutoVendas(Produto p) throws SQLException {
+
+        ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
+
+        try {
+
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
+            conexao = DriverManager.getConnection(url, "root", "");
+            PreparedStatement comando = conexao.prepareStatement("SELECT * FROM produtos WHERE codigoProduto = ?;");
+            comando.setString(1, p.getCodigoProduto() + "%");
+
+            ResultSet rs = comando.executeQuery();
+            
+            while (rs.next()) {
+                Produto produto = new Produto();
+                produto.setCodigoProduto(rs.getString("codigoProduto"));
+                produto.setDescricaoProduto(rs.getString("descricaoProduto"));
+                produto.setCategoriaProduto(rs.getString("categoriaProduto"));
+                produto.setQuantidadeProduto(rs.getInt("quantidadeProduto"));
+                produto.setValorUni(rs.getDouble("valorUni"));
+                listaProdutos.add(produto);
+            }
+            
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            listaProdutos = null;
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaProdutos = null;
+            }
+        }
+
+        return listaProdutos;
+    }    
+        
     public static ArrayList<Produto> getProdutos() {
         ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 

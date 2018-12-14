@@ -173,8 +173,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 retorno = false;
             }
             
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Problema com o SQL!");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally{
             if(retorno = true){

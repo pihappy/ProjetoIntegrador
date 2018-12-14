@@ -216,77 +216,33 @@ public class ClienteDAO {
 
         return listaClientes;
     }
-        /*ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
-        
-        try {
-        //return SimulaDB.getInstance().getClientes();
-        Class.forName(DRIVER);
-        url = "jdbc:mysql://" + "localhost:3306/" + "pihappy";
-        conexao = DriverManager.getConnection(url,"root","");
-        Statement comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("SELECT * FROM cliente where id = "+ p.getId() +" OR nome = "+ p.getNome() +" OR CPF = "+ p.getCPF()+";");
-        while(rs.next())
-        {
-        Cliente c = new Cliente();
-        c.setId(rs.getInt("id"));
-        c.setNome(rs.getString("nome"));
-        c.setCPF(rs.getString("CPF"));
-        c.setDataNasc(rs.getString("datanasc"));
-        c.setSexo(rs.getString("sexo"));
-        c.setCEP(rs.getString("CEP"));
-        c.setRua(rs.getString("rua"));
-        c.setNumero(rs.getInt("numero"));
-        c.setBairro(rs.getString("bairro"));
-        c.setComplemento(rs.getString("complemento"));
-        c.setEstado(rs.getString("estado"));
-        c.setCidade(rs.getString("cidade"));
-        c.setCelular1(rs.getString("celular1"));
-        c.setCelular2(rs.getString("celular2"));
-        c.setTelefone(rs.getString("telefone"));
-        c.setRecado(rs.getString("recado"));
-        c.setEmail(rs.getString("email"));
-        listaClientes.add(c);
-        }
-        
-        } catch (ClassNotFoundException | SQLException ex) {
-        listaClientes = null;
-        } finally{
-        try {
-        conexao.close();
-        } catch (SQLException ex) {
-        listaClientes = null;
-        }
-        }
-        
-        return listaClientes;
-        }*/
-    
-    
         
         // Alterar os dados do getConnection() de acordo com a tua implementação
 	
     
      public static ArrayList<Cliente> pesquisarClienteVendas(Cliente ClienteVenda) throws SQLException {
 
-        ArrayList<Cliente> listaVendas = new ArrayList<Cliente>();
+        ArrayList<Cliente> listaVendas = new ArrayList<>();
 
         try {
 
             Class.forName(DRIVER);
             url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("SELECT id, CPF, nome,email  FROM clientes WHERE id = ? OR CPF = ?;");
-            comando.setString(1, ClienteVenda.getId());
-            comando.setString(2, ClienteVenda.getCPF());
+            PreparedStatement comando = conexao.prepareStatement("SELECT id, CPF, nome,email  FROM cliente WHERE id LIKE ? OR CPF LIKE ?;");
+            comando.setString(1, ClienteVenda.getId() + "%");
+            comando.setString(2, ClienteVenda.getCPF() + "%");
 
             ResultSet rs = comando.executeQuery();
             
             while (rs.next()) {
                 Cliente ClientesVenda = new Cliente();
-                ClientesVenda.setId(rs.getString("ID"));
-                ClientesVenda.setNome(rs.getString("Nome"));
+                ClientesVenda.setId(rs.getString("id"));
+                ClientesVenda.setNome(rs.getString("nome"));
+                ClientesVenda.setCPF(rs.getString("CPF"));
+                ClientesVenda.setEmail(rs.getString("email"));
                
-                listaVendas.add(ClienteVenda);
+                listaVendas.add(ClientesVenda);
             }
             
 
