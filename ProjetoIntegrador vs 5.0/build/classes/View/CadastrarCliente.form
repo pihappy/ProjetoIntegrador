@@ -76,10 +76,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Contato" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnLimparDados" linkSize="4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSalvarCliente" linkSize="4" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="btnCancelar" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnSalvarCliente" linkSize="4" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
