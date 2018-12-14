@@ -60,14 +60,14 @@ Model.Produto Produtos = new Model.Produto();
         jButton4 = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
+        txtCodigoProduto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtDescricao = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtCategoria = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -77,7 +77,7 @@ Model.Produto Produtos = new Model.Produto();
         jLabel1 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtValorTotal = new javax.swing.JFormattedTextField();
         jButton8 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel8 = new javax.swing.JPanel();
@@ -220,7 +220,7 @@ Model.Produto Produtos = new Model.Produto();
 
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtCodigoProduto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Código:");
@@ -230,14 +230,19 @@ Model.Produto Produtos = new Model.Produto();
         jButton7.setText("Limpar");
         jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar2.png"))); // NOI18N
-        jButton3.setText("Buscar");
+        btnBuscar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar2.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText("Descrição:");
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDescricao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel10.setText("Categoria:");
 
@@ -290,7 +295,12 @@ Model.Produto Produtos = new Model.Produto();
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Qtd. Venda:");
 
-        jFormattedTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtValorTotal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtValorTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorTotalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -303,7 +313,7 @@ Model.Produto Produtos = new Model.Produto();
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -317,7 +327,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -339,15 +349,15 @@ Model.Produto Produtos = new Model.Produto();
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField9))
+                                .addComponent(txtCategoria))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3)
+                                .addComponent(btnBuscar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -361,7 +371,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap())
         );
 
-        jPanel7Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton3, jButton7});
+        jPanel7Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBuscar, jButton7});
 
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,8 +379,8 @@ Model.Produto Produtos = new Model.Produto();
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,10 +388,10 @@ Model.Produto Produtos = new Model.Produto();
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel10)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -391,7 +401,7 @@ Model.Produto Produtos = new Model.Produto();
                 .addGap(35, 35, 35))
         );
 
-        jPanel7Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton3, jButton7, jButton8});
+        jPanel7Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBuscar, jButton7, jButton8});
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Formas de Pagamento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
@@ -516,7 +526,7 @@ Model.Produto Produtos = new Model.Produto();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -526,7 +536,7 @@ Model.Produto Produtos = new Model.Produto();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      /*String valorProcurarCodigoCliente = "";
+     String valorProcurarCodigoCliente = "";
       String valorProcurarCPFCliente = "";
       
       if(!this.txtIdCliente.getText().equals("")){
@@ -536,9 +546,10 @@ Model.Produto Produtos = new Model.Produto();
         if(!this.txtCPFCliente.getText().equals("")){
         
             valorProcurarCPFCliente = txtCPFCliente.getText();
-        }       
+        }
+    /*       
 
-        try {
+       try {
             
             
             ArrayList<String[]> linhasClientesVendas = ClienteController.pesquisarClienteVendas(valorProcurarCodigoCliente, valorProcurarCPFCliente);
@@ -548,30 +559,81 @@ Model.Produto Produtos = new Model.Produto();
             tmClienteVenda.addColumn("Cpf");
             tmClienteVenda.addColumn("Nome");
             tmClienteVenda.addColumn("E-mail");
-            tblClienteVenda.setModel(tmClienteVenda);
+          //  tblClienteVenda.setModel(tmClienteVenda);
 
             for(String[] c:linhasClientesVendas)
             {
                 tmClienteVenda.addRow(c);
             }
 
-            tblClienteVenda.getColumnModel().getColumn(0).setPreferredWidth(10); //ID
-            tblClienteVenda.getColumnModel().getColumn(1).setPreferredWidth(10); //CPF
-            tblClienteVenda.getColumnModel().getColumn(2).setPreferredWidth(30); //NOME
-            tblClienteVenda.getColumnModel().getColumn(3).setPreferredWidth(60); //E-MAIL
+            //tblClienteVenda.getColumnModel().getColumn(0).setPreferredWidth(10); //ID
+            //tblClienteVenda.getColumnModel().getColumn(1).setPreferredWidth(10); //CPF
+            //tblClienteVenda.getColumnModel().getColumn(2).setPreferredWidth(30); //NOME
+            //tblClienteVenda.getColumnModel().getColumn(3).setPreferredWidth(60); //E-MAIL
            
-        } catch (SQLException ex) {
+        //} catch (SQLException ex) {
             Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
                
-        
-      */  
+        /*/
+    
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorTotalActionPerformed
+
+       // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorTotalActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+      
+       String valorProcurarCodigo = "";
+      String valorProcurarProduto = "";
+      String valorProcurarCategoria = "";
+
+      
+      if(!this.txtCodigoProduto.getText().equals("")){
+        
+            valorProcurarCodigo = txtCodigoProduto.getText();
+        }
+        if(!this.txtDescricao.getText().equals("")){
+        
+            valorProcurarProduto = txtDescricao.getText();
+        }           
+        
+        
+    /*    try {
+            
+            
+            ArrayList<String[]> linhasProdutos = ProdutoController.Pesquisar(valorProcurarCodigo, valorProcurarProduto, valorProcurarCategoria);
+
+            DefaultTableModel tmProdutos = new DefaultTableModel();
+            tmProdutos.addColumn("Id");
+            tmProdutos.addColumn("Produto");
+            tmProdutos.addColumn("Quantidade");
+            tmProdutos.addColumn("Valor");
+            tmProdutos.addColumn("Categoria");
+            //tblProdutos.setModel(tmProdutos);
+
+            for(String[] c:linhasProdutos)
+            {
+                tmProdutos.addRow(c);
+            }
+
+     //  tblProdutos.getColumnModel().getColumn(0).setPreferredWidth(50); //ID
+    //    tblProdutos.getColumnModel().getColumn(1).setPreferredWidth(50);
+    //      tblProdutos.getColumnModel().getColumn(2).setPreferredWidth(50);
+    //        tblProdutos.getColumnModel().getColumn(3).setPreferredWidth(50);
+           
+       } catch (SQLException ex) {
+            Logger.getLogger(AtualizarExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+                                               
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -603,22 +665,19 @@ Model.Produto Produtos = new Model.Produto();
                 new TelaVenda().setVisible(true);
             }
         });
-    }
-    //Preenche combobox com todos os clientes//
-    private void listarClientes() {
-      //  listaClientes = controllerClienteController.getClientes;
+    
+    
     }
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.ButtonGroup grupoFormaPagamento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JDialog jDialogCliente;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -645,13 +704,14 @@ Model.Produto Produtos = new Model.Produto();
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTableCliente;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField txtCPFCliente;
+    private javax.swing.JTextField txtCategoria;
+    private javax.swing.JTextField txtCodigoProduto;
+    private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JFormattedTextField txtValorTotal;
     // End of variables declaration//GEN-END:variables
 }

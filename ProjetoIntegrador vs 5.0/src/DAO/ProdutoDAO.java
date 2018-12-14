@@ -78,7 +78,7 @@ public class ProdutoDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("UPDATE produtos SET (descricaoProduto = ?, quantidadeProduto = ?, valorUni = ?, categoriaProduto = ?) " + "WHERE codigoProduto = ?;");
+            PreparedStatement comando = conexao.prepareStatement("UPDATE produtos SET descricaoProduto = ?, quantidadeProduto = ?, valorUni = ?, categoriaProduto = ? WHERE codigoProduto = ?;");
             comando.setString(1, pProduto.getDescricaoProduto());
             comando.setInt(2, pProduto.getQuantidadeProduto());
             comando.setDouble(3, pProduto.getValorUni());
@@ -113,20 +113,25 @@ public class ProdutoDAO {
      * @param pcodigoProduto
      * @return boolean
      */
-    public static boolean excluir(int pcodigoProduto) {
+    public static boolean excluir(int codigoProduto) {
+
+
         boolean retorno = false;
+
         try {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
             PreparedStatement comando = conexao.prepareStatement("DELETE FROM produtos WHERE codigoProduto = ?");
-            comando.setInt(1, pcodigoProduto);
+            comando.setInt(1, codigoProduto);
+
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
                 retorno = true;
             } else {
                 retorno = false;
             }
+
         } catch (ClassNotFoundException ex) {
             retorno = true;
         } catch (SQLException ex) {
@@ -138,15 +143,16 @@ public class ProdutoDAO {
                 retorno = false;
             }
         }
-        return retorno;
-    }
 
+        return retorno;
+
+    }
     /**
      * @param p
      * @return Lista de produtos por campos especificos que o usuário pode escolher por qual pesquisar e retornar para a View AtualizarExcluirProduto.
      * @throws SQLException 
      */
-    public static ArrayList<Produto> pesquisar(Produto p) throws SQLException {
+        public static ArrayList<Produto> pesquisar(Produto p) throws SQLException {
 
         ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
@@ -185,37 +191,8 @@ public class ProdutoDAO {
 
         return listaProdutos;
     }
-
-   
-    public static Produto retornaProdutoCod(int pcodigoProduto){
-      Produto pProduto = new Produto();
-        try {
-            Class.forName(DRIVER);
-            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
-            conexao = DriverManager.getConnection(url, "root", "");
-            Statement comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery("SELECT codigoProduto, descricaoProduto, quantidadeProduto, valorUni, categoriaProduto FROM produtos WHERE codigoProduto = '"+pcodigoProduto+"';");
-            while(rs.next()){
-            pProduto.setCodigoProduto(rs.getString(1));
-            pProduto.setDescricaoProduto(rs.getString(2));
-            pProduto.setQuantidadeProduto(rs.getInt(3));
-            pProduto.setValorUni(rs.getDouble(4));
-            pProduto.setCategoriaProduto(rs.getString(5));
-            }            
-                    
-        } catch (Exception e) {
-        }finally{
-        try {
-                conexao.close();
-            } catch (SQLException ex) {
-                return pProduto;
-            }
         
-        }
-    return pProduto;
-    }
-    
-    public static ArrayList<Produto> getListProdutos() {
+    public static ArrayList<Produto> getProdutos() {
         ArrayList<Produto> listaProdutos = new ArrayList<Produto>();
 
         try {
