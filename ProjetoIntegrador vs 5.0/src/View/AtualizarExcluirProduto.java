@@ -25,8 +25,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     public String modoTela; //   "Criar/Editar"
     public int numero;
     CadastrarProduto enviaTexto;
-    String statusBotao;
-    
+   
     
     public AtualizarExcluirProduto() {
         initComponents();
@@ -37,7 +36,7 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     public void LoadTable(){
         
         //Peço ao controller resgatar os clientes do banco de dados
-        ArrayList<String[]> linhasProdutos = ProdutoController.getListProdutos();
+        ArrayList<String[]> linhasProdutos = ProdutoController.getProdutos();
         
         DefaultTableModel tmProdutos = new DefaultTableModel();
         tmProdutos.addColumn("Id");
@@ -140,7 +139,12 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         jLabel3.setText("Categoria:");
 
         JcboCategoria.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        JcboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma categoria", "Artes", "Bonecas", "Bonecos", "Carros", "Colecionáveis", "Eletrônicos", "Esportes", "Pelúcias", "Tabuleiro", "Meninas", "Meninos", " " }));
+        JcboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma categoria", "Meninas", "Meninos", "Colecionáveis", "Eletrônicos", "Pelúcias", "Tabuleiro", " ", " " }));
+        JcboCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JcboCategoriaActionPerformed(evt);
+            }
+        });
 
         btnProcurar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnProcurar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/procurar(2).png"))); // NOI18N
@@ -291,24 +295,21 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         tblProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Produto", "Quantidade", "Valor", "Categoria"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblProdutos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblProdutos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -490,10 +491,9 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProcurarActionPerformed
 
     private void btnAtulizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtulizarProdutoActionPerformed
-        statusBotao = "Atualizar";
-        int linhaSelecionada = this.tblProdutos.getSelectedRow();
-        String codigoProduto = (String) this.tblProdutos.getValueAt(linhaSelecionada,0);
-
+      int linha = this.tblProdutos.getSelectedRow();
+       
+        
         if(tblProdutos.getRowCount()>0)
         {
             if(tblProdutos.getSelectedRow()>=0)
@@ -504,12 +504,12 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
                     } catch (Exception e) {
                     }
                     enviaTexto.setVisible(true);
-                    enviaTexto.receberValores(tblProdutos.getValueAt(linhaSelecionada,0).toString(),
-                    tblProdutos.getValueAt(linhaSelecionada,1).toString(),
-                    tblProdutos.getValueAt(linhaSelecionada,2).toString(),
-                    tblProdutos.getValueAt(linhaSelecionada,3).toString(),
-                    tblProdutos.getValueAt(linhaSelecionada,4).toString());
-                    
+                    enviaTexto.receberValores(tblProdutos.getValueAt(linha,0).toString(),
+                    tblProdutos.getValueAt(linha,1).toString(),
+                    tblProdutos.getValueAt(linha,2).toString(),
+                    tblProdutos.getValueAt(linha,3).toString());
+                
+                
                 }
                 dispose();
             }
@@ -521,23 +521,8 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this,"Não há produtos para editar!");
-        }          
+        } 
     }//GEN-LAST:event_btnAtulizarProdutoActionPerformed
-
-    
-    /*if(ProdutoController.Salvar(//Integer.parseInt(txtCodigoCadProduto.getText())
-                        txtDescricaoProduto.getText()
-                        , Integer.parseInt(txtQuantidade.getText())
-                        , Double.parseDouble(txtValorUnitario.getText().replace(",", "."))
-                        ,cboCategoriaProduto.getSelectedItem().toString()))
-                {
-                    
-                    JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
-                    AtualizarExcluirProduto form2 = new AtualizarExcluirProduto();  
-                    form2.setVisible(true);  
-           dispose();
-                }*/
-    
     
     private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
         YesNoOption("Desejar excluir produto?");
@@ -565,6 +550,10 @@ public class AtualizarExcluirProduto extends javax.swing.JFrame {
         formCadProd.setVisible(true);  
         dispose();
     }//GEN-LAST:event_btnNovoProdutoActionPerformed
+
+    private void JcboCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JcboCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JcboCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
