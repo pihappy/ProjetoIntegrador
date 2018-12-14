@@ -3,27 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/mikael.asilva3/Desktop/Projeto%20Inetgrador%201312/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/DAO/ColaboradorDAO.java</file>
-            <file>file:/C:/Users/mikael.asilva3/Desktop/Projeto%20Inetgrador%201312/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/CadastrarColaborador.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/RelatorioVendas.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/CadastrarProduto.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/DAO/ClienteDAO.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/DAO/RelatorioDAO.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/DAO/ProdutoDAO.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/Model/Cliente.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/Controller/ProdutoController.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/Controller/ClienteController.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/TelaVenda.java</file>
-            <file>file:/C:/Users/milena.sgalvao/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/AtualizarExcluirProduto.java</file>
-=======
-            <file>file:/C:/Users/gabriela.vsmarques.SENACEDU/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/CadastrarProduto.java</file>
-            <file>file:/C:/Users/gabriela.vsmarques.SENACEDU/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/AtualizarExcluirProduto.java</file>
-            <file>file:/C:/Users/gabriela.vsmarques.SENACEDU/Documents/GitHub/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/Controller/ProdutoController.java</file>
->>>>>>> 6b04a47180ad058fed5ada67605ce5541c5fcac0
->>>>>>> 369823a48b838a57b0dd727fda36024de6a902a5
+            <file>file:/C:/Users/mikael.asilva3/Desktop/Projeto%20Integrador%201412/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/AtualizarExcluirColaborador.java</file>
+            <file>file:/C:/Users/mikael.asilva3/Desktop/Projeto%20Integrador%201412/ProjetoIntegrador/ProjetoIntegrador%20vs%205.0/src/View/AtualizarExcluirCliente.java</file>
         </group>
     </open-files>
 </project-private>
