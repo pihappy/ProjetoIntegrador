@@ -29,8 +29,8 @@ public class RelatorioController {
                             String.valueOf(r.get(i).getDtInicio()),
                             String.valueOf(r.get(i).getDtFim()),
                             String.valueOf(r.get(i).getClienteVenda()),
-                            String.valueOf(r.get(i).getTotalVendas())});
-                          //String.valueOf(r.get(i).getTotalVendasPeriodo())});
+                            String.valueOf(r.get(i).getTotalVendas()),
+                          String.valueOf(r.get(i).getTotalVendasPeriodo())});
                                               
                      }
         return listaRelatorio;
