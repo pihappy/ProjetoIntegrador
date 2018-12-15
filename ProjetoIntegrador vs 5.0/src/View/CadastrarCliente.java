@@ -600,7 +600,7 @@ public final class CadastrarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarClienteActionPerformed
-        if(txtIdCliente.equals("")){
+        if(txtIdCliente.getText().equals("")){
             if(ValidarFormulario())
                 {
                     //Passar a Controller do método Salvar
