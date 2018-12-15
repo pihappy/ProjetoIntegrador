@@ -10,7 +10,9 @@ import Model.Relatorio;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -29,22 +31,7 @@ public class RelatorioDAO {
     private static Connection conexao;
 
     
-    
-
-
-/*public class gerarRelatorio 
-    try{
-    this.conectar();
-    this.insertSQL("INSERT INTO tbl_relatorio ("
-            + "CodigoProduto,"
-            + "DescricaoProduto"
-            + "QuantidadeProduto"
-            + "ValorUni"
-            + "CategoriaProduto"
-            + "FormPag"
-            + ") VALUES ("
-            +"'" + pRelatorio.get);*/
-           
+   
     
                 
 
@@ -57,13 +44,14 @@ public class RelatorioDAO {
             Class.forName(DRIVER);
             url = "jdbc:mysql://localhost:3306/" + "pihappy";
             conexao = DriverManager.getConnection(url, "root", "");
-            PreparedStatement comando = conexao.prepareStatement("INSERT INTO tbl_relatorio (psqcliente,dtInicio,dtFim,clienteVenda,totalVendas,totalVendasPeriodo) VALUES(?, ?, ?, ?, ?);");
+            PreparedStatement comando = conexao.prepareStatement("INSERT INTO relatorio (psqcliente,DtInicio,DtFim,ClienteVenda,TotalVendas,totalVendasPeriodo) VALUES(?, ?, ?, ?, ?,?)");
             comando.setString(1, r.getpsqCliente());
             comando.setInt(2, r.getDtInicio());
             comando.setInt(3, r.getDtFim());
             comando.setString(4, r.getClienteVenda());
             comando.setInt(5, r.getTotalVendas());
-
+            comando.setInt(6, r.getTotalVendasPeriodo());
+            
             int linhasAfetadas = comando.executeUpdate();
             if (linhasAfetadas > 0) {
                 retorno = true;
@@ -85,11 +73,9 @@ public class RelatorioDAO {
 
         return retorno;
     }
- // public static boolean Pesquisar(int ppsqCliente, int pDtInicio, int pDtFim, String pclienteVendas, int ptotalVendas, int ptotalVendasPeriodo) throws SQLException {
-   //     Relatorio r = new Relatorio(ppsqCliente, pDtInicio, pDtFim, pclienteVenda, ptotalVendas,p totalVendasPeriodo );
-     //   return RelatorioDAO.Pesquisar(r);
+
   
-public static boolean atualizar (Model.Relatorio r) {
+public static boolean gerar (Relatorio r) {
 
         boolean retorno = false;
 
@@ -126,24 +112,49 @@ public static boolean atualizar (Model.Relatorio r) {
 
         return retorno;
  
-
-    }
-
-    
 }
-   //public static boolean salvar (RelatorioDAO r){
-     
-        //return SimulaDB.getInstance().salvarRelatorio(r);
-
-       
     
- /*   public static ArrayList<Model.RelatorioDAO> getRelatorio()
+
+    
+
+public static ArrayList<Relatorio> getRelatorio()
     {
-        //Simulo uma consulta no banco de dados (SELECT ID,Nome,CPF FROM TabelaXYZ)
-        return SimulaDB.getInstance().getRelatorio();
-    }*/
+     ArrayList<Relatorio> listaRelatorio = new ArrayList<Relatorio>();
 
+        try {
 
+            Class.forName(DRIVER);
+            url = "jdbc:mysql://" + "localhost:3306" + "/pihappy";
+            conexao = DriverManager.getConnection(url, "root", "");
+            Statement comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery("SELECT * FROM Relatorio;");
+            while (rs.next()) {
+                Relatorio relatorio = new Relatorio();
+                relatorio.setpsqCliente(rs.getString("psqCliente"));
+                relatorio.setDtInicio(rs.getInt("DtInicio"));
+                 relatorio.setDtFim(rs.getInt("DtFim"));
+                relatorio.setClienteVenda(rs.getString("ClienteVenda")); 
+                relatorio.setTotalVendas(rs.getInt("TotalVendas"));
+                relatorio.setTotalVendasPeriodo(rs.getInt("TotalVendasPeriodo"));
+                               
+                listaRelatorio.add(relatorio);
+            }
+
+        } catch (ClassNotFoundException ex) {
+            listaRelatorio = null;
+        } catch (SQLException ex) {
+            listaRelatorio = null;
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                listaRelatorio = null;
+            }
+        }
+
+        return listaRelatorio;
+    }
     
     
 
+}
