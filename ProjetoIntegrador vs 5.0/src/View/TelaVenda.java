@@ -331,11 +331,20 @@ public class TelaVenda extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         btnAddProdutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/add (1).png"))); // NOI18N
         btnAddProdutos.setText("Adicionar");
         btnAddProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProdutosActionPerformed(evt);
+=======
+        jButton8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/addProduct(1).png"))); // NOI18N
+        jButton8.setText("Adicionar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+>>>>>>> RelatorioFinal
             }
         });
 
@@ -617,6 +626,7 @@ public class TelaVenda extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+<<<<<<< HEAD
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescricaoActionPerformed
@@ -624,6 +634,12 @@ public class TelaVenda extends javax.swing.JFrame {
     private void btnAddProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProdutosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddProdutosActionPerformed
+=======
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+>>>>>>> RelatorioFinal
    
     
     
