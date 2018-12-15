@@ -60,5 +60,49 @@ public class LoginDAO {
         
         return listaLogin;
     }
+
+    public static boolean Salvar(Login p)  {
+        boolean retorno = false;
+        
+        try {
+            //Simulo uma inserção no banco de dados (INSERT INTO...)
+            //return SimulaDB.getInstance().SalvarCliente(p);
+            Class.forName(DRIVER);
+            url="jdbc:mysql://localhost:3306/" + "pihappy";
+            conexao = DriverManager.getConnection(url,"root","");
+            Statement comando = conexao.createStatement();
+            int linhasAfetadas = comando.executeUpdate("INSERT INTO login (usuario,senha) " + 
+                    "VALUES(" +
+                    "'" + p.getUsuario() + "'" + "," +
+                    "'" + p.getSenha() + "'" + ")"
+                    );
+            
+            if(linhasAfetadas>0)
+            {
+                retorno = true;
+            }
+            else{
+                retorno = false;
+            }
+            
+        } catch (ClassNotFoundException | SQLException ex) {
+            retorno = false;
+        }finally{
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                retorno = false;
+            }
+            
+        }
+        
+        return retorno;
+        
+              
+    }
+
+    public static boolean Atualizar(Login p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
