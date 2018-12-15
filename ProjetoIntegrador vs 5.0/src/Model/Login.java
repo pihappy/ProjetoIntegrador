@@ -12,17 +12,17 @@ package Model;
 public class Login {
     private String usuario;
     private String senha;
-    private String tipo;
     
-    public Login(String pUsuario, String pSenha, String pTipo){
+    public Login(String pUsuario, String pSenha){
         this.usuario = pUsuario;
         this.senha = pSenha;
-        this.tipo = pTipo;
     }
 
     public Login() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
     public String getUsuario(){
         return usuario;
@@ -40,11 +40,4 @@ public class Login {
         this.senha = pSenha;
     }
     
-    public String getTipo(){
-        return tipo;
-    }
-    
-    public void setTipo(String pTipo){
-        this.tipo = pTipo;
-    }
 }
