@@ -95,8 +95,8 @@ public class CadastrarColaborador extends javax.swing.JFrame {
             return false;
         }
 
-        int estado = 0;
-        if (this.cboEstadoColaborador.equals(estado)) {
+       // int estado = 0;
+        if (this.cboEstadoColaborador.getSelectedIndex()==0) {
             JOptionPane.showMessageDialog(null, "Defina um Estado para o colaborador!");
             return false;
         }
@@ -701,7 +701,7 @@ public class CadastrarColaborador extends javax.swing.JFrame {
                         cboCargoColaborador.getSelectedItem().toString(),
                         cboDeptoColaborador.getSelectedItem().toString(),
                         txtAdmissaoColaborador.getText(),
-                        (txtSalarioColaborador.getText()))) {
+                        (txtSalarioColaborador.getText().replace(",","")))) {
 
                     JOptionPane.showMessageDialog(null, "Colaborador cadastrado com sucesso!");
                     AtualizarExcluirColaborador form2 = new AtualizarExcluirColaborador();
